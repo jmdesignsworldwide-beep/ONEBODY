@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Meant to be ONE",
+    "description": "Global donation platform of the ONEBODY Foundation. We build homes, feed families, and sustain communities in the Dominican Republic. Many members, one body."
+  },
+  "Nav": {
+    "projects": "Projects",
+    "about": "About",
+    "impact": "Impact",
+    "transparency": "Transparency",
+    "contact": "Contact",
+    "donate": "Donate"
+  },
+  "Hero": {
+    "eyebrow": "ONEBODY Foundation · Santiago, Dominican Republic",
+    "titleLine1": "Many members.",
+    "titleLine2": "One body.",
+    "subtitle": "Every donation is a point that converges. Together we form something whole: homes, food, education, and hope for real families.",
+    "cta": "Donate now",
+    "ctaSecondary": "View projects"
+  },
+  "Foundation": {
+    "badge": "Foundation in progress",
+    "heading": "We are laying the groundwork",
+    "body": "This is the technical foundation of the ONEBODY platform: secure, fast, and ready to grow. The projects, donations, and impact modules arrive in the coming iterations.",
+    "tagline": "Meant to be ONE · Diseñados para ser UNO"
+  },
+  "Footer": {
+    "rights": "ONEBODY Foundation. All rights reserved.",
+    "designedBy": "Designed by JM Nexus Designs",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

@@ -39,6 +39,10 @@ export function isRtl(locale: string): boolean {
 export const routing = defineRouting({
   locales,
   defaultLocale,
-  localePrefix: "as-needed",
+  // `always`: cada ruta lleva prefijo de locale y la raíz `/` REDIRIGE al
+  // idioma detectado. Es la configuración robusta en el edge de Vercel —
+  // evita el 404 de la raíz sin idioma que produce `as-needed` con render
+  // estático. Todas las páginas viven en `/{locale}/...` (rutas reales).
+  localePrefix: "always",
   localeDetection: true,
 });

@@ -9,9 +9,9 @@ import { locales, defaultLocale } from "@/i18n/routing";
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-  // `as-needed`: el locale por defecto va sin prefijo.
+  // `always`: todo locale lleva prefijo, incluido el por defecto.
   const localePath = (locale: string, path: string) =>
-    locale === defaultLocale ? `${siteUrl}${path}` : `${siteUrl}/${locale}${path}`;
+    `${siteUrl}/${locale}${path}`;
 
   const publicPaths = [""]; // landing; se ampliará por tanda
 

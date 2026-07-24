@@ -7,6 +7,7 @@ import { GeistSans } from "geist/font/sans";
 import { routing, isRtl, type Locale } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
+import { Tracker } from "@/components/analytics/tracker";
 import "../globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -93,6 +94,7 @@ export default async function LocaleLayout(props: {
         </a>
         <NextIntlClientProvider>
           <SmoothScroll>{props.children}</SmoothScroll>
+          <Tracker />
         </NextIntlClientProvider>
         <ServiceWorkerRegister />
       </body>

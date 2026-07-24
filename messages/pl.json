@@ -304,6 +304,23 @@
     "colWhen": "Kiedy",
     "colActor": "Autor",
     "colEntity": "Encja",
-    "systemActor": "System"
+    "systemActor": "System",
+    "navAnalytics": "Analityka",
+    "analyticsSubtitle": "Puls fundacji na podstawie rzeczywistych danych z ostatnich 30 dni.",
+    "anDonations": "Darowizny",
+    "anAvgGift": "Średnia darowizna",
+    "anRecurring": "Cykliczne",
+    "anRaisedByDay": "Zebrane dziennie",
+    "anByCategory": "Wg kategorii",
+    "anByCountry": "Wg kraju",
+    "anTraffic": "Ruch",
+    "anTrafficNote": "Bez surowego IP: tylko wywnioskowany kraj i anonimowa sesja.",
+    "anNoTraffic": "Brak zarejestrowanych wizyt. Pojawią się, gdy ludzie zaczną przeglądać stronę.",
+    "anPageviews": "Wyświetlenia",
+    "anSessions": "Sesje",
+    "anConversion": "Konwersja",
+    "anTopPaths": "Najczęściej oglądane strony",
+    "anTrafficByCountry": "Wizyty wg kraju",
+    "anByLocale": "Wg języka"
   }
 }

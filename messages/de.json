@@ -304,6 +304,23 @@
     "colWhen": "Wann",
     "colActor": "Akteur",
     "colEntity": "Entität",
-    "systemActor": "System"
+    "systemActor": "System",
+    "navAnalytics": "Analytik",
+    "analyticsSubtitle": "Der Puls der Stiftung mit echten Daten der letzten 30 Tage.",
+    "anDonations": "Spenden",
+    "anAvgGift": "Durchschnittsspende",
+    "anRecurring": "Wiederkehrend",
+    "anRaisedByDay": "Pro Tag gesammelt",
+    "anByCategory": "Nach Kategorie",
+    "anByCountry": "Nach Land",
+    "anTraffic": "Traffic",
+    "anTrafficNote": "Keine rohe IP: nur abgeleitetes Land und eine anonyme Sitzung.",
+    "anNoTraffic": "Noch keine Besuche erfasst. Sie erscheinen, sobald die Website besucht wird.",
+    "anPageviews": "Aufrufe",
+    "anSessions": "Sitzungen",
+    "anConversion": "Conversion",
+    "anTopPaths": "Meistbesuchte Seiten",
+    "anTrafficByCountry": "Besuche nach Land",
+    "anByLocale": "Nach Sprache"
   }
 }

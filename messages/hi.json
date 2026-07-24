@@ -304,6 +304,23 @@
     "colWhen": "कब",
     "colActor": "कर्ता",
     "colEntity": "इकाई",
-    "systemActor": "सिस्टम"
+    "systemActor": "सिस्टम",
+    "navAnalytics": "विश्लेषण",
+    "analyticsSubtitle": "पिछले 30 दिनों के वास्तविक डेटा से फ़ाउंडेशन की धड़कन।",
+    "anDonations": "दान",
+    "anAvgGift": "औसत दान",
+    "anRecurring": "आवर्ती",
+    "anRaisedByDay": "प्रति दिन जुटाया",
+    "anByCategory": "श्रेणी अनुसार",
+    "anByCountry": "देश अनुसार",
+    "anTraffic": "ट्रैफ़िक",
+    "anTrafficNote": "कोई कच्चा IP नहीं: केवल अनुमानित देश और गुमनाम सत्र।",
+    "anNoTraffic": "अभी कोई विज़िट दर्ज नहीं। जब लोग साइट देखेंगे तो दिखेंगी।",
+    "anPageviews": "दृश्य",
+    "anSessions": "सत्र",
+    "anConversion": "रूपांतरण",
+    "anTopPaths": "शीर्ष पृष्ठ",
+    "anTrafficByCountry": "देश अनुसार विज़िट",
+    "anByLocale": "भाषा अनुसार"
   }
 }

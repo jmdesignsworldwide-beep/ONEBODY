@@ -304,6 +304,23 @@
     "colWhen": "Quand",
     "colActor": "Auteur",
     "colEntity": "Entité",
-    "systemActor": "Système"
+    "systemActor": "Système",
+    "navAnalytics": "Analytique",
+    "analyticsSubtitle": "Le pouls de la fondation avec des données réelles des 30 derniers jours.",
+    "anDonations": "Dons",
+    "anAvgGift": "Don moyen",
+    "anRecurring": "Récurrents",
+    "anRaisedByDay": "Collecté par jour",
+    "anByCategory": "Par catégorie",
+    "anByCountry": "Par pays",
+    "anTraffic": "Trafic",
+    "anTrafficNote": "Sans IP brute : seulement le pays dérivé et une session anonyme.",
+    "anNoTraffic": "Aucune visite enregistrée pour l'instant. Elles apparaîtront à mesure que le site est consulté.",
+    "anPageviews": "Vues",
+    "anSessions": "Sessions",
+    "anConversion": "Conversion",
+    "anTopPaths": "Pages les plus vues",
+    "anTrafficByCountry": "Visites par pays",
+    "anByLocale": "Par langue"
   }
 }

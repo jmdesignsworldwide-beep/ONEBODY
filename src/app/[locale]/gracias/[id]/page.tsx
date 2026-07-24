@@ -8,6 +8,8 @@ import { Container, Section } from "@/components/ui/layout";
 import { Button } from "@/components/ui/button";
 import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { getCurrentUser } from "@/lib/supabase/server-auth";
+import { ConvertForm } from "@/components/auth/forms";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -21,7 +23,9 @@ export default async function ThanksPage(props: {
   const { locale, id } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations("Donar");
+  const ta = await getTranslations("Auth");
   const tImpact = await getTranslations("Landing");
+  const user = await getCurrentUser();
 
   const supabase = getAdminClient();
   const { data: donation } = supabase
@@ -90,6 +94,19 @@ export default async function ThanksPage(props: {
                     {t("thanksHome")}
                   </Button>
                 </div>
+
+                {/* Conversión de un clic: el email ya está capturado. */}
+                {!user && (
+                  <div className="mt-14 rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-carbon p-6">
+                    <p className="font-display text-xl text-ob-bone">
+                      {ta("convertTitle")}
+                    </p>
+                    <p className="mt-2 text-sm text-ob-smoke">
+                      {ta("convertBody")}
+                    </p>
+                    <ConvertForm donationId={donation.id as string} />
+                  </div>
+                )}
               </>
             ) : status === "failed" ? (
               <>

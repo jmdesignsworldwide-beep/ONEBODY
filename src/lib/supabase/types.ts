@@ -9,6 +9,8 @@ export type ProjectStatus =
   | "completed"
   | "archived";
 
+export type DonationStatus = "pending" | "completed" | "failed" | "refunded";
+
 export type ProjectCategory =
   | "vivienda"
   | "alimentacion"

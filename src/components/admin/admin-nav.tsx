@@ -7,6 +7,8 @@ import { cn } from "@/lib/cn";
 const items = [
   { href: "/admin", key: "navOverview" },
   { href: "/admin/proyectos", key: "navProjects" },
+  { href: "/admin/donaciones", key: "navDonations" },
+  { href: "/admin/auditoria", key: "navAudit" },
 ] as const;
 
 export function AdminNav() {

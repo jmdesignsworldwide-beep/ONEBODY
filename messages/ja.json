@@ -268,6 +268,14 @@
     "deleteBody": "この操作は取り消せず、関連する予算と進捗も削除されます。",
     "deleteProject": "プロジェクトを削除",
     "confirmDelete": "はい、削除します",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "navTranslations": "翻訳",
+    "translationsTitle": "翻訳",
+    "translationsSubtitle": "スペイン語がベースの文章です。各言語を翻訳してください。空欄はサイト上でスペイン語に戻ります。",
+    "trNotTranslated": "未翻訳",
+    "trReviewed": "確認済み",
+    "trMachine": "未確認",
+    "trCopyFromSpanish": "スペイン語からコピー",
+    "trMarkReviewed": "人による確認済みとしてマーク"
   }
 }

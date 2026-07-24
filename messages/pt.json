@@ -268,6 +268,14 @@
     "deleteBody": "Esta ação é permanente e remove o orçamento e os avanços associados.",
     "deleteProject": "Excluir projeto",
     "confirmDelete": "Sim, excluir",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "navTranslations": "Traduções",
+    "translationsTitle": "Traduções",
+    "translationsSubtitle": "O espanhol é o texto base. Traduza cada idioma; o que ficar vazio cai para o espanhol no site.",
+    "trNotTranslated": "Não traduzido",
+    "trReviewed": "Revisado",
+    "trMachine": "Sem revisão",
+    "trCopyFromSpanish": "Copiar do espanhol",
+    "trMarkReviewed": "Marcar como revisado por uma pessoa"
   }
 }

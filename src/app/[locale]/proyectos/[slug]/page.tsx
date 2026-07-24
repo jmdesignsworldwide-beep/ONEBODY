@@ -20,8 +20,8 @@ export const dynamicParams = true;
 export async function generateMetadata(props: {
   params: Promise<{ locale: Locale; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await props.params;
-  const detail = await getProjectDetail(slug);
+  const { locale, slug } = await props.params;
+  const detail = await getProjectDetail(slug, locale);
   if (!detail) return { title: "404" };
   return {
     title: detail.project.title_es,
@@ -34,7 +34,7 @@ export default async function ProjectDetailPage(props: {
 }) {
   const { locale, slug } = await props.params;
   setRequestLocale(locale);
-  const detail = await getProjectDetail(slug);
+  const detail = await getProjectDetail(slug, locale);
   if (!detail) notFound();
   const { project: p, budget, updates, donors } = detail;
 

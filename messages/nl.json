@@ -268,6 +268,14 @@
     "deleteBody": "Deze actie is permanent en verwijdert het bijbehorende budget en de updates.",
     "deleteProject": "Project verwijderen",
     "confirmDelete": "Ja, verwijderen",
-    "cancel": "Annuleren"
+    "cancel": "Annuleren",
+    "navTranslations": "Vertalingen",
+    "translationsTitle": "Vertalingen",
+    "translationsSubtitle": "Spaans is de basistekst. Vertaal elke taal; lege velden vallen op de site terug op Spaans.",
+    "trNotTranslated": "Niet vertaald",
+    "trReviewed": "Nagekeken",
+    "trMachine": "Niet nagekeken",
+    "trCopyFromSpanish": "Kopiëren uit het Spaans",
+    "trMarkReviewed": "Markeren als nagekeken door een persoon"
   }
 }

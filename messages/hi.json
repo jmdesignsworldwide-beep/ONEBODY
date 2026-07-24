@@ -268,6 +268,14 @@
     "deleteBody": "यह क्रिया स्थायी है और संबद्ध बजट व प्रगति को हटा देती है।",
     "deleteProject": "परियोजना हटाएँ",
     "confirmDelete": "हाँ, हटाएँ",
-    "cancel": "रद्द करें"
+    "cancel": "रद्द करें",
+    "navTranslations": "अनुवाद",
+    "translationsTitle": "अनुवाद",
+    "translationsSubtitle": "स्पेनिश आधार पाठ है। हर भाषा का अनुवाद करें; खाली फ़ील्ड साइट पर स्पेनिश पर लौट आते हैं।",
+    "trNotTranslated": "अनुवादित नहीं",
+    "trReviewed": "समीक्षित",
+    "trMachine": "असमीक्षित",
+    "trCopyFromSpanish": "स्पेनिश से कॉपी करें",
+    "trMarkReviewed": "किसी व्यक्ति द्वारा समीक्षित के रूप में चिह्नित करें"
   }
 }

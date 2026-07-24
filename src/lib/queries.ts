@@ -1,3 +1,4 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { getPublicServerClient } from "./supabase/server";
 import type {
   PublicStats,
@@ -10,6 +11,58 @@ import type {
 
 const PROJECT_COLS =
   "id, slug, title_es, summary_es, goal_amount, raised_amount, currency, category, cover_image, location_name";
+
+type LocalizableRow = {
+  id: string;
+  title_es: string;
+  summary_es: string;
+  story_es?: string;
+};
+
+type TranslationRow = {
+  project_id: string;
+  title: string | null;
+  summary: string | null;
+  story: string | null;
+};
+
+/**
+ * Superpone las traducciones del locale activo sobre el texto base en español.
+ * Los campos conservan el nombre `*_es` por compatibilidad con los componentes,
+ * pero su VALOR pasa a ser la traducción cuando existe (si falta, cae al
+ * español). La verdad de acceso la impone RLS: `project_translations` sólo es
+ * legible si el proyecto padre es público.
+ */
+async function overlayLocale<T extends LocalizableRow>(
+  supabase: SupabaseClient,
+  locale: string,
+  rows: T[],
+): Promise<T[]> {
+  if (locale === "es" || rows.length === 0) return rows;
+  const { data } = await supabase
+    .from("project_translations")
+    .select("project_id, title, summary, story")
+    .in(
+      "project_id",
+      rows.map((r) => r.id),
+    )
+    .eq("locale", locale);
+  const map = new Map<string, TranslationRow>();
+  for (const tr of (data as TranslationRow[] | null) ?? [])
+    map.set(tr.project_id, tr);
+  return rows.map((r) => {
+    const tr = map.get(r.id);
+    if (!tr) return r;
+    const next: T = {
+      ...r,
+      title_es: tr.title?.trim() ? tr.title : r.title_es,
+      summary_es: tr.summary?.trim() ? tr.summary : r.summary_es,
+    };
+    if (r.story_es !== undefined)
+      next.story_es = tr.story?.trim() ? tr.story : r.story_es;
+    return next;
+  });
+}
 
 const EMPTY_STATS: PublicStats = {
   total_raised_usd: 0,
@@ -35,7 +88,9 @@ export async function getPublicStats(): Promise<PublicStats> {
 }
 
 /** Proyectos destacados (máximo 3). Sólo lee lo que RLS expone (publicados). */
-export async function getFeaturedProjects(): Promise<FeaturedProject[]> {
+export async function getFeaturedProjects(
+  locale = "es",
+): Promise<FeaturedProject[]> {
   const supabase = getPublicServerClient();
   if (!supabase) return [];
   const { data } = await supabase
@@ -47,11 +102,13 @@ export async function getFeaturedProjects(): Promise<FeaturedProject[]> {
     .in("status", ["active", "funded", "completed"])
     .order("sort_order", { ascending: true })
     .limit(3);
-  return (data as FeaturedProject[] | null) ?? [];
+  return overlayLocale(supabase, locale, (data as FeaturedProject[] | null) ?? []);
 }
 
 /** Todos los proyectos publicados, para el índice. */
-export async function getPublishedProjects(): Promise<FeaturedProject[]> {
+export async function getPublishedProjects(
+  locale = "es",
+): Promise<FeaturedProject[]> {
   const supabase = getPublicServerClient();
   if (!supabase) return [];
   const { data } = await supabase
@@ -59,7 +116,7 @@ export async function getPublishedProjects(): Promise<FeaturedProject[]> {
     .select(PROJECT_COLS)
     .in("status", ["active", "funded", "completed"])
     .order("sort_order", { ascending: true });
-  return (data as FeaturedProject[] | null) ?? [];
+  return overlayLocale(supabase, locale, (data as FeaturedProject[] | null) ?? []);
 }
 
 export type ProjectDetail = {
@@ -71,7 +128,10 @@ export type ProjectDetail = {
 
 /** Detalle completo de un proyecto por slug: historia, presupuesto, avances y
  *  donantes recientes. Devuelve null si no existe o no es público. */
-export async function getProjectDetail(slug: string): Promise<ProjectDetail> {
+export async function getProjectDetail(
+  slug: string,
+  locale = "es",
+): Promise<ProjectDetail> {
   const supabase = getPublicServerClient();
   if (!supabase) return null;
 
@@ -82,7 +142,8 @@ export async function getProjectDetail(slug: string): Promise<ProjectDetail> {
     .in("status", ["active", "funded", "completed"])
     .maybeSingle();
   if (!project) return null;
-  const p = project as ProjectFull;
+  const [p] = await overlayLocale(supabase, locale, [project as ProjectFull]);
+  if (!p) return null;
 
   const [budgetRes, updatesRes, donorsRes] = await Promise.all([
     supabase

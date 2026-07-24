@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 
 // El canvas de convergencia se carga dinámicamente, nunca en el bundle
 // inicial (Sección 10).
@@ -70,18 +70,12 @@ export function Hero() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.65 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Link
-              href="/donar"
-              className="rounded-full bg-ob-red px-8 py-3.5 text-base font-semibold text-ob-white shadow-[0_0_28px_var(--color-ob-red-glow)] transition-colors hover:bg-ob-red-deep"
-            >
+            <Button href="/donar" variant="donate" size="lg">
               {t("cta")}
-            </Link>
-            <Link
-              href="/proyectos"
-              className="rounded-full border border-ob-ash px-8 py-3.5 text-base font-medium text-ob-bone transition-colors hover:border-ob-bone"
-            >
+            </Button>
+            <Button href="/proyectos" variant="secondary" size="lg">
               {t("ctaSecondary")}
-            </Link>
+            </Button>
           </motion.div>
         </div>
 

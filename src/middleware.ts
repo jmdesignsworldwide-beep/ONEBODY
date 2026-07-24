@@ -35,5 +35,10 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/((?!api|_next|_vercel|.*\\..*).*)"],
+  // Excluye API, internos de Next/Vercel, los iconos generados por convención
+  // (icon, apple-icon, opengraph-image) y cualquier archivo con extensión.
+  matcher: [
+    "/",
+    "/((?!api|_next|_vercel|icon|apple-icon|opengraph-image|.*\\..*).*)",
+  ],
 };

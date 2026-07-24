@@ -57,10 +57,8 @@ export async function generateMetadata(props: {
       description: t("description"),
       siteName: "ONEBODY",
     },
-    icons: {
-      icon: "/icon.svg",
-      apple: "/icon.svg",
-    },
+    // Los iconos (favicon PNG + apple-touch PNG) los generan
+    // src/app/icon.tsx y src/app/apple-icon.tsx (convención de Next).
   };
 }
 

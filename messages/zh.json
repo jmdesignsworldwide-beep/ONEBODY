@@ -65,5 +65,32 @@
     "closingTitle": "生而为一",
     "closingBody": "你的捐赠与千万人汇聚。我们共为一体。",
     "closingCta": "立即捐赠"
+  },
+  "Projects": {
+    "indexEyebrow": "我们的项目",
+    "indexTitle": "我们在哪里工作",
+    "indexSubtitle": "每个项目都有目标、预算与进展。",
+    "empty": "项目即将发布。",
+    "budgetTitle": "预算",
+    "budgetTotal": "合计",
+    "updatesTitle": "进展",
+    "updatesEmpty": "暂无更新。",
+    "donorsTitle": "最近的捐赠者",
+    "raised": "已筹集",
+    "goal": "目标",
+    "donateToThis": "为该项目捐赠",
+    "backToProjects": "所有项目",
+    "funded": "已筹足",
+    "completed": "已完成"
+  },
+  "Categories": {
+    "vivienda": "住房",
+    "alimentacion": "食物",
+    "educacion": "教育",
+    "maternidad": "母婴",
+    "adiccion": "戒瘾",
+    "emergencia": "紧急",
+    "salud": "健康",
+    "general": "综合"
   }
 }

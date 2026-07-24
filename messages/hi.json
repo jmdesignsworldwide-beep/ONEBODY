@@ -65,5 +65,32 @@
     "closingTitle": "एक होने के लिए बने",
     "closingBody": "आपका दान हज़ारों से मिलता है। साथ मिलकर एक शरीर।",
     "closingCta": "अभी दान करें"
+  },
+  "Projects": {
+    "indexEyebrow": "हमारी परियोजनाएँ",
+    "indexTitle": "हम कहाँ काम करते हैं",
+    "indexSubtitle": "हर परियोजना का अपना लक्ष्य, बजट और प्रगति।",
+    "empty": "परियोजनाएँ जल्द आ रही हैं।",
+    "budgetTitle": "बजट",
+    "budgetTotal": "कुल",
+    "updatesTitle": "प्रगति",
+    "updatesEmpty": "अभी कोई अपडेट नहीं।",
+    "donorsTitle": "हाल के दानदाता",
+    "raised": "जुटाया गया",
+    "goal": "लक्ष्य",
+    "donateToThis": "इस परियोजना को दान करें",
+    "backToProjects": "सभी परियोजनाएँ",
+    "funded": "वित्तपोषित",
+    "completed": "पूर्ण"
+  },
+  "Categories": {
+    "vivienda": "आवास",
+    "alimentacion": "भोजन",
+    "educacion": "शिक्षा",
+    "maternidad": "मातृत्व",
+    "adiccion": "व्यसन",
+    "emergencia": "आपातकाल",
+    "salud": "स्वास्थ्य",
+    "general": "सामान्य"
   }
 }

@@ -65,5 +65,32 @@
     "closingTitle": "Meant to be ONE",
     "closingBody": "Your gift converges with thousands. Together we form one body.",
     "closingCta": "Donate now"
+  },
+  "Projects": {
+    "indexEyebrow": "Our projects",
+    "indexTitle": "Where we work",
+    "indexSubtitle": "Every project with its goal, budget and progress.",
+    "empty": "Projects coming soon.",
+    "budgetTitle": "Budget",
+    "budgetTotal": "Total",
+    "updatesTitle": "Updates",
+    "updatesEmpty": "No updates yet.",
+    "donorsTitle": "Recent donors",
+    "raised": "Raised",
+    "goal": "Goal",
+    "donateToThis": "Donate to this project",
+    "backToProjects": "All projects",
+    "funded": "Funded",
+    "completed": "Completed"
+  },
+  "Categories": {
+    "vivienda": "Housing",
+    "alimentacion": "Food",
+    "educacion": "Education",
+    "maternidad": "Maternity",
+    "adiccion": "Addiction",
+    "emergencia": "Emergency",
+    "salud": "Health",
+    "general": "General"
   }
 }

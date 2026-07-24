@@ -65,5 +65,32 @@
     "closingTitle": "Gemaakt om ÉÉN te zijn",
     "closingBody": "Jouw gift komt samen met duizenden. Samen één lichaam.",
     "closingCta": "Nu doneren"
+  },
+  "Projects": {
+    "indexEyebrow": "Onze projecten",
+    "indexTitle": "Waar we werken",
+    "indexSubtitle": "Elk project met zijn doel, budget en voortgang.",
+    "empty": "Projecten binnenkort.",
+    "budgetTitle": "Begroting",
+    "budgetTotal": "Totaal",
+    "updatesTitle": "Voortgang",
+    "updatesEmpty": "Nog geen updates.",
+    "donorsTitle": "Recente donateurs",
+    "raised": "Opgehaald",
+    "goal": "Doel",
+    "donateToThis": "Doneer aan dit project",
+    "backToProjects": "Alle projecten",
+    "funded": "Gefinancierd",
+    "completed": "Voltooid"
+  },
+  "Categories": {
+    "vivienda": "Huisvesting",
+    "alimentacion": "Voedsel",
+    "educacion": "Onderwijs",
+    "maternidad": "Moederschap",
+    "adiccion": "Verslaving",
+    "emergencia": "Noodhulp",
+    "salud": "Gezondheid",
+    "general": "Algemeen"
   }
 }

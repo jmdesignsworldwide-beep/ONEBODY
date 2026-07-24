@@ -29,7 +29,7 @@ begin
   update public.public_stats set
     total_raised_usd = coalesce((select sum(amount_usd) from public.donations where status='completed'),0),
     donation_count   = (select count(*) from public.donations where status='completed'),
-    donor_count      = (select count(distinct coalesce(donor_id::text, donor_email)) from public.donations where status='completed'),
+    donor_count      = (select count(distinct coalesce(donor_id::text, lower(donor_email), 'd:'||id::text)) from public.donations where status='completed'),
     country_count    = (select count(distinct country_code) from public.donations where status='completed' and country_code is not null),
     active_projects  = (select count(*) from public.projects where status in ('active','funded')),
     completed_projects = (select count(*) from public.projects where status='completed'),

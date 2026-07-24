@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — 하나가 되기 위해",
+    "description": "ONEBODY 재단의 글로벌 기부 플랫폼. 도미니카 공화국에서 집을 짓고, 가정에 먹거리를 전하며, 공동체를 지탱합니다. 많은 지체가 있으나, 한 몸입니다."
+  },
+  "Nav": {
+    "projects": "프로젝트",
+    "about": "소개",
+    "impact": "임팩트",
+    "transparency": "투명성",
+    "contact": "문의",
+    "donate": "기부하기"
+  },
+  "Hero": {
+    "eyebrow": "ONEBODY 재단 · 도미니카 공화국 산티아고",
+    "titleLine1": "많은 지체.",
+    "titleLine2": "한 몸.",
+    "subtitle": "모든 기부는 하나로 모이는 점입니다. 우리는 함께 온전한 하나를 이룹니다—실제 가정을 위한 집과 음식, 교육과 희망을.",
+    "cta": "지금 기부하기",
+    "ctaSecondary": "프로젝트 보기"
+  },
+  "Foundation": {
+    "badge": "기반 구축 중",
+    "heading": "기초를 놓고 있습니다",
+    "body": "ONEBODY 플랫폼의 기술적 토대입니다—안전하고 빠르며 성장할 준비가 되어 있습니다. 프로젝트·기부·임팩트 모듈은 다음 단계에서 제공됩니다.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "ONEBODY 재단. 모든 권리 보유.",
+    "designedBy": "Design by JM Nexus Designs",
+    "email": "이메일",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

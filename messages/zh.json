@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — 生而为一",
+    "description": "ONEBODY 基金会的全球捐赠平台。我们在多米尼加共和国建造房屋、供养家庭、扶持社区。肢体虽多，同为一体。"
+  },
+  "Nav": {
+    "projects": "项目",
+    "about": "关于我们",
+    "impact": "影响",
+    "transparency": "透明度",
+    "contact": "联系",
+    "donate": "捐赠"
+  },
+  "Hero": {
+    "eyebrow": "ONEBODY 基金会 · 多米尼加共和国圣地亚哥",
+    "titleLine1": "肢体虽多。",
+    "titleLine2": "同为一体。",
+    "subtitle": "每一笔捐赠都是一个汇聚的点。我们一起构成一个完整的整体：为真实的家庭带来住房、食物、教育与希望。",
+    "cta": "立即捐赠",
+    "ctaSecondary": "查看项目"
+  },
+  "Foundation": {
+    "badge": "基础建设中",
+    "heading": "我们正在打好根基",
+    "body": "这是 ONEBODY 平台的技术基础：安全、快速、可持续成长。项目、捐赠与影响模块将在接下来的阶段陆续推出。",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "ONEBODY 基金会。保留所有权利。",
+    "designedBy": "由 JM Nexus Designs 设计",
+    "email": "电子邮件",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

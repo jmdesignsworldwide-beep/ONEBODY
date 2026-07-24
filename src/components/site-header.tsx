@@ -4,11 +4,13 @@ import { Wordmark } from "./wordmark";
 import { LanguageSelector } from "./language-selector";
 import { Button } from "./ui/button";
 import { getCurrentUser } from "@/lib/supabase/server-auth";
+import { getAdminRole } from "@/lib/admin/auth";
 
 export async function SiteHeader() {
   const t = await getTranslations("Nav");
   const ta = await getTranslations("Auth");
   const user = await getCurrentUser();
+  const adminRole = await getAdminRole(user);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ob-ash/30 bg-ob-black/70 backdrop-blur-md">
@@ -40,6 +42,14 @@ export async function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <LanguageSelector />
+          {adminRole && (
+            <Link
+              href="/admin"
+              className="hidden text-sm text-ob-smoke transition-colors hover:text-ob-bone sm:block"
+            >
+              {ta("adminPanel")}
+            </Link>
+          )}
           <Link
             href={user ? "/cuenta" : "/entrar"}
             className="hidden text-sm text-ob-smoke transition-colors hover:text-ob-bone sm:block"

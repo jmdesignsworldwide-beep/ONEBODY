@@ -1,16 +1,14 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Wordmark } from "./wordmark";
 import { LanguageSelector } from "./language-selector";
 import { Button } from "./ui/button";
+import { getCurrentUser } from "@/lib/supabase/server-auth";
 
-/**
- * Header del sitio. Navegación monocroma; el único rojo es el CTA de donación
- * (Sección 2.2 — disciplina del rojo). El selector de idioma completo llega en
- * la Tanda 3; aquí un conmutador base ES/EN demuestra el routing por locale.
- */
-export function SiteHeader() {
-  const t = useTranslations("Nav");
+export async function SiteHeader() {
+  const t = await getTranslations("Nav");
+  const ta = await getTranslations("Auth");
+  const user = await getCurrentUser();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ob-ash/30 bg-ob-black/70 backdrop-blur-md">
@@ -42,6 +40,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <LanguageSelector />
+          <Link
+            href={user ? "/cuenta" : "/entrar"}
+            className="hidden text-sm text-ob-smoke transition-colors hover:text-ob-bone sm:block"
+          >
+            {user ? ta("account") : ta("login")}
+          </Link>
           <Button href="/donar" variant="donate" size="sm">
             {t("donate")}
           </Button>

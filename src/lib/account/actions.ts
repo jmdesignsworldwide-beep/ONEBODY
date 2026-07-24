@@ -38,6 +38,16 @@ async function setSubscriptionStatus(
   const user = await getCurrentUser();
   if (!supabase || !user) return { ok: false, error: "No autenticado." };
 
+  // Verifica la PROPIEDAD antes de cualquier efecto: RLS sólo devuelve la
+  // suscripción si es del usuario. Evita disparar la cancelación en el proveedor
+  // con un id ajeno (IDOR de efectos secundarios).
+  const { data: own } = await supabase
+    .from("subscriptions")
+    .select("id")
+    .eq("id", id)
+    .maybeSingle();
+  if (!own) return { ok: false, error: "No se pudo actualizar." };
+
   if (status === "cancelled") {
     // Cancela también en el proveedor (mock: siempre resuelve).
     try {

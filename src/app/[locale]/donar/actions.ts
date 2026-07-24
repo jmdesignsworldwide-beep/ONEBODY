@@ -7,6 +7,7 @@ import { getAdminClient } from "@/lib/supabase/admin";
 import { getPaymentProvider, MockProvider } from "@/lib/payments";
 import { processPaymentWebhook } from "@/lib/payments/process-webhook";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { addDonationClaim } from "@/lib/donar/claim";
 
 async function originFromHeaders(): Promise<string> {
   const h = await headers();
@@ -68,6 +69,9 @@ export async function createDonation(
     return { ok: false, error: "No se pudo registrar la donación." };
   }
   const donationId = inserted.id as string;
+  // Vincula la donación a este navegador para la conversión de un clic (Sección
+  // 5.3): sólo quien donó puede crear la cuenta desde /gracias.
+  await addDonationClaim(donationId);
   const origin = await originFromHeaders();
 
   const session = await provider.createCheckout({

@@ -18,7 +18,17 @@ let cached: PaymentProvider | null = null;
 export function getPaymentProvider(): PaymentProvider {
   if (cached) return cached;
   const name = (process.env.PAYMENT_PROVIDER ?? "mock") as ProviderName;
-  const secret = process.env.PAYMENT_WEBHOOK_SECRET ?? "dev-mock-secret";
+  const rawSecret = process.env.PAYMENT_WEBHOOK_SECRET;
+  const secret = rawSecret ?? "dev-mock-secret";
+
+  // Fail-closed: un proveedor real NUNCA debe firmar/verificar con el secreto de
+  // desarrollo por defecto. Si se activa Stripe/PayPal sin PAYMENT_WEBHOOK_SECRET,
+  // se aborta en lugar de operar con un secreto conocido.
+  if (name !== "mock" && !rawSecret) {
+    throw new Error(
+      "PAYMENT_WEBHOOK_SECRET es obligatorio para un proveedor de pagos real.",
+    );
+  }
 
   switch (name) {
     case "stripe":

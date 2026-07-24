@@ -36,6 +36,15 @@ export function isRtl(locale: string): boolean {
   return rtlLocales.includes(locale as Locale);
 }
 
+/** Devuelve el locale si está en la lista permitida; si no, el idioma base.
+ *  Defensa en profundidad para valores de locale provistos por el cliente
+ *  antes de interpolarlos en rutas/redirecciones. */
+export function safeLocale(locale: string): Locale {
+  return (locales as readonly string[]).includes(locale)
+    ? (locale as Locale)
+    : defaultLocale;
+}
+
 export const routing = defineRouting({
   locales,
   defaultLocale,

@@ -41,12 +41,22 @@ export async function getAdminRole(
 
   if (data?.role) return data.role as AdminRole;
 
+  // Arranque del PRIMER administrador únicamente. Una vez existe cualquier admin,
+  // este atajo por variable de entorno queda inerte: la gestión de roles pasa a
+  // hacerse desde el panel. Así, aunque un correo de SUPERADMIN_EMAILS aún no
+  // esté registrado, nadie puede auto-elevarse a superadmin si ya hay un admin
+  // (cierra la escalada por creación de cuenta con email forjado).
   const email = user.email?.toLowerCase();
   if (email && bootstrapEmails().includes(email)) {
-    const { error } = await admin
+    const { count } = await admin
       .from("admin_users")
-      .insert({ id: user.id, role: "superadmin", created_by: user.id });
-    if (!error) return "superadmin";
+      .select("id", { count: "exact", head: true });
+    if ((count ?? 0) === 0) {
+      const { error } = await admin
+        .from("admin_users")
+        .insert({ id: user.id, role: "superadmin", created_by: user.id });
+      if (!error) return "superadmin";
+    }
   }
   return null;
 }

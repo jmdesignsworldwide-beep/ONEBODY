@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getServerAuthClient, getCurrentUser } from "@/lib/supabase/server-auth";
-import { getAdminRole } from "@/lib/admin/auth";
+import { getAdminRole, canEdit } from "@/lib/admin/auth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,8 +8,12 @@ export const dynamic = "force-dynamic";
 const STATUSES = ["pending", "completed", "failed", "refunded"];
 
 function csvCell(v: unknown): string {
-  const s = v === null || v === undefined ? "" : String(v);
-  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  let s = v === null || v === undefined ? "" : String(v);
+  // Neutraliza inyección de fórmulas: si empieza por un disparador de fórmula
+  // (= + - @ tab CR), se antepone un apóstrofo para que la hoja de cálculo lo
+  // trate como texto. `donor_name` es texto libre del formulario público.
+  if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
+  return /["\n,]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 
 type Row = {
@@ -36,6 +40,8 @@ export async function GET(
   const user = await getCurrentUser();
   const role = await getAdminRole(user);
   if (!role) return NextResponse.redirect(new URL(`/${locale}/entrar`, req.url));
+  // Exportación masiva de PII: sólo editor+ (no viewers). Menor privilegio.
+  if (!canEdit(role)) return new NextResponse("Forbidden", { status: 403 });
 
   const supabase = await getServerAuthClient();
   if (!supabase) return new NextResponse("Unavailable", { status: 503 });

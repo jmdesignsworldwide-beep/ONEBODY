@@ -7,14 +7,17 @@ import { getServerAuthClient } from "@/lib/supabase/server-auth";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { getOrigin } from "@/lib/site-url";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
+import { safeLocale } from "@/i18n/routing";
+import { hasDonationClaim } from "@/lib/donar/claim";
 
 const emailSchema = z.string().trim().toLowerCase().email().max(200);
 const passwordSchema = z.string().min(8, "Mínimo 8 caracteres.").max(200);
+const uuidSchema = z.string().uuid();
 
 export type AuthResult = { ok: true } | { ok: false; error: string };
 
-/** Crea el perfil de donante y enlaza donaciones de invitado por email. */
-async function linkDonor(userId: string, email: string, name: string, locale: string) {
+/** Crea/actualiza el perfil de donante. */
+async function ensureProfile(userId: string, name: string, locale: string) {
   const admin = getAdminClient();
   if (!admin) return;
   await admin
@@ -23,13 +26,24 @@ async function linkDonor(userId: string, email: string, name: string, locale: st
       { id: userId, display_name: name || null, preferred_locale: locale },
       { onConflict: "id" },
     );
-  // Enlaza donaciones de invitado con este email → recomputa totales (trigger).
+}
+
+/**
+ * Enlaza donaciones de invitado con este email → recomputa totales (trigger).
+ * SÓLO debe llamarse cuando la propiedad del email está probada (inicio de
+ * sesión con contraseña sobre una cuenta confirmada, o alta con sesión activa).
+ * Nunca antes de confirmar el email: evita el robo de donaciones de una víctima.
+ */
+async function linkDonationsByEmail(userId: string, email: string) {
+  const admin = getAdminClient();
+  if (!admin) return;
   await admin
     .from("donations")
     .update({ donor_id: userId })
     .eq("donor_email", email)
     .is("donor_id", null);
 }
+
 
 export async function signInAction(
   email: string,
@@ -38,17 +52,21 @@ export async function signInAction(
 ): Promise<AuthResult> {
   const rl = rateLimit(clientKey(await headers(), "signin"), 10, 60_000);
   if (!rl.ok) return { ok: false, error: "Demasiados intentos. Espera un momento." };
+  locale = safeLocale(locale);
 
   const e = emailSchema.safeParse(email);
   if (!e.success) return { ok: false, error: "Correo inválido." };
 
   const supabase = await getServerAuthClient();
   if (!supabase) return { ok: false, error: "Servicio no disponible." };
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email: e.data,
     password,
   });
   if (error) return { ok: false, error: "Correo o contraseña incorrectos." };
+  // Email probado (contraseña sobre cuenta confirmada): es seguro enlazar aquí
+  // las donaciones de invitado que quedaron sin enlazar antes de confirmar.
+  if (data.user) await linkDonationsByEmail(data.user.id, e.data);
   redirect(`/${locale}/cuenta`);
 }
 
@@ -64,6 +82,7 @@ export async function signUpAction(
 ): Promise<SignUpResult> {
   const rl = rateLimit(clientKey(await headers(), "signup"), 6, 60_000);
   if (!rl.ok) return { ok: false, error: "Demasiados intentos. Espera un momento." };
+  locale = safeLocale(locale);
 
   const e = emailSchema.safeParse(email);
   if (!e.success) return { ok: false, error: "Correo inválido." };
@@ -86,7 +105,11 @@ export async function signUpAction(
     return { ok: false, error: "No se pudo crear la cuenta. ¿Ya existe?" };
   }
   if (data.user) {
-    await linkDonor(data.user.id, e.data, name, locale);
+    // Siempre creamos el perfil; pero SÓLO enlazamos donaciones por email si hay
+    // sesión activa (email ya probado). Si falta confirmación, el enlace se hará
+    // al iniciar sesión — así no se roban donaciones de otra persona.
+    await ensureProfile(data.user.id, name, locale);
+    if (data.session) await linkDonationsByEmail(data.user.id, e.data);
   }
   if (data.session) {
     redirect(`/${locale}/cuenta`);
@@ -100,6 +123,7 @@ export async function requestResetAction(
 ): Promise<AuthResult> {
   const rl = rateLimit(clientKey(await headers(), "reset"), 5, 60_000);
   if (!rl.ok) return { ok: false, error: "Demasiados intentos. Espera un momento." };
+  locale = safeLocale(locale);
   const e = emailSchema.safeParse(email);
   if (!e.success) return { ok: false, error: "Correo inválido." };
 
@@ -116,7 +140,7 @@ export async function requestResetAction(
 export async function signOutAction(locale: string): Promise<void> {
   const supabase = await getServerAuthClient();
   if (supabase) await supabase.auth.signOut();
-  redirect(`/${locale}`);
+  redirect(`/${safeLocale(locale)}`);
 }
 
 /**
@@ -131,8 +155,17 @@ export async function createAccountFromDonationAction(
 ): Promise<AuthResult> {
   const rl = rateLimit(clientKey(await headers(), "convert"), 6, 60_000);
   if (!rl.ok) return { ok: false, error: "Demasiados intentos. Espera un momento." };
+  locale = safeLocale(locale);
   const p = passwordSchema.safeParse(password);
   if (!p.success) return { ok: false, error: p.error.issues[0]?.message ?? "Contraseña inválida." };
+  const idCheck = uuidSchema.safeParse(donationId);
+  if (!idCheck.success) return { ok: false, error: "Donación inválida." };
+
+  // Prueba de propiedad: sólo el navegador que hizo la donación puede convertir.
+  // Cierra el secuestro de cuenta por URL de /gracias filtrada o id ajeno.
+  if (!(await hasDonationClaim(idCheck.data))) {
+    return { ok: false, error: "No pudimos verificar que esta donación es tuya." };
+  }
 
   const admin = getAdminClient();
   if (!admin) return { ok: false, error: "Servicio no disponible." };
@@ -140,7 +173,7 @@ export async function createAccountFromDonationAction(
   const { data: donation } = await admin
     .from("donations")
     .select("donor_email, donor_name")
-    .eq("id", donationId)
+    .eq("id", idCheck.data)
     .maybeSingle();
   if (!donation?.donor_email) {
     return { ok: false, error: "No encontramos el correo de la donación." };
@@ -157,7 +190,14 @@ export async function createAccountFromDonationAction(
   if (error || !created.user) {
     return { ok: false, error: "No se pudo crear la cuenta. ¿Ya existe?" };
   }
-  await linkDonor(created.user.id, email, name, locale);
+  // Perfil + enlace SÓLO de la donación probada por sesión (no todas las del
+  // email): evita arrastrar donaciones ajenas si el email no fuera del titular.
+  await ensureProfile(created.user.id, name, locale);
+  await admin
+    .from("donations")
+    .update({ donor_id: created.user.id })
+    .eq("id", idCheck.data)
+    .is("donor_id", null);
 
   const supabase = await getServerAuthClient();
   if (supabase) {

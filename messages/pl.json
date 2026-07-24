@@ -65,5 +65,32 @@
     "closingTitle": "Stworzeni, by być JEDNYM",
     "closingBody": "Twój dar zbiega się z tysiącami. Razem jedno ciało.",
     "closingCta": "Wesprzyj teraz"
+  },
+  "Projects": {
+    "indexEyebrow": "Nasze projekty",
+    "indexTitle": "Gdzie działamy",
+    "indexSubtitle": "Każdy projekt z celem, budżetem i postępem.",
+    "empty": "Projekty wkrótce.",
+    "budgetTitle": "Budżet",
+    "budgetTotal": "Razem",
+    "updatesTitle": "Postępy",
+    "updatesEmpty": "Brak aktualizacji.",
+    "donorsTitle": "Ostatni darczyńcy",
+    "raised": "Zebrano",
+    "goal": "Cel",
+    "donateToThis": "Wesprzyj ten projekt",
+    "backToProjects": "Wszystkie projekty",
+    "funded": "Sfinansowany",
+    "completed": "Zakończony"
+  },
+  "Categories": {
+    "vivienda": "Mieszkanie",
+    "alimentacion": "Żywność",
+    "educacion": "Edukacja",
+    "maternidad": "Macierzyństwo",
+    "adiccion": "Uzależnienie",
+    "emergencia": "Nagły wypadek",
+    "salud": "Zdrowie",
+    "general": "Ogólne"
   }
 }

@@ -65,5 +65,32 @@
     "closingTitle": "Conçus pour être UN",
     "closingBody": "Votre don converge avec des milliers. Ensemble, un seul corps.",
     "closingCta": "Faire un don"
+  },
+  "Projects": {
+    "indexEyebrow": "Nos projets",
+    "indexTitle": "Où nous agissons",
+    "indexSubtitle": "Chaque projet avec son objectif, son budget et son avancement.",
+    "empty": "Projets bientôt disponibles.",
+    "budgetTitle": "Budget",
+    "budgetTotal": "Total",
+    "updatesTitle": "Avancées",
+    "updatesEmpty": "Pas encore de mises à jour.",
+    "donorsTitle": "Donateurs récents",
+    "raised": "Collecté",
+    "goal": "Objectif",
+    "donateToThis": "Faire un don à ce projet",
+    "backToProjects": "Tous les projets",
+    "funded": "Financé",
+    "completed": "Terminé"
+  },
+  "Categories": {
+    "vivienda": "Logement",
+    "alimentacion": "Alimentation",
+    "educacion": "Éducation",
+    "maternidad": "Maternité",
+    "adiccion": "Addiction",
+    "emergencia": "Urgence",
+    "salud": "Santé",
+    "general": "Général"
   }
 }

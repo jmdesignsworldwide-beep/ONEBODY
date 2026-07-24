@@ -65,5 +65,32 @@
     "closingTitle": "Созданы быть ЕДИНЫМ",
     "closingBody": "Ваш вклад сходится с тысячами. Вместе — одно тело.",
     "closingCta": "Пожертвовать"
+  },
+  "Projects": {
+    "indexEyebrow": "Наши проекты",
+    "indexTitle": "Где мы работаем",
+    "indexSubtitle": "У каждого проекта своя цель, бюджет и прогресс.",
+    "empty": "Проекты скоро появятся.",
+    "budgetTitle": "Бюджет",
+    "budgetTotal": "Итого",
+    "updatesTitle": "Обновления",
+    "updatesEmpty": "Пока нет обновлений.",
+    "donorsTitle": "Недавние доноры",
+    "raised": "Собрано",
+    "goal": "Цель",
+    "donateToThis": "Пожертвовать этому проекту",
+    "backToProjects": "Все проекты",
+    "funded": "Профинансирован",
+    "completed": "Завершён"
+  },
+  "Categories": {
+    "vivienda": "Жильё",
+    "alimentacion": "Питание",
+    "educacion": "Образование",
+    "maternidad": "Материнство",
+    "adiccion": "Зависимость",
+    "emergencia": "Чрезвычайная помощь",
+    "salud": "Здоровье",
+    "general": "Общее"
   }
 }

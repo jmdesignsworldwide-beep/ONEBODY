@@ -65,5 +65,32 @@
     "closingTitle": "Fatti per essere UNO",
     "closingBody": "La tua donazione converge con migliaia. Insieme, un solo corpo.",
     "closingCta": "Dona ora"
+  },
+  "Projects": {
+    "indexEyebrow": "I nostri progetti",
+    "indexTitle": "Dove operiamo",
+    "indexSubtitle": "Ogni progetto con il suo obiettivo, budget e avanzamento.",
+    "empty": "Progetti in arrivo.",
+    "budgetTitle": "Budget",
+    "budgetTotal": "Totale",
+    "updatesTitle": "Aggiornamenti",
+    "updatesEmpty": "Ancora nessun aggiornamento.",
+    "donorsTitle": "Donatori recenti",
+    "raised": "Raccolto",
+    "goal": "Obiettivo",
+    "donateToThis": "Dona a questo progetto",
+    "backToProjects": "Tutti i progetti",
+    "funded": "Finanziato",
+    "completed": "Completato"
+  },
+  "Categories": {
+    "vivienda": "Casa",
+    "alimentacion": "Alimentazione",
+    "educacion": "Istruzione",
+    "maternidad": "Maternità",
+    "adiccion": "Dipendenza",
+    "emergencia": "Emergenza",
+    "salud": "Salute",
+    "general": "Generale"
   }
 }

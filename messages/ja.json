@@ -65,5 +65,32 @@
     "closingTitle": "ひとつとなるために",
     "closingBody": "あなたの寄付は幾千と集まります。ともにひとつのからだ。",
     "closingCta": "今すぐ寄付"
+  },
+  "Projects": {
+    "indexEyebrow": "プロジェクト",
+    "indexTitle": "活動の現場",
+    "indexSubtitle": "各プロジェクトに目標・予算・進捗があります。",
+    "empty": "プロジェクトは近日公開。",
+    "budgetTitle": "予算",
+    "budgetTotal": "合計",
+    "updatesTitle": "進捗",
+    "updatesEmpty": "まだ更新はありません。",
+    "donorsTitle": "最近の寄付者",
+    "raised": "集まった額",
+    "goal": "目標",
+    "donateToThis": "このプロジェクトに寄付",
+    "backToProjects": "すべてのプロジェクト",
+    "funded": "達成",
+    "completed": "完了"
+  },
+  "Categories": {
+    "vivienda": "住まい",
+    "alimentacion": "食料",
+    "educacion": "教育",
+    "maternidad": "母子",
+    "adiccion": "依存症",
+    "emergencia": "緊急",
+    "salud": "健康",
+    "general": "一般"
   }
 }

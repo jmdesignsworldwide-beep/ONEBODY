@@ -65,5 +65,32 @@
     "closingTitle": "Feitos para ser UM",
     "closingBody": "Sua doação converge com milhares. Juntos, um só corpo.",
     "closingCta": "Doar agora"
+  },
+  "Projects": {
+    "indexEyebrow": "Nossos projetos",
+    "indexTitle": "Onde atuamos",
+    "indexSubtitle": "Cada projeto com sua meta, orçamento e progresso.",
+    "empty": "Projetos em breve.",
+    "budgetTitle": "Orçamento",
+    "budgetTotal": "Total",
+    "updatesTitle": "Avanços",
+    "updatesEmpty": "Ainda sem atualizações.",
+    "donorsTitle": "Doadores recentes",
+    "raised": "Arrecadado",
+    "goal": "Meta",
+    "donateToThis": "Doar a este projeto",
+    "backToProjects": "Todos os projetos",
+    "funded": "Financiado",
+    "completed": "Concluído"
+  },
+  "Categories": {
+    "vivienda": "Moradia",
+    "alimentacion": "Alimentação",
+    "educacion": "Educação",
+    "maternidad": "Maternidade",
+    "adiccion": "Dependência",
+    "emergencia": "Emergência",
+    "salud": "Saúde",
+    "general": "Geral"
   }
 }

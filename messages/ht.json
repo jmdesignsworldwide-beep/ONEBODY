@@ -65,5 +65,32 @@
     "closingTitle": "Fèt pou nou youn",
     "closingBody": "Don ou konverje ak dè milye. Ansanm nou fè yon sèl kò.",
     "closingCta": "Bay kounye a"
+  },
+  "Projects": {
+    "indexEyebrow": "Pwojè nou yo",
+    "indexTitle": "Kote nou travay",
+    "indexSubtitle": "Chak pwojè ak objektif li, bidjè li ak pwogrè li.",
+    "empty": "Pwojè yo ap vini talè.",
+    "budgetTitle": "Bidjè",
+    "budgetTotal": "Total",
+    "updatesTitle": "Pwogrè",
+    "updatesEmpty": "Poko gen mizajou.",
+    "donorsTitle": "Donatè resan",
+    "raised": "Ranmase",
+    "goal": "Objektif",
+    "donateToThis": "Bay pou pwojè sa a",
+    "backToProjects": "Tout pwojè yo",
+    "funded": "Finanse",
+    "completed": "Fini"
+  },
+  "Categories": {
+    "vivienda": "Kay",
+    "alimentacion": "Manje",
+    "educacion": "Edikasyon",
+    "maternidad": "Matènite",
+    "adiccion": "Dejwe",
+    "emergencia": "Ijans",
+    "salud": "Sante",
+    "general": "Jeneral"
   }
 }

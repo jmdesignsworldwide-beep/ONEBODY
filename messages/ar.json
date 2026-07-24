@@ -65,5 +65,32 @@
     "closingTitle": "خُلقنا لنكون واحدًا",
     "closingBody": "تبرعك يتلاقى مع الآلاف. معًا جسد واحد.",
     "closingCta": "تبرّع الآن"
+  },
+  "Projects": {
+    "indexEyebrow": "مشاريعنا",
+    "indexTitle": "أين نعمل",
+    "indexSubtitle": "كل مشروع بهدفه وميزانيته وتقدّمه.",
+    "empty": "المشاريع قريبًا.",
+    "budgetTitle": "الميزانية",
+    "budgetTotal": "الإجمالي",
+    "updatesTitle": "التحديثات",
+    "updatesEmpty": "لا تحديثات بعد.",
+    "donorsTitle": "متبرعون حديثون",
+    "raised": "جُمع",
+    "goal": "الهدف",
+    "donateToThis": "تبرّع لهذا المشروع",
+    "backToProjects": "كل المشاريع",
+    "funded": "مُموّل",
+    "completed": "مكتمل"
+  },
+  "Categories": {
+    "vivienda": "سكن",
+    "alimentacion": "غذاء",
+    "educacion": "تعليم",
+    "maternidad": "أمومة",
+    "adiccion": "إدمان",
+    "emergencia": "طوارئ",
+    "salud": "صحة",
+    "general": "عام"
   }
 }

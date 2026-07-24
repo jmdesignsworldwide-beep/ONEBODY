@@ -65,5 +65,32 @@
     "closingTitle": "하나가 되기 위해",
     "closingBody": "당신의 기부는 수천과 모입니다. 함께 한 몸입니다.",
     "closingCta": "지금 기부하기"
+  },
+  "Projects": {
+    "indexEyebrow": "프로젝트",
+    "indexTitle": "우리가 일하는 곳",
+    "indexSubtitle": "모든 프로젝트에 목표·예산·진행이 있습니다.",
+    "empty": "프로젝트가 곧 공개됩니다.",
+    "budgetTitle": "예산",
+    "budgetTotal": "합계",
+    "updatesTitle": "진행",
+    "updatesEmpty": "아직 업데이트가 없습니다.",
+    "donorsTitle": "최근 기부자",
+    "raised": "모금액",
+    "goal": "목표",
+    "donateToThis": "이 프로젝트에 기부",
+    "backToProjects": "모든 프로젝트",
+    "funded": "목표 달성",
+    "completed": "완료"
+  },
+  "Categories": {
+    "vivienda": "주거",
+    "alimentacion": "식량",
+    "educacion": "교육",
+    "maternidad": "모성",
+    "adiccion": "중독",
+    "emergencia": "긴급",
+    "salud": "건강",
+    "general": "일반"
   }
 }

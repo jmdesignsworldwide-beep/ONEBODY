@@ -65,5 +65,32 @@
     "closingTitle": "Bestimmt, EINS zu sein",
     "closingBody": "Deine Spende konvergiert mit Tausenden. Zusammen ein Leib.",
     "closingCta": "Jetzt spenden"
+  },
+  "Projects": {
+    "indexEyebrow": "Unsere Projekte",
+    "indexTitle": "Wo wir wirken",
+    "indexSubtitle": "Jedes Projekt mit Ziel, Budget und Fortschritt.",
+    "empty": "Projekte folgen in Kürze.",
+    "budgetTitle": "Budget",
+    "budgetTotal": "Gesamt",
+    "updatesTitle": "Fortschritt",
+    "updatesEmpty": "Noch keine Updates.",
+    "donorsTitle": "Neueste Spender",
+    "raised": "Gesammelt",
+    "goal": "Ziel",
+    "donateToThis": "Für dieses Projekt spenden",
+    "backToProjects": "Alle Projekte",
+    "funded": "Finanziert",
+    "completed": "Abgeschlossen"
+  },
+  "Categories": {
+    "vivienda": "Wohnen",
+    "alimentacion": "Ernährung",
+    "educacion": "Bildung",
+    "maternidad": "Mutterschaft",
+    "adiccion": "Sucht",
+    "emergencia": "Notfall",
+    "salud": "Gesundheit",
+    "general": "Allgemein"
   }
 }

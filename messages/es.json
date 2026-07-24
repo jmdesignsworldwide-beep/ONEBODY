@@ -65,5 +65,32 @@
     "closingTitle": "Diseñados para ser UNO",
     "closingBody": "Tu aporte converge con miles. Juntos formamos un cuerpo.",
     "closingCta": "Donar ahora"
+  },
+  "Projects": {
+    "indexEyebrow": "Nuestros proyectos",
+    "indexTitle": "Dónde trabajamos",
+    "indexSubtitle": "Cada proyecto con su meta, su presupuesto y su avance.",
+    "empty": "Pronto publicaremos proyectos.",
+    "budgetTitle": "Presupuesto",
+    "budgetTotal": "Total",
+    "updatesTitle": "Avances",
+    "updatesEmpty": "Aún no hay actualizaciones.",
+    "donorsTitle": "Donantes recientes",
+    "raised": "Recaudado",
+    "goal": "Meta",
+    "donateToThis": "Donar a este proyecto",
+    "backToProjects": "Todos los proyectos",
+    "funded": "Financiado",
+    "completed": "Completado"
+  },
+  "Categories": {
+    "vivienda": "Vivienda",
+    "alimentacion": "Alimentación",
+    "educacion": "Educación",
+    "maternidad": "Maternidad",
+    "adiccion": "Adicción",
+    "emergencia": "Emergencia",
+    "salud": "Salud",
+    "general": "General"
   }
 }

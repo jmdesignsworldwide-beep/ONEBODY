@@ -52,3 +52,24 @@ export type FeaturedProject = {
   cover_image: string | null;
   location_name: string | null;
 };
+
+export type ProjectFull = FeaturedProject & {
+  story_es: string;
+  status: ProjectStatus;
+  deadline: string | null;
+};
+
+export type BudgetItem = {
+  id: string;
+  label_es: string;
+  amount: number;
+  sort_order: number;
+};
+
+export type ProjectUpdate = {
+  id: string;
+  title_es: string;
+  body_es: string;
+  images: string[];
+  published_at: string | null;
+};

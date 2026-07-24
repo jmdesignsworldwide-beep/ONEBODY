@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Diseñados para ser UNO",
+    "description": "Plataforma global de donaciones de la Fundación ONEBODY. Construimos casas, alimentamos familias y sostenemos comunidades en República Dominicana. Muchos miembros, un cuerpo."
+  },
+  "Nav": {
+    "projects": "Proyectos",
+    "about": "Nosotros",
+    "impact": "Impacto",
+    "transparency": "Transparencia",
+    "contact": "Contacto",
+    "donate": "Donar"
+  },
+  "Hero": {
+    "eyebrow": "Fundación ONEBODY · Santiago, República Dominicana",
+    "titleLine1": "Muchos miembros.",
+    "titleLine2": "Un cuerpo.",
+    "subtitle": "Cada donación es un punto que converge. Juntos formamos algo entero: casas, alimento, educación y esperanza para familias reales.",
+    "cta": "Donar ahora",
+    "ctaSecondary": "Ver proyectos"
+  },
+  "Foundation": {
+    "badge": "Fundación en construcción",
+    "heading": "Estamos poniendo los cimientos",
+    "body": "Esta es la base técnica de la plataforma ONEBODY: segura, rápida y lista para crecer. Los módulos de proyectos, donaciones e impacto llegan en las próximas tandas.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "Fundación ONEBODY. Todos los derechos reservados.",
+    "designedBy": "Diseñado por JM Nexus Designs",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

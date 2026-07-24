@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ONEBODY — Tokens de diseño (Sección 2)
+   Tailwind v4 · configuración CSS-first vía @theme.
+   ========================================================================== */
+@theme {
+  /* -- Paleta monocroma (Sección 2.2) -- */
+  --color-ob-black: #0a0a0a;
+  --color-ob-carbon: #141414;
+  --color-ob-graphite: #1f1f1f;
+  --color-ob-ash: #3a3a3a;
+  --color-ob-smoke: #8a8a8a;
+  --color-ob-bone: #f5f3f0;
+  --color-ob-white: #ffffff;
+
+  /* -- El rojo del logo. Disciplina estricta: marca, donación, convergencia -- */
+  --color-ob-red: #e02b20;
+  --color-ob-red-deep: #a81810;
+  --color-ob-red-glow: rgba(224, 43, 32, 0.35);
+
+  /* -- Tipografía (Sección 2.3) -- */
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* -- Movimiento (Sección 2.5) -- */
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* -- Radios -- */
+  --radius-ob: 0.75rem;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-ob-black);
+  color: var(--color-ob-bone);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+}
+
+/* Números tabulares obligatorios en montos y contadores (Sección 2.3). */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Titulares serif de alto contraste, tracking negativo (Sección 2.3). */
+.font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Foco visible de alto contraste para navegación por teclado (Sección 10). */
+:focus-visible {
+  outline: 2px solid var(--color-ob-bone);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-ob-red);
+  color: var(--color-ob-white);
+}
+
+/* ==========================================================================
+   Grano de película fino (Sección 2.4) — overlay sutil sobre toda la página.
+   Aplicado por CSS, no por edición manual de fotos.
+   ========================================================================== */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   prefers-reduced-motion — respetado en todo el sistema (Sección 2.5 / 10).
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

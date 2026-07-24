@@ -1,45 +1,47 @@
-import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/hero";
+import { NumbersSection } from "@/components/landing/numbers-section";
+import { FeaturedProjects } from "@/components/landing/featured-projects";
+import { HowItWorks } from "@/components/landing/how-it-works";
+import { ImpactTiers } from "@/components/landing/impact-tiers";
+import { DonorWall } from "@/components/landing/donor-wall";
+import { Closing } from "@/components/landing/closing";
+import {
+  getPublicStats,
+  getFeaturedProjects,
+  getWallEntries,
+} from "@/lib/queries";
+
+// Revalida los datos públicos cada 60s (ISR); el muro se actualiza en vivo
+// vía realtime en el cliente.
+export const revalidate = 60;
 
 export default async function LandingPage(props: {
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await props.params;
   setRequestLocale(locale);
-  return <LandingContent />;
-}
 
-function LandingContent() {
-  const t = useTranslations("Foundation");
+  const [stats, projects, wall] = await Promise.all([
+    getPublicStats(),
+    getFeaturedProjects(),
+    getWallEntries(12),
+  ]);
 
   return (
     <>
       <SiteHeader />
       <main id="main">
         <Hero />
-
-        {/* Nota de estado de la Fundación. La secuencia narrativa completa
-            (contadores, proyectos, muro de donantes) llega en la Tanda 6. */}
-        <section className="border-t border-ob-ash/20 bg-ob-carbon">
-          <div className="mx-auto max-w-4xl px-6 py-28 text-center">
-            <span className="inline-block rounded-full border border-ob-ash px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-ob-smoke">
-              {t("badge")}
-            </span>
-            <h2 className="mt-8 font-display text-[clamp(2rem,5vw,3.25rem)] text-ob-bone">
-              {t("heading")}
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ob-smoke">
-              {t("body")}
-            </p>
-            <p className="mt-12 font-display text-xl text-ob-bone/70">
-              {t("tagline")}
-            </p>
-          </div>
-        </section>
+        <NumbersSection stats={stats} />
+        <FeaturedProjects projects={projects} />
+        <HowItWorks />
+        <ImpactTiers />
+        <DonorWall initial={wall} />
+        <Closing />
       </main>
       <SiteFooter />
     </>

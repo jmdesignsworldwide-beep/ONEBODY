@@ -3,8 +3,9 @@
 -- Postgres 15/16 (Supabase). Fuente de verdad: español (columnas *_es).
 -- ============================================================================
 
-create extension if not exists "pgcrypto";      -- gen_random_uuid()
-create extension if not exists "citext";         -- emails case-insensitive
+-- gen_random_uuid() es nativo en Postgres 13+ (sin pgcrypto). Los emails se
+-- normalizan a minúsculas en la capa de aplicación (columnas `text`), evitando
+-- instalar extensiones en el esquema public (limpio ante Security Advisor).
 
 -- ---------------------------------------------------------------------------
 -- Tipos enumerados
@@ -141,7 +142,7 @@ create table if not exists public.donations (
   provider        text not null default 'mock',
   provider_ref    text,
   donor_name      text,
-  donor_email     citext,
+  donor_email     text,   -- normalizado a minúsculas por la app
   message         text,
   country_code    text,
   created_at      timestamptz not null default now(),

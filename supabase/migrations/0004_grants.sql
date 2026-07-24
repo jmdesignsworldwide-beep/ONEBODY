@@ -33,10 +33,12 @@ revoke execute on function public.tg_update_donor_totals() from public, anon, au
 revoke execute on function public.tg_prevent_audit_mod() from public, anon, authenticated;
 
 -- Los predicados de las políticas SÍ deben ser ejecutables por los roles de
--- cliente (se evalúan dentro de sus consultas). Explícito para no depender del
--- EXECUTE-to-public por defecto.
-grant execute on function public.current_admin_role() to anon, authenticated;
-grant execute on function public.is_admin()        to anon, authenticated;
-grant execute on function public.is_editor()       to anon, authenticated;
-grant execute on function public.is_superadmin()   to anon, authenticated;
+-- cliente (se evalúan dentro de sus consultas). Viven en `private`, esquema
+-- NO expuesto por PostgREST: se conceden USAGE + EXECUTE pero no quedan
+-- accesibles como RPC público.
+grant usage on schema private to anon, authenticated;
+grant execute on function private.current_admin_role() to anon, authenticated;
+grant execute on function private.is_admin()      to anon, authenticated;
+grant execute on function private.is_editor()     to anon, authenticated;
+grant execute on function private.is_superadmin() to anon, authenticated;
 grant execute on function public.project_is_public(public.project_status) to anon, authenticated;

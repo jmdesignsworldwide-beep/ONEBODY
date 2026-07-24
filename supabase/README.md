@@ -20,7 +20,8 @@ Aplicar en orden. Idempotentes en lo posible (`if not exists`, `create or replac
 - **Lectura pública mínima:** sólo proyectos publicados (`active/funded/completed`) y su contenido asociado. Los borradores/archivados son invisibles al público.
 - **Escritura administrativa** sólo con rol `editor`/`superadmin`, verificado en el servidor vía `admin_users` (nunca en UI). `admin_users` sólo lo lee/escribe un `superadmin`.
 - **`service_role` es el único camino de escritura del servidor de confianza** (donaciones invitadas, analítica, webhooks). `anon`/`authenticated` no insertan en `donations`, `site_analytics`, `subscriptions`.
-- **Funciones `SECURITY DEFINER` con `search_path = ''`** y todo calificado por esquema. `EXECUTE` de las funciones internas (`log_audit`, `tg_*`) revocado de `anon`/`authenticated`.
+- **Funciones `SECURITY DEFINER` con `search_path = ''`** y todo calificado por esquema. Los predicados de rol (`is_admin`, `is_editor`, `is_superadmin`, `current_admin_role`) viven en el esquema **`private`**, no expuesto por PostgREST: son usables por las políticas RLS pero **no** invocables como RPC público. `EXECUTE` de las funciones internas (`log_audit`, `tg_*`) revocado de `anon`/`authenticated`.
+- **Sin extensiones en `public`:** `gen_random_uuid()` es nativo (PG13+) y los emails se guardan como `text` normalizado — el Security Advisor queda sin la advertencia `extension_in_public`.
 - **`audit_log` inviolable:** triggers que lanzan excepción ante cualquier `UPDATE`, `DELETE` o `TRUNCATE` — incluso desde `service_role` (bypassrls). Escritura sólo vía `log_audit` (definer) o `service_role`.
 - **Idempotencia de webhooks:** índice único sobre `(provider, provider_ref)` en `donations` (Sección 9.11).
 - **Sin IP cruda:** `site_analytics` guarda sólo geolocalización derivada (Sección 9.12).
@@ -53,8 +54,9 @@ intento de explotación **falla como debe**; cada función legítima **funciona*
 | 19 | Editor crea proyecto → auditoría | insert OK + entrada en `audit_log` ✅ |
 | 20 | Editor (`is_admin`) ve todas las donaciones | 2 ✅ |
 
-> La verificación se repite contra el proyecto Supabase real al aplicar, y se
-> cierra con **Security Advisor en 0 ERROR / 0 WARN** (Sección 9).
+**Aplicado al proyecto Supabase real** (`yenvucporxnsqycsxkzc`, Postgres 17):
+la verificación por ataque se repitió contra la base real (mismos resultados) y
+el **Security Advisor cierra en 0 ERROR / 0 WARN**.
 
 ## Aplicación (protocolo PAT temporal)
 

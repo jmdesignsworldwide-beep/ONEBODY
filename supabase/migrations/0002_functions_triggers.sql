@@ -5,27 +5,31 @@
 -- ============================================================================
 
 -- ---------------------------------------------------------------------------
--- Rol admin del usuario actual. SECURITY DEFINER para poder leer admin_users
--- sin exponer la tabla al invocador. Se usa dentro de las políticas RLS.
+-- Predicados de rol admin. SECURITY DEFINER para leer admin_users sin exponer
+-- la tabla al invocador. Viven en el esquema `private` (NO expuesto por
+-- PostgREST) para no quedar accesibles como RPC público, conservando su uso
+-- dentro de las políticas RLS. Security Advisor: limpio.
 -- ---------------------------------------------------------------------------
-create or replace function public.current_admin_role()
+create schema if not exists private;
+
+create or replace function private.current_admin_role()
 returns public.admin_role
 language sql stable security definer set search_path = ''
 as $$
   select a.role from public.admin_users a where a.id = (select auth.uid());
 $$;
 
-create or replace function public.is_admin()
+create or replace function private.is_admin()
 returns boolean language sql stable security definer set search_path = ''
-as $$ select public.current_admin_role() is not null; $$;
+as $$ select private.current_admin_role() is not null; $$;
 
-create or replace function public.is_editor()
+create or replace function private.is_editor()
 returns boolean language sql stable security definer set search_path = ''
-as $$ select public.current_admin_role() in ('superadmin','editor'); $$;
+as $$ select private.current_admin_role() in ('superadmin','editor'); $$;
 
-create or replace function public.is_superadmin()
+create or replace function private.is_superadmin()
 returns boolean language sql stable security definer set search_path = ''
-as $$ select public.current_admin_role() = 'superadmin'; $$;
+as $$ select private.current_admin_role() = 'superadmin'; $$;
 
 -- Un proyecto es visible al público cuando su estado es no-borrador/no-archivado.
 create or replace function public.project_is_public(p_status public.project_status)

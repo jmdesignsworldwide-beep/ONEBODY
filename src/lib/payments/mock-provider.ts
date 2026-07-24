@@ -29,7 +29,8 @@ export class MockProvider implements PaymentProvider {
     // Id determinista por donación → idempotencia (reintentos no duplican).
     const id = `mock_cs_${params.donationId}`;
     const origin = safeOrigin(params.successUrl);
-    const url = `${origin}/mock/checkout/${encodeURIComponent(id)}`;
+    // Página de checkout simulado, bajo el locale (real, dentro del middleware).
+    const url = `${origin}/${params.locale}/donar/simular/${encodeURIComponent(id)}`;
     return {
       id,
       provider: this.name,

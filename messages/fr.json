@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Conçus pour être UN",
+    "description": "Plateforme mondiale de dons de la Fondation ONEBODY. Nous construisons des maisons, nourrissons des familles et soutenons des communautés en République dominicaine. Plusieurs membres, un seul corps."
+  },
+  "Nav": {
+    "projects": "Projets",
+    "about": "À propos",
+    "impact": "Impact",
+    "transparency": "Transparence",
+    "contact": "Contact",
+    "donate": "Faire un don"
+  },
+  "Hero": {
+    "eyebrow": "Fondation ONEBODY · Santiago, République dominicaine",
+    "titleLine1": "Plusieurs membres.",
+    "titleLine2": "Un seul corps.",
+    "subtitle": "Chaque don est un point qui converge. Ensemble, nous formons un tout : des maisons, de la nourriture, de l'éducation et de l'espoir pour de vraies familles.",
+    "cta": "Faire un don",
+    "ctaSecondary": "Voir les projets"
+  },
+  "Foundation": {
+    "badge": "Fondation en cours",
+    "heading": "Nous posons les fondations",
+    "body": "Voici la base technique de la plateforme ONEBODY : sûre, rapide et prête à grandir. Les modules de projets, de dons et d'impact arrivent dans les prochaines étapes.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "Fondation ONEBODY. Tous droits réservés.",
+    "designedBy": "Conçu par JM Nexus Designs",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

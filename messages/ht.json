@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Fèt pou nou youn",
+    "description": "Platfòm mondyal pou don Fondasyon ONEBODY. Nou bati kay, bay fanmi manje epi soutni kominote nan Repiblik Dominikèn. Anpil manm, yon sèl kò."
+  },
+  "Nav": {
+    "projects": "Pwojè",
+    "about": "Sou nou",
+    "impact": "Enpak",
+    "transparency": "Transparans",
+    "contact": "Kontak",
+    "donate": "Bay"
+  },
+  "Hero": {
+    "eyebrow": "Fondasyon ONEBODY · Santiago, Repiblik Dominikèn",
+    "titleLine1": "Anpil manm.",
+    "titleLine2": "Yon sèl kò.",
+    "subtitle": "Chak don se yon pwen k ap konverje. Ansanm nou fòme yon bagay antye : kay, manje, edikasyon ak espwa pou vrè fanmi.",
+    "cta": "Bay kounye a",
+    "ctaSecondary": "Gade pwojè yo"
+  },
+  "Foundation": {
+    "badge": "Fondasyon an ap monte",
+    "heading": "N ap poze fondasyon yo",
+    "body": "Sa a se baz teknik platfòm ONEBODY la : an sekirite, rapid epi pare pou grandi. Modil pwojè, don ak enpak yo ap vini nan pwochen etap yo.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "Fondasyon ONEBODY. Tout dwa rezève.",
+    "designedBy": "Konsepsyon pa JM Nexus Designs",
+    "email": "Imèl",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

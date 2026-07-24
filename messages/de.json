@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Bestimmt, EINS zu sein",
+    "description": "Globale Spendenplattform der ONEBODY-Stiftung. Wir bauen Häuser, versorgen Familien und stärken Gemeinschaften in der Dominikanischen Republik. Viele Glieder, ein Leib."
+  },
+  "Nav": {
+    "projects": "Projekte",
+    "about": "Über uns",
+    "impact": "Wirkung",
+    "transparency": "Transparenz",
+    "contact": "Kontakt",
+    "donate": "Spenden"
+  },
+  "Hero": {
+    "eyebrow": "ONEBODY-Stiftung · Santiago, Dominikanische Republik",
+    "titleLine1": "Viele Glieder.",
+    "titleLine2": "Ein Leib.",
+    "subtitle": "Jede Spende ist ein Punkt, der zusammenläuft. Gemeinsam bilden wir ein Ganzes: Häuser, Nahrung, Bildung und Hoffnung für echte Familien.",
+    "cta": "Jetzt spenden",
+    "ctaSecondary": "Projekte ansehen"
+  },
+  "Foundation": {
+    "badge": "Grundlagen im Aufbau",
+    "heading": "Wir legen das Fundament",
+    "body": "Dies ist die technische Basis der ONEBODY-Plattform: sicher, schnell und bereit zu wachsen. Die Module für Projekte, Spenden und Wirkung folgen in den nächsten Schritten.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "ONEBODY-Stiftung. Alle Rechte vorbehalten.",
+    "designedBy": "Gestaltet von JM Nexus Designs",
+    "email": "E-Mail",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

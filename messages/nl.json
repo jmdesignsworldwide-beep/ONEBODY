@@ -1,0 +1,35 @@
+{
+  "Meta": {
+    "title": "ONEBODY — Gemaakt om ÉÉN te zijn",
+    "description": "Wereldwijd donatieplatform van de ONEBODY-stichting. Wij bouwen huizen, voeden gezinnen en ondersteunen gemeenschappen in de Dominicaanse Republiek. Veel leden, één lichaam."
+  },
+  "Nav": {
+    "projects": "Projecten",
+    "about": "Over ons",
+    "impact": "Impact",
+    "transparency": "Transparantie",
+    "contact": "Contact",
+    "donate": "Doneren"
+  },
+  "Hero": {
+    "eyebrow": "ONEBODY-stichting · Santiago, Dominicaanse Republiek",
+    "titleLine1": "Veel leden.",
+    "titleLine2": "Één lichaam.",
+    "subtitle": "Elke donatie is een punt dat samenkomt. Samen vormen we iets heels: huizen, voedsel, onderwijs en hoop voor echte gezinnen.",
+    "cta": "Nu doneren",
+    "ctaSecondary": "Bekijk projecten"
+  },
+  "Foundation": {
+    "badge": "Fundament in aanbouw",
+    "heading": "We leggen het fundament",
+    "body": "Dit is de technische basis van het ONEBODY-platform: veilig, snel en klaar om te groeien. De modules voor projecten, donaties en impact volgen in de komende stappen.",
+    "tagline": "Diseñados para ser UNO · Meant to be ONE"
+  },
+  "Footer": {
+    "rights": "ONEBODY-stichting. Alle rechten voorbehouden.",
+    "designedBy": "Ontworpen door JM Nexus Designs",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram"
+  }
+}

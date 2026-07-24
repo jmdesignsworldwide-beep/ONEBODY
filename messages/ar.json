@@ -304,6 +304,23 @@
     "colWhen": "متى",
     "colActor": "الفاعل",
     "colEntity": "الكيان",
-    "systemActor": "النظام"
+    "systemActor": "النظام",
+    "navAnalytics": "التحليلات",
+    "analyticsSubtitle": "نبض المؤسسة ببيانات حقيقية لآخر 30 يومًا.",
+    "anDonations": "التبرعات",
+    "anAvgGift": "متوسط التبرع",
+    "anRecurring": "متكررة",
+    "anRaisedByDay": "المُجمَّع يوميًا",
+    "anByCategory": "حسب الفئة",
+    "anByCountry": "حسب البلد",
+    "anTraffic": "الزيارات",
+    "anTrafficNote": "بدون IP خام: البلد المُستنتَج وجلسة مجهولة فقط.",
+    "anNoTraffic": "لا زيارات مسجَّلة بعد. ستظهر عندما يتصفح الناس الموقع.",
+    "anPageviews": "المشاهدات",
+    "anSessions": "الجلسات",
+    "anConversion": "التحويل",
+    "anTopPaths": "أكثر الصفحات مشاهدة",
+    "anTrafficByCountry": "الزيارات حسب البلد",
+    "anByLocale": "حسب اللغة"
   }
 }

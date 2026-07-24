@@ -304,6 +304,23 @@
     "colWhen": "When",
     "colActor": "Actor",
     "colEntity": "Entity",
-    "systemActor": "System"
+    "systemActor": "System",
+    "navAnalytics": "Analytics",
+    "analyticsSubtitle": "The foundation's pulse with real data from the last 30 days.",
+    "anDonations": "Donations",
+    "anAvgGift": "Average gift",
+    "anRecurring": "Recurring",
+    "anRaisedByDay": "Raised per day",
+    "anByCategory": "By category",
+    "anByCountry": "By country",
+    "anTraffic": "Traffic",
+    "anTrafficNote": "No raw IP: only derived country and an anonymous session.",
+    "anNoTraffic": "No visits recorded yet. They will appear as people browse the site.",
+    "anPageviews": "Views",
+    "anSessions": "Sessions",
+    "anConversion": "Conversion",
+    "anTopPaths": "Top pages",
+    "anTrafficByCountry": "Visits by country",
+    "anByLocale": "By language"
   }
 }

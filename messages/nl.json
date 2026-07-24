@@ -304,6 +304,23 @@
     "colWhen": "Wanneer",
     "colActor": "Auteur",
     "colEntity": "Entiteit",
-    "systemActor": "Systeem"
+    "systemActor": "Systeem",
+    "navAnalytics": "Analyse",
+    "analyticsSubtitle": "De pols van de stichting met echte data van de afgelopen 30 dagen.",
+    "anDonations": "Donaties",
+    "anAvgGift": "Gemiddelde gift",
+    "anRecurring": "Terugkerend",
+    "anRaisedByDay": "Opgehaald per dag",
+    "anByCategory": "Per categorie",
+    "anByCountry": "Per land",
+    "anTraffic": "Verkeer",
+    "anTrafficNote": "Geen ruwe IP: alleen afgeleid land en een anonieme sessie.",
+    "anNoTraffic": "Nog geen bezoeken geregistreerd. Ze verschijnen zodra mensen de site bezoeken.",
+    "anPageviews": "Weergaven",
+    "anSessions": "Sessies",
+    "anConversion": "Conversie",
+    "anTopPaths": "Meest bekeken pagina's",
+    "anTrafficByCountry": "Bezoeken per land",
+    "anByLocale": "Per taal"
   }
 }

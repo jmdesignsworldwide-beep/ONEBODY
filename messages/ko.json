@@ -304,6 +304,23 @@
     "colWhen": "시각",
     "colActor": "수행자",
     "colEntity": "엔터티",
-    "systemActor": "시스템"
+    "systemActor": "시스템",
+    "navAnalytics": "분석",
+    "analyticsSubtitle": "최근 30일 실제 데이터로 보는 재단의 맥박.",
+    "anDonations": "기부",
+    "anAvgGift": "평균 기부액",
+    "anRecurring": "정기",
+    "anRaisedByDay": "일별 모금",
+    "anByCategory": "카테고리별",
+    "anByCountry": "국가별",
+    "anTraffic": "트래픽",
+    "anTrafficNote": "원시 IP 없음: 추정된 국가와 익명 세션만 기록.",
+    "anNoTraffic": "아직 방문 기록이 없습니다. 사람들이 사이트를 둘러보면 나타납니다.",
+    "anPageviews": "조회수",
+    "anSessions": "세션",
+    "anConversion": "전환율",
+    "anTopPaths": "인기 페이지",
+    "anTrafficByCountry": "국가별 방문",
+    "anByLocale": "언어별"
   }
 }

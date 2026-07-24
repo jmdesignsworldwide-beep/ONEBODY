@@ -304,6 +304,23 @@
     "colWhen": "时间",
     "colActor": "操作者",
     "colEntity": "实体",
-    "systemActor": "系统"
+    "systemActor": "系统",
+    "navAnalytics": "分析",
+    "analyticsSubtitle": "基于最近30天真实数据的基金会脉搏。",
+    "anDonations": "捐款",
+    "anAvgGift": "平均捐款",
+    "anRecurring": "定期",
+    "anRaisedByDay": "每日募集",
+    "anByCategory": "按类别",
+    "anByCountry": "按国家",
+    "anTraffic": "流量",
+    "anTrafficNote": "无原始 IP：仅记录推断的国家和匿名会话。",
+    "anNoTraffic": "暂无访问记录。当有人浏览网站时将会出现。",
+    "anPageviews": "浏览量",
+    "anSessions": "会话",
+    "anConversion": "转化率",
+    "anTopPaths": "最热门页面",
+    "anTrafficByCountry": "按国家访问",
+    "anByLocale": "按语言"
   }
 }

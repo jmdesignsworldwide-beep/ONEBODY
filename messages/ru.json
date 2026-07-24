@@ -304,6 +304,23 @@
     "colWhen": "Когда",
     "colActor": "Автор",
     "colEntity": "Объект",
-    "systemActor": "Система"
+    "systemActor": "Система",
+    "navAnalytics": "Аналитика",
+    "analyticsSubtitle": "Пульс фонда по реальным данным за последние 30 дней.",
+    "anDonations": "Пожертвования",
+    "anAvgGift": "Средний взнос",
+    "anRecurring": "Регулярные",
+    "anRaisedByDay": "Сборы по дням",
+    "anByCategory": "По категориям",
+    "anByCountry": "По странам",
+    "anTraffic": "Трафик",
+    "anTrafficNote": "Без сырого IP: только определённая страна и анонимная сессия.",
+    "anNoTraffic": "Посещений пока нет. Они появятся, когда люди начнут заходить на сайт.",
+    "anPageviews": "Просмотры",
+    "anSessions": "Сессии",
+    "anConversion": "Конверсия",
+    "anTopPaths": "Популярные страницы",
+    "anTrafficByCountry": "Посещения по странам",
+    "anByLocale": "По языкам"
   }
 }

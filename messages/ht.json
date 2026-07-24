@@ -304,6 +304,23 @@
     "colWhen": "Kilè",
     "colActor": "Otè",
     "colEntity": "Antite",
-    "systemActor": "Sistèm"
+    "systemActor": "Sistèm",
+    "navAnalytics": "Analitik",
+    "analyticsSubtitle": "Batman kè fondasyon an ak done reyèl 30 dènye jou yo.",
+    "anDonations": "Don",
+    "anAvgGift": "Don mwayen",
+    "anRecurring": "Rekiran",
+    "anRaisedByDay": "Ranmase pa jou",
+    "anByCategory": "Pa kategori",
+    "anByCountry": "Pa peyi",
+    "anTraffic": "Trafik",
+    "anTrafficNote": "San IP kri: sèlman peyi dedwi ak yon sesyon anonim.",
+    "anNoTraffic": "Poko gen vizit anrejistre. Y ap parèt lè moun ap navige sit la.",
+    "anPageviews": "Afichaj",
+    "anSessions": "Sesyon",
+    "anConversion": "Konvèsyon",
+    "anTopPaths": "Paj ki pi wè yo",
+    "anTrafficByCountry": "Vizit pa peyi",
+    "anByLocale": "Pa lang"
   }
 }

@@ -304,6 +304,23 @@
     "colWhen": "日時",
     "colActor": "実行者",
     "colEntity": "対象",
-    "systemActor": "システム"
+    "systemActor": "システム",
+    "navAnalytics": "分析",
+    "analyticsSubtitle": "直近30日の実データで見る財団の鼓動。",
+    "anDonations": "寄付",
+    "anAvgGift": "平均寄付額",
+    "anRecurring": "継続",
+    "anRaisedByDay": "日別の募金",
+    "anByCategory": "カテゴリー別",
+    "anByCountry": "国別",
+    "anTraffic": "トラフィック",
+    "anTrafficNote": "生のIPなし：推定された国と匿名セッションのみ。",
+    "anNoTraffic": "まだ訪問が記録されていません。サイトが閲覧されると表示されます。",
+    "anPageviews": "表示回数",
+    "anSessions": "セッション",
+    "anConversion": "コンバージョン",
+    "anTopPaths": "よく見られたページ",
+    "anTrafficByCountry": "国別の訪問",
+    "anByLocale": "言語別"
   }
 }

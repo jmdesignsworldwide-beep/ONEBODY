@@ -268,6 +268,14 @@
     "deleteBody": "이 작업은 영구적이며 관련 예산과 진행 소식도 삭제됩니다.",
     "deleteProject": "프로젝트 삭제",
     "confirmDelete": "예, 삭제합니다",
-    "cancel": "취소"
+    "cancel": "취소",
+    "navTranslations": "번역",
+    "translationsTitle": "번역",
+    "translationsSubtitle": "스페인어가 기준 텍스트입니다. 각 언어를 번역하세요. 비어 있으면 사이트에서 스페인어로 표시됩니다.",
+    "trNotTranslated": "번역 안 됨",
+    "trReviewed": "검수됨",
+    "trMachine": "미검수",
+    "trCopyFromSpanish": "스페인어에서 복사",
+    "trMarkReviewed": "사람이 검수함으로 표시"
   }
 }

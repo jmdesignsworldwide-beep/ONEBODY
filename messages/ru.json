@@ -268,6 +268,14 @@
     "deleteBody": "Это действие необратимо и удаляет связанный бюджет и обновления.",
     "deleteProject": "Удалить проект",
     "confirmDelete": "Да, удалить",
-    "cancel": "Отмена"
+    "cancel": "Отмена",
+    "navTranslations": "Переводы",
+    "translationsTitle": "Переводы",
+    "translationsSubtitle": "Испанский — базовый текст. Переведите каждый язык; пустые поля на сайте заменяются испанским.",
+    "trNotTranslated": "Не переведено",
+    "trReviewed": "Проверено",
+    "trMachine": "Не проверено",
+    "trCopyFromSpanish": "Скопировать с испанского",
+    "trMarkReviewed": "Отметить как проверено человеком"
   }
 }

@@ -27,7 +27,7 @@ export default async function LandingPage(props: {
 
   const [stats, projects, wall] = await Promise.all([
     getPublicStats(),
-    getFeaturedProjects(),
+    getFeaturedProjects(locale),
     getWallEntries(12),
   ]);
 

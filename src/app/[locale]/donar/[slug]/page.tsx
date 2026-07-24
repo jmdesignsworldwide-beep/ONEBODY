@@ -16,7 +16,7 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale, slug } = await props.params;
   const t = await getTranslations({ locale, namespace: "Donar" });
-  const detail = await getProjectDetail(slug);
+  const detail = await getProjectDetail(slug, locale);
   return { title: `${t("title")} · ${detail?.project.title_es ?? ""}` };
 }
 
@@ -25,7 +25,7 @@ export default async function DonateProjectPage(props: {
 }) {
   const { locale, slug } = await props.params;
   setRequestLocale(locale);
-  const detail = await getProjectDetail(slug);
+  const detail = await getProjectDetail(slug, locale);
   if (!detail) notFound();
   const t = await getTranslations("Donar");
 

@@ -36,14 +36,22 @@ export default async function EditProjectPage(props: {
           >
             ← {t("navProjects")}
           </Link>
-          {isPublic && (
+          <div className="flex items-center gap-4">
             <Link
-              href={`/proyectos/${project.slug}`}
+              href={`/admin/proyectos/${project.id}/traducciones`}
               className="text-sm text-ob-smoke transition-colors hover:text-ob-bone"
             >
-              {t("viewPublic")} →
+              {t("navTranslations")}
             </Link>
-          )}
+            {isPublic && (
+              <Link
+                href={`/proyectos/${project.slug}`}
+                className="text-sm text-ob-smoke transition-colors hover:text-ob-bone"
+              >
+                {t("viewPublic")} →
+              </Link>
+            )}
+          </div>
         </div>
         <h1 className="mt-4 font-display text-3xl text-ob-bone">
           {t("editProject")}

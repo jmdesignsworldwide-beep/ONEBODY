@@ -24,7 +24,7 @@ export default async function ProjectsIndexPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations("Projects");
-  const projects = await getPublishedProjects();
+  const projects = await getPublishedProjects(locale);
 
   return (
     <>

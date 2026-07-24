@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Wordmark } from "./wordmark";
 import { LanguageSelector } from "./language-selector";
+import { Button } from "./ui/button";
 
 /**
  * Header del sitio. Navegación monocroma; el único rojo es el CTA de donación
@@ -41,12 +42,9 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <LanguageSelector />
-          <Link
-            href="/donar"
-            className="rounded-full bg-ob-red px-5 py-2 text-sm font-semibold text-ob-white shadow-[0_0_20px_var(--color-ob-red-glow)] transition-colors hover:bg-ob-red-deep"
-          >
+          <Button href="/donar" variant="donate" size="sm">
             {t("donate")}
-          </Link>
+          </Button>
         </div>
       </div>
     </header>

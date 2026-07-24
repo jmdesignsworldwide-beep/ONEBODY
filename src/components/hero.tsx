@@ -7,11 +7,16 @@ import { Button } from "@/components/ui/button";
 
 // El canvas de convergencia se carga dinámicamente, nunca en el bundle
 // inicial (Sección 10).
-const BrandNode = dynamic(
-  () => import("./brand-node").then((m) => m.BrandNode),
+const ConvergenceCanvas = dynamic(
+  () =>
+    import("@/components/convergence/convergence-canvas").then(
+      (m) => m.ConvergenceCanvas,
+    ),
   {
     ssr: false,
-    loading: () => <div className="size-[260px]" aria-hidden />,
+    loading: () => (
+      <div className="aspect-square w-[440px] max-w-full" aria-hidden />
+    ),
   },
 );
 
@@ -85,7 +90,11 @@ export function Hero() {
           transition={{ duration: 1, ease: EASE, delay: 0.3 }}
           className="mx-auto flex items-center justify-center"
         >
-          <BrandNode size={300} />
+          <ConvergenceCanvas
+            variant="hero"
+            autoplay
+            ariaLabel="Nodo ONEBODY: cuatro puntos convergiendo en un centro. Muchos miembros, un cuerpo."
+          />
         </motion.div>
       </div>
     </section>

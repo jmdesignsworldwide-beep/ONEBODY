@@ -1,0 +1,125 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Locale } from "@/i18n/routing";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { Container, Section } from "@/components/ui/layout";
+import { Button } from "@/components/ui/button";
+import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
+import { getAdminClient } from "@/lib/supabase/admin";
+
+export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  title: "Gracias",
+  robots: { index: false, follow: false },
+};
+
+export default async function ThanksPage(props: {
+  params: Promise<{ locale: Locale; id: string }>;
+}) {
+  const { locale, id } = await props.params;
+  setRequestLocale(locale);
+  const t = await getTranslations("Donar");
+  const tImpact = await getTranslations("Landing");
+
+  const supabase = getAdminClient();
+  const { data: donation } = supabase
+    ? await supabase
+        .from("donations")
+        .select("id, amount_usd, status, project_id")
+        .eq("id", id)
+        .maybeSingle()
+    : { data: null };
+  if (!donation) notFound();
+
+  let projectTitle: string | null = null;
+  if (donation.project_id && supabase) {
+    const { data: proj } = await supabase
+      .from("projects")
+      .select("title_es")
+      .eq("id", donation.project_id)
+      .maybeSingle();
+    projectTitle = (proj?.title_es as string | undefined) ?? null;
+  }
+
+  const amount = Number(donation.amount_usd);
+  const money = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(amount);
+  const status = donation.status as string;
+  const impact =
+    amount >= 250
+      ? tImpact("impact250")
+      : amount >= 100
+        ? tImpact("impact100")
+        : amount >= 50
+          ? tImpact("impact50")
+          : tImpact("impact25");
+
+  return (
+    <>
+      <SiteHeader />
+      <main id="main" className="pt-16">
+        <Section>
+          <Container className="max-w-xl text-center">
+            {status === "completed" ? (
+              <>
+                <div className="flex justify-center">
+                  <ConvergenceCanvas variant="card" autoplay ariaLabel={t("thanksTitle")} />
+                </div>
+                <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4rem)] text-ob-bone">
+                  {t("thanksTitle")}
+                </h1>
+                <p className="mt-4 text-lg text-ob-smoke">
+                  {t("thanksBody", { amount: money })}
+                </p>
+                {projectTitle && (
+                  <p className="mt-2 text-ob-bone">{projectTitle}</p>
+                )}
+                <p className="mx-auto mt-6 max-w-md text-ob-smoke">
+                  <span className="text-ob-red">●</span> {money} {impact}
+                </p>
+                <div className="mt-10 flex flex-wrap justify-center gap-4">
+                  <Button href="/proyectos" variant="secondary">
+                    {t("thanksProjects")}
+                  </Button>
+                  <Button href="/" variant="ghost">
+                    {t("thanksHome")}
+                  </Button>
+                </div>
+              </>
+            ) : status === "failed" ? (
+              <>
+                <h1 className="font-display text-4xl text-ob-bone">
+                  {t("failedTitle")}
+                </h1>
+                <p className="mt-4 text-ob-smoke">{t("failedBody")}</p>
+                <div className="mt-8 flex justify-center">
+                  <Button href="/donar" variant="donate">
+                    {t("failedRetry")}
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <h1 className="font-display text-4xl text-ob-bone">
+                  {t("pendingTitle")}
+                </h1>
+                <p className="mt-4 text-ob-smoke">{t("pendingBody")}</p>
+              </>
+            )}
+            <p className="mt-16 font-display text-lg text-ob-bone/60">
+              Diseñados para ser UNO
+              <span className="mx-2 text-ob-red">·</span>
+              Meant to be ONE
+            </p>
+          </Container>
+        </Section>
+      </main>
+      <SiteFooter />
+    </>
+  );
+}

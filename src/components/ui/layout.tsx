@@ -2,6 +2,7 @@ import type { ElementType, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Reveal } from "@/components/motion/reveal";
 import { RevealHeading } from "@/components/motion/reveal-heading";
+import { Tendril } from "@/components/motion/tendril";
 
 /** Contenedor central con ancho máximo y padding lateral consistentes. */
 export function Container({
@@ -55,6 +56,9 @@ export function SectionHeading({
         className,
       )}
     >
+      <Tendril
+        className={cn("h-6 w-6 text-ob-bone", align === "center" && "mx-auto")}
+      />
       {eyebrow && (
         <Reveal y={8}>
           <span className="text-xs uppercase tracking-[0.25em] text-ob-smoke">

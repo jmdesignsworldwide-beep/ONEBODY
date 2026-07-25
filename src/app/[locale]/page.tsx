@@ -7,6 +7,7 @@ import { LivingBackground } from "@/components/landing/living-background";
 import { Hero } from "@/components/hero";
 import { WorldScene } from "@/components/landing/world-scene";
 import { NumbersSection } from "@/components/landing/numbers-section";
+import { SeedScene } from "@/components/landing/seed-scene";
 import { FeaturedProjects } from "@/components/landing/featured-projects";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { ImpactTiers } from "@/components/landing/impact-tiers";
@@ -43,6 +44,7 @@ export default async function LandingPage(props: {
         <Hero />
         <WorldScene />
         <NumbersSection stats={stats} />
+        <SeedScene />
         <FeaturedProjects projects={projects} />
         <HowItWorks />
         <ImpactTiers />

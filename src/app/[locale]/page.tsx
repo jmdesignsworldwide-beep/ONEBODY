@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ScrollProgress } from "@/components/landing/scroll-progress";
 import { LivingBackground } from "@/components/landing/living-background";
 import { Hero } from "@/components/hero";
+import { WorldScene } from "@/components/landing/world-scene";
 import { NumbersSection } from "@/components/landing/numbers-section";
 import { FeaturedProjects } from "@/components/landing/featured-projects";
 import { HowItWorks } from "@/components/landing/how-it-works";
@@ -40,6 +41,7 @@ export default async function LandingPage(props: {
       <SiteHeader />
       <main id="main">
         <Hero />
+        <WorldScene />
         <NumbersSection stats={stats} />
         <FeaturedProjects projects={projects} />
         <HowItWorks />

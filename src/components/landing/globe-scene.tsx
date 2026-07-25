@@ -58,6 +58,10 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
     }
     const santiago = toVec(SANTIAGO.lat, SANTIAGO.lng);
 
+    // Dirección de luz (arriba-izquierda-frente): da volumen de esfera real.
+    const LL = Math.hypot(-0.5, 0.62, 0.7);
+    const light: [number, number, number] = [-0.5 / LL, 0.62 / LL, 0.7 / LL];
+
     let W = 0, H = 0, cx = 0, cy = 0, R = 0, dpr = 1;
     function resize() {
       const rect = cv.getBoundingClientRect();
@@ -90,16 +94,47 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
 
     function draw(angle: number) {
       g.clearRect(0, 0, W, H);
-      // puntos del globo
+
+      // Cuerpo de la esfera: degradado cálido iluminado arriba-izquierda → volumen.
+      const gx = cx - R * 0.3, gy = cy - R * 0.36;
+      const body = g.createRadialGradient(gx, gy, R * 0.15, cx, cy, R * 1.02);
+      body.addColorStop(0, "rgba(255,252,245,0.95)");
+      body.addColorStop(0.5, "rgba(246,241,232,0.7)");
+      body.addColorStop(1, "rgba(228,219,204,0.3)");
+      g.beginPath();
+      g.fillStyle = body;
+      g.arc(cx, cy, R, 0, Math.PI * 2);
+      g.fill();
+      // Sombra de borde: refuerza la curvatura de la esfera.
+      const rim = g.createRadialGradient(cx, cy, R * 0.72, cx, cy, R);
+      rim.addColorStop(0, "rgba(110,95,74,0)");
+      rim.addColorStop(1, "rgba(110,95,74,0.2)");
+      g.beginPath();
+      g.fillStyle = rim;
+      g.arc(cx, cy, R, 0, Math.PI * 2);
+      g.fill();
+      // Atmósfera: halo cálido suave por fuera del globo.
+      const atm = g.createRadialGradient(cx, cy, R * 0.98, cx, cy, R * 1.16);
+      atm.addColorStop(0, "rgba(233,183,84,0.18)");
+      atm.addColorStop(1, "rgba(233,183,84,0)");
+      g.beginPath();
+      g.fillStyle = atm;
+      g.arc(cx, cy, R * 1.16, 0, Math.PI * 2);
+      g.fill();
+
+      // Puntos del globo, con iluminación (más vivos en la cara iluminada).
       for (const p of pts) {
         const [x, y, z] = rot(p, angle);
         if (z < -0.15) continue;
         const depth = (z + 1) / 2; // 0 atrás .. 1 frente
+        const lit = Math.max(0, x * light[0] + y * light[1] + z * light[2]);
         const sx = cx + x * R;
         const sy = cy - y * R;
+        const alpha = (0.07 + depth * 0.3) * (0.35 + lit * 0.8);
+        const gg = Math.round(lit * 38);
         g.beginPath();
-        g.fillStyle = `rgba(40,36,32,${0.12 + depth * 0.5})`;
-        g.arc(sx, sy, 0.7 + depth * 1.0, 0, Math.PI * 2);
+        g.fillStyle = `rgba(${58 + gg},${Math.round(49 + gg * 0.6)},40,${alpha})`;
+        g.arc(sx, sy, 0.6 + depth * 1.15, 0, Math.PI * 2);
         g.fill();
       }
       // arcos de donación hacia Santiago

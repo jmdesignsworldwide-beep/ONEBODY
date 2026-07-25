@@ -14,9 +14,8 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-6",
-        interactive &&
-          "transition-colors duration-200 ease-[var(--ease-expo-out)] hover:border-ob-ash",
+        "rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-6 shadow-[0_1px_2px_rgba(20,16,12,0.04)]",
+        interactive && "ob-lift hover:border-ob-red/40",
         className,
       )}
     >

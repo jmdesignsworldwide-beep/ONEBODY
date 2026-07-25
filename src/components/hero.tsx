@@ -1,38 +1,29 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { motion } from "motion/react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-
-// El canvas de convergencia se carga dinámicamente, nunca en el bundle
-// inicial (Sección 10).
-const ConvergenceCanvas = dynamic(
-  () =>
-    import("@/components/convergence/convergence-canvas").then(
-      (m) => m.ConvergenceCanvas,
-    ),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="aspect-square w-[440px] max-w-full" aria-hidden />
-    ),
-  },
-);
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   const t = useTranslations("Hero");
+  const reduce = useReducedMotion();
 
   return (
     <section className="relative flex min-h-dvh items-center overflow-hidden pt-16">
-      {/* Halo rojo tenue detrás del nodo — parte del sistema de marca. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-[120px]"
-        style={{ background: "var(--color-ob-red-glow)" }}
-      />
+      {/* Aurora ambiental: dos halos que derivan lentamente — moderno y sereno. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div
+          className="ob-aurora-1 absolute left-[68%] top-[38%] size-[620px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-[130px]"
+          style={{ background: "radial-gradient(circle, var(--color-ob-red-glow), transparent 70%)" }}
+        />
+        <div
+          className="ob-aurora-2 absolute left-[20%] top-[75%] size-[520px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-[140px]"
+          style={{ background: "radial-gradient(circle, rgba(255,138,90,0.28), transparent 70%)" }}
+        />
+      </div>
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-[1.2fr_1fr]">
         <div>
@@ -45,11 +36,11 @@ export function Hero() {
             {t("eyebrow")}
           </motion.p>
 
-          <h1 className="mt-6 font-display text-[clamp(3rem,9vw,6.5rem)] text-ob-bone">
+          <h1 className="mt-6 font-display text-[clamp(3rem,9vw,6.5rem)] font-bold text-ob-bone">
             {[t("titleLine1"), t("titleLine2")].map((line, i) => (
-              <span key={line} className="block overflow-hidden">
+              <span key={line} className="block overflow-hidden pb-[0.05em]">
                 <motion.span
-                  className="block"
+                  className={`block ${i === 1 ? "ob-gradient-text" : ""}`}
                   initial={{ opacity: 0, y: "0.6em" }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, ease: EASE, delay: 0.15 + i * 0.12 }}
@@ -85,16 +76,44 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: EASE, delay: 0.3 }}
-          className="mx-auto flex items-center justify-center"
+          className="relative mx-auto flex aspect-square w-[300px] max-w-full items-center justify-center md:w-[420px]"
         >
-          <ConvergenceCanvas
-            variant="hero"
-            autoplay
-            ariaLabel="Nodo ONEBODY: cuatro puntos convergiendo en un centro. Muchos miembros, un cuerpo."
+          {/* Anillos concéntricos sutiles: profundidad premium. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full border border-ob-ash/60"
           />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-[12%] rounded-full border border-dashed border-ob-ash/50"
+          />
+          {/* Órbita: un punto que recorre el anillo — detalle futurista sutil. */}
+          <div
+            aria-hidden
+            className={`pointer-events-none absolute inset-0 ${reduce ? "" : "ob-orbit"}`}
+          >
+            <span
+              className="absolute left-1/2 top-0 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ob-red"
+              style={{ boxShadow: "0 0 14px 2px var(--color-ob-red-glow)" }}
+            />
+          </div>
+          <motion.div
+            className="relative flex w-full items-center justify-center"
+            animate={reduce ? undefined : { y: [0, -14, 0] }}
+            transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
+          >
+            <Image
+              src="/onebody-emblem.png"
+              alt="Emblema ONE BODY: cuatro personas unidas en torno a un centro."
+              width={512}
+              height={512}
+              priority
+              className="w-[62%] min-w-[170px] drop-shadow-[0_20px_55px_rgba(224,43,32,0.22)]"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

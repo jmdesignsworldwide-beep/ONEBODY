@@ -30,8 +30,8 @@
   --color-ob-red-deep: #a81810;
   --color-ob-red-glow: rgba(224, 43, 32, 0.18);
 
-  /* -- Tipografía (Sección 2.3) -- */
-  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  /* -- Tipografía (Sección 2.3). Titulares en geométrica redondeada (Fredoka)
+     que hace eco del logo ONE BODY; cuerpo en Geist Sans. -- */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
   /* -- Movimiento (Sección 2.5) -- */
@@ -67,11 +67,12 @@ body {
   font-feature-settings: "tnum";
 }
 
-/* Titulares serif de alto contraste, tracking negativo (Sección 2.3). */
+/* Titulares en geométrica redondeada (Fredoka), eco del logo ONE BODY. */
 .font-display {
-  font-family: var(--font-serif);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-family: var(--font-display), ui-rounded, "Segoe UI", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
 }
 
 /* Foco visible de alto contraste para navegación por teclado (Sección 10). */
@@ -98,6 +99,45 @@ body {
   pointer-events: none;
   opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Movimiento ambiental — aurora suave y órbita del emblema (moderno / premium).
+   Barato en GPU (transform/opacity). Se detiene con prefers-reduced-motion.
+   ========================================================================== */
+@keyframes ob-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.08); }
+}
+@keyframes ob-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-5%, 4%, 0) scale(1.1); }
+}
+@keyframes ob-spin {
+  to { transform: rotate(360deg); }
+}
+.ob-aurora-1 { animation: ob-drift-1 16s ease-in-out infinite; }
+.ob-aurora-2 { animation: ob-drift-2 20s ease-in-out infinite; }
+.ob-orbit { animation: ob-spin 26s linear infinite; }
+
+/* Realce de tarjeta premium: elevación suave al pasar el cursor. */
+.ob-lift {
+  transition:
+    transform 0.35s var(--ease-expo-out),
+    box-shadow 0.35s var(--ease-expo-out),
+    border-color 0.35s var(--ease-expo-out);
+}
+.ob-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px -20px rgba(20, 16, 12, 0.28);
+}
+
+/* Texto con degradado de marca para acentos de titular. */
+.ob-gradient-text {
+  background: linear-gradient(120deg, var(--color-ob-red) 0%, #ff6a3d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ==========================================================================

@@ -15,8 +15,8 @@ export async function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-ob-ash/30 bg-ob-black/70 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="text-xl tracking-tight">
-          <Wordmark />
+        <Link href="/" className="flex items-center">
+          <Wordmark className="h-8 w-auto md:h-9" priority />
         </Link>
 
         <nav

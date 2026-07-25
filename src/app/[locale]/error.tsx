@@ -18,7 +18,7 @@ export default function Error({
 
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center px-6 text-center">
-      <Wordmark className="text-3xl" />
+      <Wordmark className="h-10 w-auto" />
       <p className="mt-10 font-display text-3xl text-ob-bone">
         Algo no salió como esperábamos
       </p>

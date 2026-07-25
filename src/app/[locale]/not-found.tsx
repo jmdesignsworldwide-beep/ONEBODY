@@ -7,7 +7,7 @@ export default function NotFound() {
   setRequestLocale("es");
   return (
     <main className="flex min-h-dvh flex-col items-center justify-center px-6 text-center">
-      <Wordmark className="text-3xl" />
+      <Wordmark className="h-10 w-auto" />
       <p className="mt-10 font-display text-7xl text-ob-bone">404</p>
       <p className="mt-4 max-w-sm text-ob-smoke">
         No encontramos esta página. Puede que se haya movido o que el enlace

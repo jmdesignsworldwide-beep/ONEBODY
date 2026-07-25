@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="flex min-h-dvh flex-col items-center justify-center gap-6">
       <div className="motion-safe:animate-pulse">
-        <Wordmark className="text-2xl opacity-70" />
+        <Wordmark className="h-8 w-auto opacity-70" />
       </div>
       <span className="sr-only">Cargando…</span>
     </div>

@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <Wordmark className="text-2xl" />
+            <Wordmark className="h-9 w-auto" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ob-smoke">
               Fundación ONEBODY · Santiago, República Dominicana
             </p>

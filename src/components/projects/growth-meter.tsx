@@ -1,14 +1,22 @@
 "use client";
 
+import { useId } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import { PlantDefs, PlantBody, Soil } from "@/components/landing/plant-art";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
 
+const TOP = 44; // y de la copa a 100%
+const BASE = 170; // línea del suelo
+const SPAN = BASE - TOP;
+
 /**
- * Brote de proyecto (Sección 4.2): una planta que crece con el financiamiento.
- * A 0% apenas una semilla con raíces; a 100% florecida. Line-art en negro de
- * marca (sin rojo). Se dibuja al entrar en viewport; estático bajo reduce-motion.
+ * Árbol de meta: una planta REALISTA (hojas con volumen, tallo leñoso→verde,
+ * tierra y floración dorada) que crece con el financiamiento. A 0% apenas la
+ * semilla en la tierra; a 100% florecida. El crecimiento se revela de abajo
+ * hacia arriba (clip), con halo cálido que crece y micro-balanceo en reposo.
+ * Estático y digno bajo prefers-reduced-motion. Sin rojo (disciplina de marca).
  */
 export function GrowthMeter({
   progress,
@@ -20,55 +28,60 @@ export function GrowthMeter({
   ariaLabel?: string;
 }) {
   const reduce = useReducedMotion();
+  const uid = useId().replace(/:/g, "");
   const p = clamp(progress);
-  const rootsR = clamp(p / 0.35);
-  const stemR = clamp((p - 0.2) / 0.45);
-  const leavesR = clamp((p - 0.55) / 0.45);
-
-  const stroke = "var(--color-ob-bone)";
-  const common = {
-    fill: "none",
-    stroke,
-    strokeWidth: 2.2,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    pathLength: 1,
-    strokeDasharray: "1 1",
-  };
-  const path = (d: string, reveal: number, delay: number) => (
-    <motion.path
-      d={d}
-      {...common}
-      initial={reduce ? false : { strokeDashoffset: 1 }}
-      whileInView={{ strokeDashoffset: 1 - reveal }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.9, ease: EASE, delay }}
-      style={reduce ? { strokeDashoffset: 1 - reveal } : undefined}
-    />
-  );
+  const h = SPAN * p;
+  const y = BASE - h;
 
   return (
     <svg
-      viewBox="0 0 120 168"
+      viewBox="0 0 160 220"
       className={className}
       role="img"
-      aria-label={ariaLabel ?? `Crecimiento: ${Math.round(p * 100)}%`}
+      aria-label={ariaLabel ?? `Crecimiento del proyecto: ${Math.round(p * 100)}%`}
     >
-      <line x1="16" y1="110" x2="104" y2="110" stroke="var(--color-ob-ash)" strokeWidth="1.5" />
-      {path("M60 110 C 58 126, 40 132, 30 152", rootsR, 0)}
-      {path("M60 110 C 62 128, 80 134, 92 152", rootsR, 0.05)}
-      {path("M60 110 C 60 130, 60 142, 60 158", rootsR, 0.1)}
-      {path("M60 110 C 57 86, 63 62, 60 42", stemR, 0.15)}
-      {path("M60 78 C 40 72, 30 84, 36 98 C 50 96, 60 88, 60 78 Z", leavesR, 0.28)}
-      {path("M60 62 C 80 56, 90 68, 84 82 C 70 80, 60 72, 60 62 Z", leavesR, 0.34)}
-      {path("M60 42 C 54 34, 55 24, 60 18 C 65 24, 66 34, 60 42 Z", leavesR, 0.4)}
+      <PlantDefs id={uid} />
+      <clipPath id={`${uid}-grow`}>
+        {reduce ? (
+          <rect x={0} y={y} width={160} height={h} />
+        ) : (
+          <motion.rect
+            x={0}
+            width={160}
+            initial={{ y: BASE, height: 0 }}
+            whileInView={{ y, height: h }}
+            viewport={{ once: true, margin: "-15% 0px" }}
+            transition={{ duration: 1.5, ease: EASE }}
+          />
+        )}
+      </clipPath>
+
+      {/* Halo cálido que crece con la etapa (dorado, nunca rojo). */}
       <motion.circle
-        cx="60" cy="110" r="4" fill="var(--color-ob-bone)"
-        initial={reduce ? false : { scale: 0 }}
-        whileInView={{ scale: 1 }}
+        cx={80}
+        cy={116}
+        r={72}
+        fill={`url(#${uid}-halo)`}
+        initial={reduce ? false : { scale: 0.6, opacity: 0 }}
+        whileInView={{ scale: 0.55 + p * 0.6, opacity: 0.4 + p * 0.6 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, ease: EASE }}
+        transition={{ duration: 1.6, ease: EASE }}
+        style={{ transformBox: "fill-box", transformOrigin: "center" }}
       />
+
+      <Soil id={uid} />
+      {/* Semilla asomando en la tierra (ancla la etapa temprana). */}
+      <ellipse cx={80} cy={166} rx={5.5} ry={7} fill={`url(#${uid}-soil)`} />
+
+      {/* La planta crece revelándose de abajo hacia arriba. */}
+      <motion.g
+        clipPath={`url(#${uid}-grow)`}
+        style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+        animate={reduce ? undefined : { rotate: [-1.4, 1.4, -1.4] }}
+        transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
+      >
+        <PlantBody id={uid} />
+      </motion.g>
     </svg>
   );
 }

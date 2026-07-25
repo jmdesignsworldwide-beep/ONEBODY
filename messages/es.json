@@ -4,6 +4,7 @@
     "description": "Plataforma global de donaciones de la Fundación ONEBODY. Construimos casas, alimentamos familias y sostenemos comunidades en República Dominicana. Muchos miembros, un cuerpo."
   },
   "Nav": {
+    "home": "Inicio",
     "projects": "Proyectos",
     "about": "Nosotros",
     "impact": "Impacto",

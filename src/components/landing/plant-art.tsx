@@ -1,15 +1,22 @@
 "use client";
 
+import { motion, useTransform, type MotionValue } from "motion/react";
+
 /**
  * Arte de planta realista, compartido por el árbol de meta (GrowthMeter) y la
- * escena de la semilla (SeedScene). En vez de line-art fino (que se ve "hecho
- * por computadora"), son formas RELLENAS con degradado y sombreado: hojas con
- * volumen, tallo con grosor leñoso→verde, tierra cálida y una floración dorada.
- * Todo por código, sin assets. Verdes cálidos que armonizan con el marfil; el
- * rojo de marca se respeta (no aparece aquí).
+ * escena de la semilla (SeedScene). Formas RELLENAS con degradado y sombreado:
+ * hojas con volumen, tallo leñoso→verde, tierra cálida y floración dorada.
+ *
+ * El crecimiento es ORGÁNICO: en vez de recortar la planta con una línea recta
+ * (que cortaba las hojas por la mitad), cada parte crece escalándose desde su
+ * base — el tallo sube y cada hoja se despliega en secuencia. Se maneja con un
+ * único MotionValue `progress` (0→1), así sirve tanto para el % de meta como
+ * para el scroll. Verdes cálidos que armonizan con el marfil; sin rojo.
  *
  * viewBox de referencia: 0 0 160 220 · base (suelo) en y=170.
  */
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 /** Almendra de hoja con nervadura, de la base (bx,by) a la punta (tx,ty). */
 export function leafPath(
@@ -37,24 +44,32 @@ export function leafPath(
   return `M${bx} ${by} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${tx} ${ty} C ${c3x} ${c3y}, ${c4x} ${c4y}, ${bx} ${by} Z`;
 }
 
-export type Leaf = { bx: number; by: number; tx: number; ty: number; w: number };
+export type Leaf = {
+  bx: number;
+  by: number;
+  tx: number;
+  ty: number;
+  w: number;
+  th: number;
+};
 
-/** Hojas de abajo (anchas) hacia arriba (pequeñas), alternando lados. */
+/** Hojas de abajo (anchas, antes) hacia arriba (pequeñas, después). `th` es el
+ * umbral de progreso en que cada hoja empieza a desplegarse. */
 export const LEAVES: Leaf[] = [
-  { bx: 78, by: 150, tx: 34, ty: 141, w: 15 },
-  { bx: 82, by: 144, tx: 126, ty: 133, w: 15 },
-  { bx: 79, by: 122, tx: 41, ty: 105, w: 13 },
-  { bx: 81, by: 114, tx: 119, ty: 99, w: 13 },
-  { bx: 79, by: 96, tx: 52, ty: 77, w: 11 },
-  { bx: 81, by: 90, tx: 108, ty: 73, w: 11 },
-  { bx: 80, by: 74, tx: 66, ty: 55, w: 8.5 },
-  { bx: 80, by: 72, tx: 94, ty: 53, w: 8.5 },
+  { bx: 78, by: 150, tx: 34, ty: 141, w: 15, th: 0.12 },
+  { bx: 82, by: 144, tx: 126, ty: 133, w: 15, th: 0.17 },
+  { bx: 79, by: 122, tx: 41, ty: 105, w: 13, th: 0.33 },
+  { bx: 81, by: 114, tx: 119, ty: 99, w: 13, th: 0.38 },
+  { bx: 79, by: 96, tx: 52, ty: 77, w: 11, th: 0.53 },
+  { bx: 81, by: 90, tx: 108, ty: 73, w: 11, th: 0.58 },
+  { bx: 80, by: 74, tx: 66, ty: 55, w: 8.5, th: 0.72 },
+  { bx: 80, by: 72, tx: 94, ty: 53, w: 8.5, th: 0.76 },
 ];
 
 export const STEM_D =
   "M77 170 C 75.5 130, 78 96, 79 66 C 79.5 60, 80.5 60, 81 66 C 82 96, 84.5 130, 83 170 Z";
-export const SOIL_BACK = "M20 170 Q80 152 140 170 Q80 188 20 170 Z";
-export const SOIL_FRONT = "M30 171 Q80 160 130 171 Q80 182 30 171 Z";
+const SOIL_BACK = "M20 170 Q80 152 140 170 Q80 188 20 170 Z";
+const SOIL_FRONT = "M30 171 Q80 160 130 171 Q80 182 30 171 Z";
 
 /** Degradados y filtro suave, con ids únicos por instancia. */
 export function PlantDefs({ id }: { id: string }) {
@@ -96,14 +111,34 @@ export function PlantDefs({ id }: { id: string }) {
   );
 }
 
-/** Una hoja rellena con su nervadura central más clara. */
-function LeafShape({ id, leaf }: { id: string; leaf: Leaf }) {
+/** Una hoja que se despliega (escala desde su base) al pasar su umbral. */
+function AnimatedLeaf({
+  id,
+  leaf,
+  progress,
+}: {
+  id: string;
+  leaf: Leaf;
+  progress: MotionValue<number>;
+}) {
+  const scale = useTransform(progress, [leaf.th, leaf.th + 0.18], [0, 1], {
+    clamp: true,
+  });
   const mid = `M${leaf.bx} ${leaf.by} Q ${(leaf.bx + leaf.tx) / 2} ${
     (leaf.by + leaf.ty) / 2
   }, ${leaf.tx} ${leaf.ty}`;
   return (
-    <g>
-      <path d={leafPath(leaf.bx, leaf.by, leaf.tx, leaf.ty, leaf.w)} fill={`url(#${id}-leaf)`} />
+    <motion.g
+      style={{
+        scale,
+        transformBox: "view-box",
+        transformOrigin: `${leaf.bx}px ${leaf.by}px`,
+      }}
+    >
+      <path
+        d={leafPath(leaf.bx, leaf.by, leaf.tx, leaf.ty, leaf.w)}
+        fill={`url(#${id}-leaf)`}
+      />
       <path
         d={mid}
         fill="none"
@@ -112,54 +147,76 @@ function LeafShape({ id, leaf }: { id: string; leaf: Leaf }) {
         strokeWidth="1"
         strokeLinecap="round"
       />
-    </g>
+    </motion.g>
   );
 }
 
-/** La floración dorada de la copa (aparece al llegar arriba). NO roja. */
-function Bloom({ id, cx, cy }: { id: string; cx: number; cy: number }) {
+/** El tallo, que sube escalándose desde la base del suelo. */
+function AnimatedStem({
+  id,
+  progress,
+}: {
+  id: string;
+  progress: MotionValue<number>;
+}) {
+  const scaleY = useTransform(progress, [0, 0.82], [0.05, 1], { clamp: true });
+  return (
+    <motion.path
+      d={STEM_D}
+      fill={`url(#${id}-stem)`}
+      style={{
+        scaleY,
+        transformBox: "view-box",
+        transformOrigin: "80px 170px",
+      }}
+    />
+  );
+}
+
+/** La floración dorada de la copa (aparece al final). NO roja. */
+function AnimatedBloom({
+  id,
+  progress,
+  cx,
+  cy,
+}: {
+  id: string;
+  progress: MotionValue<number>;
+  cx: number;
+  cy: number;
+}) {
+  const scale = useTransform(progress, [0.85, 1], [0, 1], { clamp: true });
   const petals = Array.from({ length: 6 }, (_, i) => {
     const a = (i / 6) * Math.PI * 2;
+    const ex = cx + Math.cos(a) * 6;
+    const ey = cy + Math.sin(a) * 6;
     return (
       <ellipse
         key={i}
-        cx={cx + Math.cos(a) * 6}
-        cy={cy + Math.sin(a) * 6}
+        cx={ex}
+        cy={ey}
         rx={5.4}
         ry={3.1}
         fill={`url(#${id}-bloom)`}
-        transform={`rotate(${(a * 180) / Math.PI} ${cx + Math.cos(a) * 6} ${
-          cy + Math.sin(a) * 6
-        })`}
+        transform={`rotate(${(a * 180) / Math.PI} ${ex} ${ey})`}
       />
     );
   });
   return (
-    <g>
+    <motion.g
+      style={{
+        scale,
+        transformBox: "view-box",
+        transformOrigin: `${cx}px ${cy}px`,
+      }}
+    >
       {petals}
       <circle cx={cx} cy={cy} r={3.4} fill="#c9821f" />
-    </g>
+    </motion.g>
   );
 }
 
-/**
- * El cuerpo de la planta (tallo → hojas → floración). El suelo se dibuja aparte
- * porque no debe recortarse con el crecimiento. Pensado para ir DENTRO de un
- * grupo con clip que revela de abajo hacia arriba.
- */
-export function PlantBody({ id }: { id: string }) {
-  return (
-    <g filter={`url(#${id}-soft)`}>
-      <path d={STEM_D} fill={`url(#${id}-stem)`} />
-      {LEAVES.map((leaf, i) => (
-        <LeafShape key={i} id={id} leaf={leaf} />
-      ))}
-      <Bloom id={id} cx={80} cy={58} />
-    </g>
-  );
-}
-
-/** El montículo de tierra (siempre visible, no se recorta). */
+/** El montículo de tierra (siempre visible, no crece). */
 export function Soil({ id }: { id: string }) {
   return (
     <g>
@@ -169,3 +226,55 @@ export function Soil({ id }: { id: string }) {
     </g>
   );
 }
+
+/**
+ * Planta que crece orgánicamente con `progress` (0→1): tallo que sube, hojas
+ * que se despliegan en secuencia y floración final. Sin recortes ni líneas.
+ * Incluye halo cálido que crece y un balanceo mínimo en reposo (si `sway`).
+ */
+export function GrowingPlant({
+  id,
+  progress,
+  sway = true,
+}: {
+  id: string;
+  progress: MotionValue<number>;
+  sway?: boolean;
+}) {
+  const haloScale = useTransform(progress, [0, 1], [0.55, 1.15]);
+  const haloOpacity = useTransform(progress, [0, 1], [0.25, 1]);
+  return (
+    <>
+      <motion.circle
+        cx={80}
+        cy={116}
+        r={72}
+        fill={`url(#${id}-halo)`}
+        style={{
+          scale: haloScale,
+          opacity: haloOpacity,
+          transformBox: "view-box",
+          transformOrigin: "80px 116px",
+        }}
+      />
+      <Soil id={id} />
+      {/* Semilla asomando en la tierra (ancla la etapa temprana). */}
+      <ellipse cx={80} cy={166} rx={5.5} ry={7} fill={`url(#${id}-soil)`} />
+      <motion.g
+        animate={sway ? { rotate: [-1.4, 1.4, -1.4] } : undefined}
+        transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
+        style={{ transformBox: "view-box", transformOrigin: "80px 170px" }}
+      >
+        <g filter={`url(#${id}-soft)`}>
+          <AnimatedStem id={id} progress={progress} />
+          {LEAVES.map((leaf, i) => (
+            <AnimatedLeaf key={i} id={id} leaf={leaf} progress={progress} />
+          ))}
+          <AnimatedBloom id={id} progress={progress} cx={80} cy={58} />
+        </g>
+      </motion.g>
+    </>
+  );
+}
+
+export { EASE };

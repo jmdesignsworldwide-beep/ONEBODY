@@ -5,23 +5,20 @@ import {
   motion,
   useScroll,
   useTransform,
+  useMotionValue,
   useReducedMotion,
 } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/layout";
 import { Reveal } from "@/components/motion/reveal";
 import { RevealHeading } from "@/components/motion/reveal-heading";
-import { PlantDefs, PlantBody, Soil } from "./plant-art";
-
-const BASE = 170;
-const SPAN = 126;
+import { PlantDefs, GrowingPlant } from "./plant-art";
 
 /**
  * Escena 4 — La semilla. Un descenso de scroll siembra una planta REALISTA: la
- * semilla cae a la tierra y, al bajar, la planta crece de abajo hacia arriba
- * (hojas con volumen, tallo leñoso→verde, floración dorada) con un halo cálido.
- * Sin rojo (disciplina de marca). Reemplaza el line-art anterior, que se veía
- * "hecho por computadora".
+ * semilla cae a la tierra y, al bajar, la planta crece ORGÁNICAMENTE —el tallo
+ * sube y cada hoja se despliega desde su base, sin líneas de recorte— hasta
+ * florecer. Sin rojo (disciplina de marca).
  *
  * No secuestra el scroll: el lienzo queda `sticky` mientras el usuario recorre
  * la pista (220vh) a su propio ritmo. Bajo reduce-motion, la planta se muestra
@@ -40,9 +37,9 @@ export function SeedScene() {
   // La semilla cae hasta la tierra; luego la planta crece con el scroll.
   const seedY = useTransform(p, [0, 0.18], [30, 166]);
   const seedO = useTransform(p, [0.16, 0.24], [1, 0]);
-  const growY = useTransform(p, [0.2, 1], [BASE, BASE - SPAN]);
-  const growH = useTransform(p, [0.2, 1], [0, SPAN]);
-  const haloO = useTransform(p, [0.3, 1], [0, 0.9]);
+  const growth = useTransform(p, [0.2, 1], [0, 1], { clamp: true });
+  const full = useMotionValue(1);
+  const progress = reduce ? full : growth;
 
   return (
     <section ref={trackRef} className="relative h-[220vh]">
@@ -63,25 +60,7 @@ export function SeedScene() {
             aria-hidden
           >
             <PlantDefs id={uid} />
-            <clipPath id={`${uid}-grow`}>
-              {reduce ? (
-                <rect x={0} y={BASE - SPAN} width={160} height={SPAN} />
-              ) : (
-                <motion.rect x={0} width={160} y={growY} height={growH} />
-              )}
-            </clipPath>
-
-            {/* Halo cálido que crece con el descenso (dorado, nunca rojo). */}
-            <motion.circle
-              cx={80}
-              cy={116}
-              r={78}
-              fill={`url(#${uid}-halo)`}
-              style={{ opacity: reduce ? 0.8 : haloO }}
-            />
-
-            <Soil id={uid} />
-            {/* Semilla que cae a la tierra. */}
+            {/* Semilla que cae a la tierra antes de que arranque el crecimiento. */}
             <motion.ellipse
               cx={80}
               cy={reduce ? 166 : seedY}
@@ -90,11 +69,7 @@ export function SeedScene() {
               fill={`url(#${uid}-soil)`}
               style={{ opacity: reduce ? 0 : seedO }}
             />
-
-            {/* La planta crece revelándose de abajo hacia arriba. */}
-            <g clipPath={`url(#${uid}-grow)`}>
-              <PlantBody id={uid} />
-            </g>
+            <GrowingPlant id={uid} progress={progress} sway={!reduce} />
           </svg>
 
           <Reveal delay={0.2}>

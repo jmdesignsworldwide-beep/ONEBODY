@@ -1,20 +1,25 @@
+import Image from "next/image";
+
 /**
- * Wordmark ONEBODY — el nodo rojo reemplaza la "O" de BODY (Sección 2.1).
- * El rojo aquí es legítimo: es la marca (uno de los tres contextos permitidos).
+ * Logo ONE BODY (marca oficial): "ONE" en negro + "BODY" en rojo con el emblema
+ * de convergencia como la "O". Imagen con fondo transparente; se dimensiona por
+ * altura vía className (p. ej. `h-8 w-auto`).
  */
-export function Wordmark({ className = "" }: { className?: string }) {
+export function Wordmark({
+  className = "h-8 w-auto",
+  priority = false,
+}: {
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <span
-      className={`inline-flex items-baseline font-display text-ob-bone ${className}`}
-      aria-label="ONEBODY"
-    >
-      <span aria-hidden>ONEB</span>
-      <span
-        aria-hidden
-        className="mx-[0.02em] inline-block size-[0.62em] translate-y-[-0.02em] rounded-full bg-ob-red"
-        style={{ boxShadow: "0 0 12px var(--color-ob-red-glow)" }}
-      />
-      <span aria-hidden>DY</span>
-    </span>
+    <Image
+      src="/onebody-wordmark.png"
+      alt="ONE BODY"
+      width={1446}
+      height={288}
+      priority={priority}
+      className={className}
+    />
   );
 }

@@ -13,17 +13,7 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-dvh items-center overflow-hidden pt-16">
-      {/* Aurora ambiental: dos halos que derivan lentamente — moderno y sereno. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div
-          className="ob-aurora-1 absolute left-[68%] top-[38%] size-[620px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-[130px]"
-          style={{ background: "radial-gradient(circle, var(--color-ob-red-glow), transparent 70%)" }}
-        />
-        <div
-          className="ob-aurora-2 absolute left-[20%] top-[75%] size-[520px] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-[140px]"
-          style={{ background: "radial-gradient(circle, rgba(255,138,90,0.28), transparent 70%)" }}
-        />
-      </div>
+      {/* El fondo vivo de la landing (LivingBackground) aporta el halo ambiental. */}
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-[1.2fr_1fr]">
         <div>

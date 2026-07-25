@@ -116,8 +116,13 @@ body {
 @keyframes ob-spin {
   to { transform: rotate(360deg); }
 }
+@keyframes ob-drift-3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, 6%, 0) scale(1.06); }
+}
 .ob-aurora-1 { animation: ob-drift-1 16s ease-in-out infinite; }
 .ob-aurora-2 { animation: ob-drift-2 20s ease-in-out infinite; }
+.ob-aurora-3 { animation: ob-drift-3 26s ease-in-out infinite; }
 .ob-orbit { animation: ob-spin 26s linear infinite; }
 
 /* Realce de tarjeta premium: elevación suave al pasar el cursor. */

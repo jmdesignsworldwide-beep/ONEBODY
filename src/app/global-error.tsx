@@ -18,8 +18,8 @@ export default function GlobalError({
           alignItems: "center",
           justifyContent: "center",
           gap: "1.5rem",
-          background: "#0A0A0A",
-          color: "#EDEAE3",
+          background: "#f7f3ec",
+          color: "#1b1815",
           fontFamily: "system-ui, sans-serif",
           textAlign: "center",
           padding: "1.5rem",
@@ -31,8 +31,8 @@ export default function GlobalError({
           onClick={reset}
           style={{
             borderRadius: "9999px",
-            background: "#EDEAE3",
-            color: "#0A0A0A",
+            background: "#1b1815",
+            color: "#f7f3ec",
             border: "none",
             padding: "0.75rem 1.75rem",
             fontWeight: 600,

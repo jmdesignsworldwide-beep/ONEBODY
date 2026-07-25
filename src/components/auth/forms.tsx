@@ -13,7 +13,7 @@ import {
 const field =
   "w-full rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-ob-bone outline-none placeholder:text-ob-smoke focus:border-ob-bone";
 const submit =
-  "w-full rounded-full bg-ob-bone py-3.5 font-semibold text-ob-black transition-colors hover:bg-ob-white disabled:opacity-60";
+  "w-full rounded-full bg-ob-bone py-3.5 font-semibold text-ob-black transition-colors hover:opacity-90 disabled:opacity-60";
 
 function useAuthState() {
   const [error, setError] = useState<string | null>(null);
@@ -160,7 +160,7 @@ export function ConvertForm({ donationId }: { donationId: string }) {
       <button
         type="submit"
         disabled={pending}
-        className="rounded-full bg-ob-bone px-6 py-3 font-semibold text-ob-black transition-colors hover:bg-ob-white disabled:opacity-60"
+        className="rounded-full bg-ob-bone px-6 py-3 font-semibold text-ob-black transition-colors hover:opacity-90 disabled:opacity-60"
       >
         {pending ? t("loading") : t("createAccount")}
       </button>

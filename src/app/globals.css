@@ -5,19 +5,30 @@
    Tailwind v4 · configuración CSS-first vía @theme.
    ========================================================================== */
 @theme {
-  /* -- Paleta monocroma (Sección 2.2) -- */
-  --color-ob-black: #0a0a0a;
-  --color-ob-carbon: #141414;
-  --color-ob-graphite: #1f1f1f;
-  --color-ob-ash: #3a3a3a;
-  --color-ob-smoke: #8a8a8a;
-  --color-ob-bone: #f5f3f0;
+  /* -- Paleta cálida y luminosa (Sección 2.2, tema claro).
+     Los NOMBRES conservan su rol semántico; los valores pasan a claro:
+       ob-black  = fondo de página (marfil cálido)
+       ob-carbon = campos de formulario (blanco)
+       ob-graphite = superficies/tarjetas (blanco)
+       ob-ash    = bordes/divisores (gris cálido claro)
+       ob-smoke  = texto secundario (gris cálido medio)
+       ob-bone   = texto principal (casi negro cálido) / relleno de botón
+       ob-white  = máximo contraste (texto sobre rojo) -- */
+  --color-ob-black: #f7f3ec;
+  --color-ob-carbon: #ffffff;
+  --color-ob-graphite: #ffffff;
+  --color-ob-ash: #e6ded1;
+  --color-ob-smoke: #6f6a60;
+  --color-ob-bone: #1b1815;
   --color-ob-white: #ffffff;
+
+  /* -- Marfil elevado para bandas de sección alternas -- */
+  --color-ob-sand: #efe9dd;
 
   /* -- El rojo del logo. Disciplina estricta: marca, donación, convergencia -- */
   --color-ob-red: #e02b20;
   --color-ob-red-deep: #a81810;
-  --color-ob-red-glow: rgba(224, 43, 32, 0.35);
+  --color-ob-red-glow: rgba(224, 43, 32, 0.18);
 
   /* -- Tipografía (Sección 2.3) -- */
   --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
@@ -34,7 +45,7 @@
    Base
    ========================================================================== */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -85,7 +96,7 @@ body {
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 

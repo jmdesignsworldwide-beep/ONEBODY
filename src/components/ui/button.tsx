@@ -22,7 +22,7 @@ const base =
 const variants: Record<Variant, string> = {
   donate:
     "bg-ob-red text-ob-white shadow-[0_0_28px_var(--color-ob-red-glow)] hover:bg-ob-red-deep",
-  primary: "bg-ob-bone text-ob-black hover:bg-ob-white",
+  primary: "bg-ob-bone text-ob-black hover:opacity-90",
   secondary:
     "border border-ob-ash text-ob-bone hover:border-ob-bone hover:bg-ob-bone/5",
   ghost: "text-ob-smoke hover:text-ob-bone hover:bg-ob-bone/5",

@@ -1,5 +1,7 @@
 import type { ElementType, ReactNode } from "react";
 import { cn } from "@/lib/cn";
+import { Reveal } from "@/components/motion/reveal";
+import { RevealHeading } from "@/components/motion/reveal-heading";
 
 /** Contenedor central con ancho máximo y padding lateral consistentes. */
 export function Container({
@@ -54,22 +56,26 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="text-xs uppercase tracking-[0.25em] text-ob-smoke">
-          {eyebrow}
-        </span>
+        <Reveal y={8}>
+          <span className="text-xs uppercase tracking-[0.25em] text-ob-smoke">
+            {eyebrow}
+          </span>
+        </Reveal>
       )}
       <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] text-ob-bone">
-        {title}
+        <RevealHeading delay={0.12}>{title}</RevealHeading>
       </h2>
       {description && (
-        <p
-          className={cn(
-            "max-w-xl text-lg leading-relaxed text-ob-smoke",
-            align === "center" && "mx-auto",
-          )}
-        >
-          {description}
-        </p>
+        <Reveal delay={0.25}>
+          <p
+            className={cn(
+              "max-w-xl text-lg leading-relaxed text-ob-smoke",
+              align === "center" && "mx-auto",
+            )}
+          >
+            {description}
+          </p>
+        </Reveal>
       )}
     </div>
   );

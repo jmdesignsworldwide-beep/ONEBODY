@@ -2,20 +2,21 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Instrument_Serif } from "next/font/google";
+import { Fredoka } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { routing, isRtl, type Locale } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { Tracker } from "@/components/analytics/tracker";
+import { WelcomeSplash } from "@/components/welcome-splash";
 import "../globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
+// Titulares en una geométrica redondeada que hace eco del logo ONE BODY.
+const fredoka = Fredoka({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-instrument-serif",
+  variable: "--font-display",
 });
 
 export function generateStaticParams() {
@@ -80,7 +81,7 @@ export default async function LocaleLayout(props: {
     <html
       lang={locale}
       dir={dir}
-      className={`${GeistSans.variable} ${instrumentSerif.variable}`}
+      className={`${GeistSans.variable} ${fredoka.variable}`}
       suppressHydrationWarning
     >
       <body className="grain min-h-dvh bg-ob-black text-ob-bone antialiased">
@@ -94,6 +95,7 @@ export default async function LocaleLayout(props: {
           <SmoothScroll>{props.children}</SmoothScroll>
           <Tracker />
         </NextIntlClientProvider>
+        <WelcomeSplash />
         <ServiceWorkerRegister />
       </body>
     </html>

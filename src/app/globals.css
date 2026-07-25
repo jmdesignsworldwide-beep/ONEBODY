@@ -30,8 +30,8 @@
   --color-ob-red-deep: #a81810;
   --color-ob-red-glow: rgba(224, 43, 32, 0.18);
 
-  /* -- Tipografía (Sección 2.3) -- */
-  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  /* -- Tipografía (Sección 2.3). Titulares en geométrica redondeada (Fredoka)
+     que hace eco del logo ONE BODY; cuerpo en Geist Sans. -- */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 
   /* -- Movimiento (Sección 2.5) -- */
@@ -67,11 +67,12 @@ body {
   font-feature-settings: "tnum";
 }
 
-/* Titulares serif de alto contraste, tracking negativo (Sección 2.3). */
+/* Titulares en geométrica redondeada (Fredoka), eco del logo ONE BODY. */
 .font-display {
-  font-family: var(--font-serif);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  font-family: var(--font-display), ui-rounded, "Segoe UI", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
 }
 
 /* Foco visible de alto contraste para navegación por teclado (Sección 10). */

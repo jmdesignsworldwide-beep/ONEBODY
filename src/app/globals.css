@@ -102,6 +102,45 @@ body {
 }
 
 /* ==========================================================================
+   Movimiento ambiental — aurora suave y órbita del emblema (moderno / premium).
+   Barato en GPU (transform/opacity). Se detiene con prefers-reduced-motion.
+   ========================================================================== */
+@keyframes ob-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.08); }
+}
+@keyframes ob-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-5%, 4%, 0) scale(1.1); }
+}
+@keyframes ob-spin {
+  to { transform: rotate(360deg); }
+}
+.ob-aurora-1 { animation: ob-drift-1 16s ease-in-out infinite; }
+.ob-aurora-2 { animation: ob-drift-2 20s ease-in-out infinite; }
+.ob-orbit { animation: ob-spin 26s linear infinite; }
+
+/* Realce de tarjeta premium: elevación suave al pasar el cursor. */
+.ob-lift {
+  transition:
+    transform 0.35s var(--ease-expo-out),
+    box-shadow 0.35s var(--ease-expo-out),
+    border-color 0.35s var(--ease-expo-out);
+}
+.ob-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px -20px rgba(20, 16, 12, 0.28);
+}
+
+/* Texto con degradado de marca para acentos de titular. */
+.ob-gradient-text {
+  background: linear-gradient(120deg, var(--color-ob-red) 0%, #ff6a3d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ==========================================================================
    prefers-reduced-motion — respetado en todo el sistema (Sección 2.5 / 10).
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {

@@ -51,7 +51,7 @@ export function TreatedImage({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover [filter:sepia(0.12)_saturate(1.05)_contrast(1.05)_brightness(1.02)]"
+          className="object-cover transition-transform duration-[650ms] ease-[var(--ease-expo-out)] group-hover:scale-[1.05] [filter:sepia(0.12)_saturate(1.05)_contrast(1.05)_brightness(1.02)]"
         />
       ) : (
         // Marcador cálido con el mismo grado, hasta que llegue la foto real.

@@ -4,6 +4,7 @@
     "description": "Global donation platform of the ONEBODY Foundation. We build homes, feed families, and sustain communities in the Dominican Republic. Many members, one body."
   },
   "Nav": {
+    "home": "Home",
     "projects": "Projects",
     "about": "About",
     "impact": "Impact",

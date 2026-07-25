@@ -67,9 +67,9 @@ export function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, ease: EASE }}
           className="relative mx-auto flex aspect-square w-[300px] max-w-full items-center justify-center md:w-[420px]"
         >
           {/* Ensamblaje de la marca: puntos dispersos convergen y se disuelven
@@ -99,11 +99,11 @@ export function Hero() {
             animate={reduce ? undefined : { y: [0, -14, 0] }}
             transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
           >
-            {/* El emblema se asienta cuando los puntos terminan de converger. */}
+            {/* El emblema nítido cristaliza cuando la tinta termina de ensamblar. */}
             <motion.div
-              initial={reduce ? false : { opacity: 0, scale: 0.86 }}
+              initial={reduce ? false : { opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.95 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 1.7 }}
               className="flex w-full items-center justify-center"
             >
               <Image

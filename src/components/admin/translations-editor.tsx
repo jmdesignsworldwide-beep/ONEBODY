@@ -180,7 +180,7 @@ function LocalePanel({
               type="button"
               disabled={pending}
               onClick={save}
-              className="rounded-full bg-ob-bone px-5 py-2.5 text-sm font-semibold text-ob-black transition-colors hover:bg-ob-white disabled:opacity-60"
+              className="rounded-full bg-ob-bone px-5 py-2.5 text-sm font-semibold text-ob-black transition-colors hover:opacity-90 disabled:opacity-60"
             >
               {pending ? t("saving") : t("save")}
             </button>

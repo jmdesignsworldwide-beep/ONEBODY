@@ -279,7 +279,7 @@ export function ProjectForm({
       <button
         type="submit"
         disabled={pending}
-        className="rounded-full bg-ob-bone px-6 py-3 font-semibold text-ob-black transition-colors hover:bg-ob-white disabled:opacity-60"
+        className="rounded-full bg-ob-bone px-6 py-3 font-semibold text-ob-black transition-colors hover:opacity-90 disabled:opacity-60"
       >
         {pending ? t("saving") : isEdit ? t("save") : t("create")}
       </button>

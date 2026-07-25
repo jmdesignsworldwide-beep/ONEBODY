@@ -36,7 +36,7 @@ export default async function AdminOverviewPage() {
         </div>
         <Link
           href="/admin/proyectos/nuevo"
-          className="rounded-full bg-ob-bone px-5 py-2.5 text-sm font-semibold text-ob-black transition-colors hover:bg-ob-white"
+          className="rounded-full bg-ob-bone px-5 py-2.5 text-sm font-semibold text-ob-black transition-colors hover:opacity-90"
         >
           {t("newProject")}
         </Link>

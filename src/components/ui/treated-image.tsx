@@ -58,10 +58,10 @@ export function TreatedImage({
         <div
           aria-label={alt}
           role="img"
-          className="absolute inset-0 [filter:contrast(1.05)]"
+          className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 120% at 30% 20%, #2a2320 0%, #1a1614 45%, #0f0d0c 100%)",
+              "radial-gradient(130% 130% at 25% 15%, #f6ddce 0%, #eebfa6 42%, #d98e74 100%)",
           }}
         />
       )}
@@ -80,7 +80,7 @@ export function TreatedImage({
       {overlay && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ob-black/80 via-ob-black/10 to-transparent"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"
         />
       )}
     </figure>

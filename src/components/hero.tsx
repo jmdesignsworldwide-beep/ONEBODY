@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { MarkAssembly } from "@/components/landing/mark-assembly";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -71,6 +72,9 @@ export function Hero() {
           transition={{ duration: 1, ease: EASE, delay: 0.3 }}
           className="relative mx-auto flex aspect-square w-[300px] max-w-full items-center justify-center md:w-[420px]"
         >
+          {/* Ensamblaje de la marca: puntos dispersos convergen y se disuelven
+              en el emblema — "muchos miembros" que se hacen "un cuerpo". */}
+          <MarkAssembly />
           {/* Anillos concéntricos sutiles: profundidad premium. */}
           <div
             aria-hidden
@@ -95,14 +99,22 @@ export function Hero() {
             animate={reduce ? undefined : { y: [0, -14, 0] }}
             transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
           >
-            <Image
-              src="/onebody-emblem.png"
-              alt="Emblema ONE BODY: cuatro personas unidas en torno a un centro."
-              width={512}
-              height={512}
-              priority
-              className="w-[62%] min-w-[170px] drop-shadow-[0_20px_55px_rgba(224,43,32,0.22)]"
-            />
+            {/* El emblema se asienta cuando los puntos terminan de converger. */}
+            <motion.div
+              initial={reduce ? false : { opacity: 0, scale: 0.86 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.95 }}
+              className="flex w-full items-center justify-center"
+            >
+              <Image
+                src="/onebody-emblem.png"
+                alt="Emblema ONE BODY: cuatro personas unidas en torno a un centro."
+                width={512}
+                height={512}
+                priority
+                className="w-[62%] min-w-[170px] drop-shadow-[0_20px_55px_rgba(224,43,32,0.22)]"
+              />
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

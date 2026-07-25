@@ -1,4 +1,4 @@
-import { createElement, type ElementType, type ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Reveal } from "@/components/motion/reveal";
 import { RevealHeading } from "@/components/motion/reveal-heading";
@@ -14,13 +14,7 @@ export function Container({
   className?: string;
   as?: ElementType;
 }) {
-  // createElement evita el choque de tipos JSX: R3F augmenta IntrinsicElements
-  // con elementos sin children, colapsando el prop children de `As` a `never`.
-  return createElement(
-    As,
-    { className: cn("mx-auto w-full max-w-6xl px-6", className) },
-    children,
-  );
+  return <As className={cn("mx-auto w-full max-w-6xl px-6", className)}>{children}</As>;
 }
 
 /** Sección con ritmo vertical generoso (los titulares deben respirar). */

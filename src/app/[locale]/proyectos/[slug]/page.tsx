@@ -13,6 +13,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { MobileGoalBar } from "@/components/projects/mobile-goal-bar";
 import { Link } from "@/i18n/navigation";
 import { getProjectDetail } from "@/lib/queries";
+import { getOrigin } from "@/lib/site-url";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -23,9 +24,34 @@ export async function generateMetadata(props: {
   const { locale, slug } = await props.params;
   const detail = await getProjectDetail(slug, locale);
   if (!detail) return { title: "404" };
+  const p = detail.project;
+  const origin = await getOrigin();
+  const title = p.title_es;
+  const description =
+    p.summary_es || "Un proyecto de la Fundación ONEBODY.";
+  // URL absoluta y pública (Instagram/WhatsApp exigen imagen pública). Si el
+  // proyecto no tiene portada, usa la imagen OG por defecto de la marca.
+  const image = p.cover_image ?? `${origin}/og-default.png`;
+  const url = `${origin}/${locale}/proyectos/${slug}`;
+
   return {
-    title: detail.project.title_es,
-    description: detail.project.summary_es,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url,
+      siteName: "ONEBODY",
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 

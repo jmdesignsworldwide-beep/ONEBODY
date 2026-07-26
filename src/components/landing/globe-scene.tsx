@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { getBrowserClient } from "@/lib/supabase/browser";
+import { buildLandPoints } from "./world-mask";
 
 /** Santiago de los Caballeros, RD. */
 const SANTIAGO = { lat: 19.45, lng: -70.7 };
@@ -46,8 +47,8 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Esfera de puntos (fibonacci) — globo de luz, ligero.
-    const N = 1500;
+    // Océano: esfera de puntos (fibonacci) muy tenue, textura sutil.
+    const N = 700;
     const pts: [number, number, number][] = [];
     const gold = Math.PI * (3 - Math.sqrt(5));
     for (let i = 0; i < N; i++) {
@@ -56,6 +57,8 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
       const th = gold * i;
       pts.push([Math.cos(th) * r, y, Math.sin(th) * r]);
     }
+    // Continentes reales (Natural Earth 110m) como puntos de tierra.
+    const land = buildLandPoints(0.7);
     const santiago = toVec(SANTIAGO.lat, SANTIAGO.lng);
 
     // Dirección de luz (arriba-izquierda-frente): da volumen de esfera real.
@@ -122,19 +125,29 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
       g.arc(cx, cy, R * 1.16, 0, Math.PI * 2);
       g.fill();
 
-      // Puntos del globo, con iluminación (más vivos en la cara iluminada).
+      // Océano: puntos muy tenues (textura del agua).
       for (const p of pts) {
         const [x, y, z] = rot(p, angle);
         if (z < -0.15) continue;
         const depth = (z + 1) / 2; // 0 atrás .. 1 frente
         const lit = Math.max(0, x * light[0] + y * light[1] + z * light[2]);
-        const sx = cx + x * R;
-        const sy = cy - y * R;
-        const alpha = (0.07 + depth * 0.3) * (0.35 + lit * 0.8);
-        const gg = Math.round(lit * 38);
+        const alpha = (0.04 + depth * 0.1) * (0.4 + lit * 0.6);
         g.beginPath();
-        g.fillStyle = `rgba(${58 + gg},${Math.round(49 + gg * 0.6)},40,${alpha})`;
-        g.arc(sx, sy, 0.6 + depth * 1.15, 0, Math.PI * 2);
+        g.fillStyle = `rgba(96,84,66,${alpha})`;
+        g.arc(cx + x * R, cy - y * R, 0.5 + depth * 0.7, 0, Math.PI * 2);
+        g.fill();
+      }
+      // Continentes reales: tinta cálida, iluminados (cara de luz más viva).
+      for (const p of land) {
+        const [x, y, z] = rot(p, angle);
+        if (z < -0.12) continue;
+        const depth = (z + 1) / 2;
+        const lit = Math.max(0, x * light[0] + y * light[1] + z * light[2]);
+        const alpha = (0.3 + depth * 0.5) * (0.42 + lit * 0.68);
+        const gg = Math.round(lit * 34);
+        g.beginPath();
+        g.fillStyle = `rgba(${78 + gg},${Math.round(62 + gg * 0.5)},44,${alpha})`;
+        g.arc(cx + x * R, cy - y * R, 0.7 + depth * 1.2, 0, Math.PI * 2);
         g.fill();
       }
       // arcos de donación hacia Santiago

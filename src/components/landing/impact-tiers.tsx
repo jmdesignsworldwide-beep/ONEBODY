@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Container, Section, SectionHeading } from "@/components/ui/layout";
 import { Card } from "@/components/ui/card";
+import { GrowthMark } from "@/components/motion/growth-mark";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
 /**
@@ -29,7 +30,10 @@ export async function ImpactTiers() {
     <Section className="border-t border-ob-ash/20">
       <Container>
         <Reveal>
-          <SectionHeading title={t("impactTitle")} />
+          <SectionHeading
+            mark={<GrowthMark className="h-7 w-7 text-ob-bone/70" />}
+            title={t("impactTitle")}
+          />
         </Reveal>
         <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" gap={0.08}>
           {tiers.map((tier) => (

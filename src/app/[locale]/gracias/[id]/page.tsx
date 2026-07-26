@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container, Section } from "@/components/ui/layout";
 import { Button } from "@/components/ui/button";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
+import { NodeMark } from "@/components/motion/node-mark";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { getCurrentUser } from "@/lib/supabase/server-auth";
 import { ConvertForm } from "@/components/auth/forms";
@@ -72,7 +72,7 @@ export default async function ThanksPage(props: {
             {status === "completed" ? (
               <>
                 <div className="flex justify-center">
-                  <ConvergenceCanvas variant="card" autoplay ariaLabel={t("thanksTitle")} />
+                  <NodeMark className="h-20 w-20 text-ob-bone" />
                 </div>
                 <h1 className="mt-6 font-display text-[clamp(2.5rem,6vw,4rem)] text-ob-bone">
                   {t("thanksTitle")}
@@ -84,7 +84,7 @@ export default async function ThanksPage(props: {
                   <p className="mt-2 text-ob-bone">{projectTitle}</p>
                 )}
                 <p className="mx-auto mt-6 max-w-md text-ob-smoke">
-                  <span className="text-ob-red">●</span> {money} {impact}
+                  {money} · {impact}
                 </p>
                 <div className="mt-10 flex flex-wrap justify-center gap-4">
                   <Button href="/proyectos" variant="secondary">

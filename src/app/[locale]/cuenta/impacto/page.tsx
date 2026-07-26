@@ -1,7 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getMySupportedProjects } from "@/lib/account-queries";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
+import { GrowthMark } from "@/components/motion/growth-mark";
 import type { ProjectCategory } from "@/lib/supabase/types";
 
 export default async function ImpactPage() {
@@ -37,12 +37,7 @@ export default async function ImpactPage() {
                 href={`/proyectos/${p.slug}`}
                 className="group flex items-center gap-5 rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-5 transition-colors hover:border-ob-ash"
               >
-                <ConvergenceCanvas
-                  variant="inline"
-                  progress={progress}
-                  ariaLabel={`${p.title_es}: ${Math.round(progress * 100)}%`}
-                  className="shrink-0"
-                />
+                <GrowthMark className="h-7 w-7 shrink-0 text-ob-bone/70" />
                 <div className="min-w-0">
                   <p className="text-xs uppercase tracking-widest text-ob-smoke">
                     {tc(p.category as ProjectCategory)}

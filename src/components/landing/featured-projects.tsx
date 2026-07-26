@@ -4,7 +4,7 @@ import { Container, Section, SectionHeading } from "@/components/ui/layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TreatedImage } from "@/components/ui/treated-image";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
+import { GrowthMark } from "@/components/motion/growth-mark";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import type { FeaturedProject } from "@/lib/supabase/types";
 
@@ -37,10 +37,6 @@ export async function FeaturedProjects({
         ) : (
           <Stagger className="mt-14 grid gap-8 md:grid-cols-3" gap={0.09}>
             {projects.map((p) => {
-              const progress =
-                p.goal_amount > 0
-                  ? Math.min(1, p.raised_amount / p.goal_amount)
-                  : 0;
               return (
                 <StaggerItem key={p.id}>
                   <Link
@@ -64,13 +60,8 @@ export async function FeaturedProjects({
                     <p className="mt-2 line-clamp-2 text-ob-smoke">
                       {p.summary_es}
                     </p>
-                    <div className="mt-4 flex items-center gap-4">
-                      <ConvergenceCanvas
-                        variant="inline"
-                        progress={progress}
-                        ariaLabel={`${p.title_es}: ${Math.round(progress * 100)}%`}
-                        className="shrink-0"
-                      />
+                    <div className="mt-4 flex items-center gap-3">
+                      <GrowthMark className="h-6 w-6 shrink-0 text-ob-bone/70" />
                       <div className="tabular text-sm">
                         <p className="text-ob-bone">{money(p.raised_amount)}</p>
                         <p className="text-ob-smoke">

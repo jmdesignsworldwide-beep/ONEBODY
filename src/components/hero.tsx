@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { NodeMark } from "@/components/motion/node-mark";
 import { MarkAssembly } from "@/components/landing/mark-assembly";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -18,14 +19,17 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-[1.2fr_1fr]">
         <div>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="text-xs uppercase tracking-[0.25em] text-ob-smoke"
+            className="flex items-center gap-3"
           >
-            {t("eyebrow")}
-          </motion.p>
+            <NodeMark className="h-7 w-7 shrink-0 text-ob-bone/70" />
+            <p className="text-xs uppercase tracking-[0.25em] text-ob-smoke">
+              {t("eyebrow")}
+            </p>
+          </motion.div>
 
           <h1 className="mt-6 font-display text-[clamp(3rem,9vw,6.5rem)] font-bold text-ob-bone">
             {[t("titleLine1"), t("titleLine2")].map((line, i) => (
@@ -75,25 +79,6 @@ export function Hero() {
           {/* Ensamblaje de la marca: puntos dispersos convergen y se disuelven
               en el emblema — "muchos miembros" que se hacen "un cuerpo". */}
           <MarkAssembly />
-          {/* Anillos concéntricos sutiles: profundidad premium. */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-full border border-ob-ash/60"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-[12%] rounded-full border border-dashed border-ob-ash/50"
-          />
-          {/* Órbita: un punto que recorre el anillo — detalle futurista sutil. */}
-          <div
-            aria-hidden
-            className={`pointer-events-none absolute inset-0 ${reduce ? "" : "ob-orbit"}`}
-          >
-            <span
-              className="absolute left-1/2 top-0 size-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ob-red"
-              style={{ boxShadow: "0 0 14px 2px var(--color-ob-red-glow)" }}
-            />
-          </div>
           <motion.div
             className="relative flex w-full items-center justify-center"
             animate={reduce ? undefined : { y: [0, -14, 0] }}

@@ -29,7 +29,7 @@ export async function ImpactTiers() {
     <Section className="border-t border-ob-ash/20">
       <Container>
         <Reveal>
-          <SectionHeading eyebrow={t("impactEyebrow")} title={t("impactTitle")} />
+          <SectionHeading title={t("impactTitle")} />
         </Reveal>
         <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" gap={0.08}>
           {tiers.map((tier) => (

@@ -13,23 +13,14 @@ export async function HowItWorks() {
     <Section className="border-t border-ob-ash/20 bg-ob-carbon">
       <Container>
         <Reveal>
-          <SectionHeading
-            eyebrow={t("howEyebrow")}
-            title={t("howTitle")}
-            align="center"
-          />
+          <SectionHeading title={t("howTitle")} align="center" />
         </Reveal>
         <Stagger className="mt-16 grid gap-10 md:grid-cols-3" gap={0.1}>
           {steps.map((s, i) => (
             <StaggerItem key={s.t}>
               <div className="flex flex-col items-center text-center">
-                <div className="relative flex size-16 items-center justify-center">
-                  <span
-                    aria-hidden
-                    className="absolute size-3 rounded-full bg-ob-red"
-                    style={{ boxShadow: "0 0 16px var(--color-ob-red-glow)" }}
-                  />
-                  <span className="tabular relative font-display text-2xl text-ob-bone/40">
+                <div className="flex size-16 items-center justify-center">
+                  <span className="tabular font-display text-3xl text-ob-bone/30">
                     0{i + 1}
                   </span>
                 </div>

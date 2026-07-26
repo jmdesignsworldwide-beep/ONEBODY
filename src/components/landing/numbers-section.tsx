@@ -11,8 +11,8 @@ export async function NumbersSection({ stats }: { stats: PublicStats }) {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow={t("numbersEyebrow")}
             title={t("numbersTitle")}
+            description={t("numbersSub")}
           />
         </Reveal>
         <div className="mt-14">

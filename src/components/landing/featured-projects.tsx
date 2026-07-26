@@ -27,8 +27,8 @@ export async function FeaturedProjects({
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow={t("projectsEyebrow")}
             title={t("projectsTitle")}
+            description={t("projectsBody")}
           />
         </Reveal>
 
@@ -87,7 +87,7 @@ export async function FeaturedProjects({
 
         <Reveal className="mt-14">
           <Button href="/proyectos" variant="secondary">
-            {t("projectsEyebrow")}
+            {t("projectsLink")}
           </Button>
         </Reveal>
       </Container>

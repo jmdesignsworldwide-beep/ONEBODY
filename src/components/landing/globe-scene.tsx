@@ -18,11 +18,28 @@ const COUNTRY: Record<string, [number, number]> = {
   AE: [24, 54], SA: [24, 45], MA: [32, -6], KE: [0, 38], PH: [13, 122],
 };
 
-/** Ciudades para los "blooms" de demostración (nunca luce muerto). */
+/** Ciudades para los "blooms" de demostración (nunca luce muerto). Cobertura
+ * mundial para que se sienta que la gente dona desde todas partes. */
 const DEMO: [number, number][] = [
-  [40, -3.7], [48.8, 2.3], [51.5, -0.1], [40.7, -74], [19.4, -99.1],
-  [-23.5, -46.6], [-34.6, -58.4], [4.7, -74], [35.7, 139.7], [37.5, 127],
-  [28.6, 77.2], [-33.9, 18.4], [55.7, 37.6], [30, 31.2], [-33.8, 151.2],
+  // América del Norte
+  [40.7, -74], [34, -118.2], [41.9, -87.6], [45.5, -73.6], [19.4, -99.1],
+  [25.8, -80.2], [29.8, -95.4], [37.8, -122.4],
+  // Caribe y Centroamérica
+  [18.5, -69.9], [18.2, -66.5], [23.1, -82.4], [14.6, -90.5], [9.9, -84.1],
+  // América del Sur
+  [-23.5, -46.6], [-34.6, -58.4], [4.7, -74], [-12, -77], [10.5, -66.9],
+  [-33.4, -70.6], [-0.2, -78.5], [-16.5, -68.1],
+  // Europa
+  [40.4, -3.7], [48.8, 2.3], [51.5, -0.1], [52.5, 13.4], [41.9, 12.5],
+  [52.4, 4.9], [38.7, -9.1], [55.7, 37.6], [59.3, 18.1], [53.3, -6.3],
+  // África
+  [-33.9, 18.4], [6.5, 3.4], [30, 31.2], [-1.3, 36.8], [14.7, -17.5],
+  [33.6, -7.6], [-26.2, 28.0],
+  // Asia
+  [35.7, 139.7], [37.5, 127], [28.6, 77.2], [1.35, 103.8], [13.7, 100.5],
+  [25.2, 55.3], [31.2, 121.5], [14.6, 121], [39.9, 116.4], [24.5, 54.4],
+  // Oceanía
+  [-33.8, 151.2], [-37.8, 144.9], [-36.8, 174.8],
 ];
 
 function toVec(lat: number, lng: number): [number, number, number] {
@@ -86,8 +103,13 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
       const v = toVec(lat, lng);
       blooms.push({ v, t: 0 });
       arcs.push({ a: v, b: santiago, t: 0 });
-      if (blooms.length > 30) blooms.shift();
-      if (arcs.length > 30) arcs.shift();
+      if (blooms.length > 60) blooms.shift();
+      if (arcs.length > 60) arcs.shift();
+    }
+    /** Una donación de demostración desde una ciudad al azar. */
+    function spawnRandom() {
+      const c = DEMO[Math.floor(Math.random() * DEMO.length)]!;
+      spawn(c[0], c[1]);
     }
 
     function rot(v: [number, number, number], a: number): [number, number, number] {
@@ -216,8 +238,8 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
 
     // reduced-motion: un solo fotograma estático, digno.
     if (reduce) {
-      draw(-0.6);
       spawn(40, -3.7); spawn(35.7, 139.7); spawn(-23.5, -46.6);
+      spawn(40.7, -74); spawn(-33.9, 18.4); spawn(28.6, 77.2);
       draw(-0.6);
       return () => ro.disconnect();
     }
@@ -246,11 +268,14 @@ export function GlobeScene({ ariaLabel }: { ariaLabel: string }) {
       for (const a of arcs) a.t += dt;
       while (blooms.length && blooms[0]!.t > 1.6) blooms.shift();
       while (arcs.length && arcs[0]!.t > 1.7) arcs.shift();
-      demoTimer += dt;
-      if (demoTimer > 2.8) {
-        demoTimer = 0;
-        const c = DEMO[Math.floor((angle * 1000) % DEMO.length)]!;
-        spawn(c[0], c[1]);
+      demoTimer -= dt;
+      if (demoTimer <= 0) {
+        // Intervalo corto y variado → sensación de donaciones constantes.
+        demoTimer = 0.5 + Math.random() * 0.9;
+        spawnRandom();
+        // A veces, una ráfaga: dos o tres a la vez, en distintos continentes.
+        if (Math.random() < 0.35) spawnRandom();
+        if (Math.random() < 0.15) spawnRandom();
       }
       draw(angle);
       raf = requestAnimationFrame(loop);

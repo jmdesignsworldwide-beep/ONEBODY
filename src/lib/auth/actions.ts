@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { getServerAuthClient } from "@/lib/supabase/server-auth";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminRole } from "@/lib/admin/auth";
 import { getOrigin } from "@/lib/site-url";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
 import { safeLocale } from "@/i18n/routing";
@@ -66,8 +67,17 @@ export async function signInAction(
   if (error) return { ok: false, error: "Correo o contraseña incorrectos." };
   // Email probado (contraseña sobre cuenta confirmada): es seguro enlazar aquí
   // las donaciones de invitado que quedaron sin enlazar antes de confirmar.
-  if (data.user) await linkDonationsByEmail(data.user.id, e.data);
-  redirect(`/${locale}/cuenta`);
+  let dest = "cuenta";
+  if (data.user) {
+    await linkDonationsByEmail(data.user.id, e.data);
+    // Fuente de verdad ÚNICA: el rol se lee de admin_users server-side (con
+    // service_role), nunca se infiere del dominio del email. Los administradores
+    // van directo al panel; el resto, al portal de donante. El bloqueo de /admin
+    // para no-admins sigue viviendo en admin/layout.tsx (independiente de esto).
+    const role = await getAdminRole(data.user);
+    if (role) dest = "admin";
+  }
+  redirect(`/${locale}/${dest}`);
 }
 
 export type SignUpResult =

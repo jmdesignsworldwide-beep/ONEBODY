@@ -64,7 +64,7 @@ export default async function TransparencyPage(props: {
               {pillars.map((p) => (
                 <StaggerItem key={p.t}>
                   <div className="h-full rounded-[var(--radius-ob)] border border-ob-ash bg-ob-graphite p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
-                    <h3 className="font-display text-2xl text-ob-red">{p.t}</h3>
+                    <h3 className="font-display text-2xl text-ob-bone">{p.t}</h3>
                     <p className="mt-3 leading-relaxed text-ob-smoke">{p.b}</p>
                   </div>
                 </StaggerItem>
@@ -80,7 +80,7 @@ export default async function TransparencyPage(props: {
             <ol className="mt-10 space-y-6">
               {flow.map((step, i) => (
                 <li key={step} className="flex gap-5">
-                  <span className="tabular flex size-9 shrink-0 items-center justify-center rounded-full border border-ob-red text-sm font-semibold text-ob-red">
+                  <span className="tabular flex size-9 shrink-0 items-center justify-center rounded-full border border-ob-ash text-sm font-semibold text-ob-bone">
                     {i + 1}
                   </span>
                   <p className="pt-1 text-lg leading-relaxed text-ob-bone/90">

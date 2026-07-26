@@ -6,6 +6,7 @@ import { Fredoka } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { routing, isRtl, type Locale } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { LivingBackground } from "@/components/landing/living-background";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { Tracker } from "@/components/analytics/tracker";
 import { WelcomeSplash } from "@/components/welcome-splash";
@@ -91,6 +92,7 @@ export default async function LocaleLayout(props: {
         >
           Saltar al contenido
         </a>
+        <LivingBackground />
         <NextIntlClientProvider>
           <SmoothScroll>{props.children}</SmoothScroll>
           <Tracker />

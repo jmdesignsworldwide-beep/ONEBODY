@@ -45,12 +45,7 @@ export function SeedScene() {
     <section ref={trackRef} className="relative h-[220vh]">
       <div className="sticky top-0 flex h-dvh flex-col items-center justify-center overflow-hidden">
         <Container className="flex flex-col items-center text-center">
-          <Reveal y={8}>
-            <span className="text-xs uppercase tracking-[0.25em] text-ob-smoke">
-              {t("seedEyebrow")}
-            </span>
-          </Reveal>
-          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,4.5vw,3rem)] text-ob-bone">
+          <h2 className="max-w-2xl font-display text-[clamp(1.8rem,4.5vw,3rem)] text-ob-bone">
             <RevealHeading delay={0.1}>{t("seedTitle")}</RevealHeading>
           </h2>
 

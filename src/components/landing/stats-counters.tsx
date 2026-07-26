@@ -44,11 +44,11 @@ function Stat({
 }) {
   const v = useCountUp(value, active, instant);
   return (
-    <div className="flex flex-col gap-2">
-      <span className="tabular font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-ob-bone">
+    <div className="flex min-w-0 flex-col gap-2">
+      <span className="tabular truncate font-display text-[clamp(1.9rem,5.2vw,4rem)] leading-none text-ob-bone">
         {format(v)}
       </span>
-      <span className="text-sm uppercase tracking-[0.15em] text-ob-smoke">
+      <span className="text-xs uppercase tracking-[0.15em] text-ob-smoke sm:text-sm">
         {label}
       </span>
     </div>
@@ -66,6 +66,7 @@ export function StatsCounters({ stats }: { stats: PublicStats }) {
     new Intl.NumberFormat(locale, {
       style: "currency",
       currency: "USD",
+      currencyDisplay: "narrowSymbol",
       maximumFractionDigits: 0,
     }).format(n);
   const num = (n: number) =>

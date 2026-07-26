@@ -8,7 +8,6 @@ import { Container } from "@/components/ui/layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TreatedImage } from "@/components/ui/treated-image";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
 import { GrowthMeter } from "@/components/projects/growth-meter";
 import { Reveal } from "@/components/motion/reveal";
 import { MobileGoalBar } from "@/components/projects/mobile-goal-bar";
@@ -140,7 +139,7 @@ export default async function ProjectDetailPage(props: {
                     <li key={u.id} className="relative">
                       <span
                         aria-hidden
-                        className="absolute -left-[1.72rem] top-1.5 size-2.5 rounded-full bg-ob-red"
+                        className="absolute -left-[1.72rem] top-1.5 size-2.5 rounded-full bg-ob-bone"
                       />
                       {u.published_at && (
                         <p className="text-xs uppercase tracking-widest text-ob-smoke">
@@ -163,15 +162,10 @@ export default async function ProjectDetailPage(props: {
           {/* Panel lateral: meta de convergencia + donantes */}
           <aside className="md:sticky md:top-24 md:self-start">
             <div className="rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-6">
-              <div className="flex items-center justify-center gap-4">
-                <ConvergenceCanvas
-                  variant="card"
-                  progress={progress}
-                  ariaLabel={`${p.title_es}: ${Math.round(progress * 100)}%`}
-                />
+              <div className="flex items-center justify-center">
                 <GrowthMeter
                   progress={progress}
-                  className="h-24 w-auto"
+                  className="h-28 w-auto"
                   ariaLabel={`${Math.round(progress * 100)}%`}
                 />
               </div>

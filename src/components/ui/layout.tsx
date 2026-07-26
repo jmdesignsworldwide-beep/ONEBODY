@@ -38,12 +38,14 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
+  mark,
   align = "start",
   className,
 }: {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
+  mark?: ReactNode;
   align?: "start" | "center";
   className?: string;
 }) {
@@ -55,6 +57,7 @@ export function SectionHeading({
         className,
       )}
     >
+      {mark}
       {eyebrow && (
         <Reveal y={8}>
           <span className="text-xs uppercase tracking-[0.25em] text-ob-smoke">

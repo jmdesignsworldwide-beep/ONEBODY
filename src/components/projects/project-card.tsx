@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { TreatedImage } from "@/components/ui/treated-image";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
+import { GrowthMark } from "@/components/motion/growth-mark";
 import type { FeaturedProject } from "@/lib/supabase/types";
 
 export async function ProjectCard({
@@ -21,8 +21,6 @@ export async function ProjectCard({
       currency: "USD",
       maximumFractionDigits: 0,
     }).format(n);
-  const progress =
-    p.goal_amount > 0 ? Math.min(1, p.raised_amount / p.goal_amount) : 0;
 
   return (
     <Link
@@ -43,13 +41,8 @@ export async function ProjectCard({
       </div>
       <h3 className="mt-5 font-display text-2xl text-ob-bone">{p.title_es}</h3>
       <p className="mt-2 line-clamp-2 text-ob-smoke">{p.summary_es}</p>
-      <div className="mt-4 flex items-center gap-4">
-        <ConvergenceCanvas
-          variant="inline"
-          progress={progress}
-          ariaLabel={`${p.title_es}: ${Math.round(progress * 100)}%`}
-          className="shrink-0"
-        />
+      <div className="mt-4 flex items-center gap-3">
+        <GrowthMark className="h-6 w-6 shrink-0 text-ob-bone/70" />
         <div className="tabular text-sm">
           <p className="text-ob-bone">{money(p.raised_amount)}</p>
           <p className="text-ob-smoke">

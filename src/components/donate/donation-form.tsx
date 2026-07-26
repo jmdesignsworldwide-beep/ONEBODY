@@ -129,7 +129,7 @@ export function DonationForm({
         </div>
         {impact && (
           <p className="mt-3 text-sm text-ob-smoke">
-            <span className="text-ob-red">●</span> {money(amount)}{" "}
+            {money(amount)}{" "}
             {impact}
           </p>
         )}

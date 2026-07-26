@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { Container, Section, SectionHeading } from "@/components/ui/layout";
-import { ConvergenceCanvas } from "@/components/convergence/convergence-canvas";
 import { getBrowserClient } from "@/lib/supabase/browser";
 import type { WallEntry } from "@/lib/supabase/types";
 
@@ -17,7 +16,6 @@ export function DonorWall({ initial }: { initial: WallEntry[] }) {
   const t = useTranslations("Landing");
   const locale = useLocale();
   const [entries, setEntries] = useState<WallEntry[]>(initial);
-  const [pulse, setPulse] = useState(0);
 
   useEffect(() => {
     const supabase = getBrowserClient();
@@ -33,7 +31,6 @@ export function DonorWall({ initial }: { initial: WallEntry[] }) {
             if (prev.some((e) => e.id === row.id)) return prev;
             return [row, ...prev].slice(0, 12);
           });
-          setPulse((p) => p + 1);
         },
       )
       .subscribe();
@@ -52,16 +49,7 @@ export function DonorWall({ initial }: { initial: WallEntry[] }) {
   return (
     <Section className="border-t border-ob-ash/20 bg-ob-carbon">
       <Container>
-        <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-          <SectionHeading eyebrow={t("wallEyebrow")} title={t("wallTitle")} />
-          <ConvergenceCanvas
-            variant="inline"
-            progress={0.66}
-            pulseSignal={pulse}
-            ariaLabel={t("wallTitle")}
-            className="shrink-0"
-          />
-        </div>
+        <SectionHeading eyebrow={t("wallEyebrow")} title={t("wallTitle")} />
 
         <div className="mt-12 divide-y divide-ob-ash/20 border-t border-ob-ash/20">
           {entries.length === 0 ? (

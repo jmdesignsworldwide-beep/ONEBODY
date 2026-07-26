@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/layout";
 import { Reveal } from "@/components/motion/reveal";
 import { RevealHeading } from "@/components/motion/reveal-heading";
+import { GrowthMark } from "@/components/motion/growth-mark";
 import { PlantDefs, GrowingPlant } from "./plant-art";
 
 /**
@@ -45,6 +46,7 @@ export function SeedScene() {
     <section ref={trackRef} className="relative h-[220vh]">
       <div className="sticky top-0 flex h-dvh flex-col items-center justify-center overflow-hidden">
         <Container className="flex flex-col items-center text-center">
+          <GrowthMark className="mb-4 h-8 w-8 text-ob-bone/70" />
           <h2 className="max-w-2xl font-display text-[clamp(1.8rem,4.5vw,3rem)] text-ob-bone">
             <RevealHeading delay={0.1}>{t("seedTitle")}</RevealHeading>
           </h2>

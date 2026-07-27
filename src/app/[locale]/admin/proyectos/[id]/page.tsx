@@ -7,10 +7,13 @@ import {
   getProjectUpdates,
 } from "@/lib/admin/projects-queries";
 import { ProjectForm } from "@/components/admin/project-form";
+import { CopyLinkField } from "@/components/admin/copy-link-field";
 import { BudgetEditor } from "@/components/admin/budget-editor";
 import { UpdatesEditor } from "@/components/admin/updates-editor";
 import { DeleteProject } from "@/components/admin/delete-project";
 import { project_is_public_client } from "@/lib/admin/status";
+import { getOrigin } from "@/lib/site-url";
+import { defaultLocale } from "@/i18n/routing";
 
 export default async function EditProjectPage(props: {
   params: Promise<{ id: string; locale: string }>;
@@ -25,6 +28,7 @@ export default async function EditProjectPage(props: {
   ]);
 
   const isPublic = project_is_public_client(project.status);
+  const shareUrl = `${await getOrigin()}/${defaultLocale}/proyectos/${project.slug}`;
 
   return (
     <div className="max-w-2xl space-y-14">
@@ -58,6 +62,9 @@ export default async function EditProjectPage(props: {
         </h1>
         <div className="mt-8">
           <ProjectForm project={project} />
+        </div>
+        <div className="mt-10 rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-6">
+          <CopyLinkField url={shareUrl} />
         </div>
       </div>
 

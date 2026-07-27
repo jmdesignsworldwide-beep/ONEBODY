@@ -4,7 +4,16 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import type { SupabaseClient, User } from "@supabase/supabase-js";
 import { getServerAuthClient, getCurrentUser } from "@/lib/supabase/server-auth";
+import { getAdminClient } from "@/lib/supabase/admin";
 import { getAdminRole, canEdit } from "@/lib/admin/auth";
+
+const COVER_BUCKET = "project-covers";
+const MAX_UPLOAD = 5 * 1024 * 1024; // 5 MB
+const ALLOWED_MIME: Record<string, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+};
 
 export type ActionResult<T = undefined> =
   | { ok: true; data?: T }
@@ -65,6 +74,57 @@ async function requireEditorClient(): Promise<EditorCtx> {
 function revalidateProjects() {
   revalidatePath("/[locale]/admin/proyectos", "page");
   revalidatePath("/[locale]/proyectos", "page");
+}
+
+/**
+ * Sube una imagen de portada a Supabase Storage y devuelve su URL pública.
+ * Solo admins (validado server-side). La escritura pasa por el cliente
+ * service_role tras verificar el rol — no hay ruta de subida directa para el
+ * cliente. El bucket es de LECTURA pública (las portadas son públicas en el
+ * sitio); la subida solo ocurre aquí. Nombre con UUID (sin colisiones ni
+ * inyección de rutas).
+ */
+export async function uploadCoverImageAction(
+  formData: FormData,
+): Promise<ActionResult<{ url: string }>> {
+  const ctx = await requireEditorClient();
+  if (!ctx.ok) return { ok: false, error: ctx.error };
+
+  const file = formData.get("file");
+  if (!(file instanceof File) || file.size === 0) {
+    return { ok: false, error: "No se recibió ninguna imagen." };
+  }
+  if (file.size > MAX_UPLOAD) {
+    return { ok: false, error: "La imagen supera 5 MB." };
+  }
+  const ext = ALLOWED_MIME[file.type];
+  if (!ext) {
+    return { ok: false, error: "Formato no permitido (usa JPG, PNG o WebP)." };
+  }
+
+  const admin = getAdminClient();
+  if (!admin) return { ok: false, error: "Almacenamiento no disponible." };
+
+  // Asegura el bucket (idempotente): lectura pública, límite y tipos correctos.
+  await admin.storage.createBucket(COVER_BUCKET, {
+    public: true,
+    fileSizeLimit: MAX_UPLOAD,
+    allowedMimeTypes: Object.keys(ALLOWED_MIME),
+  });
+
+  const path = `covers/${crypto.randomUUID()}.${ext}`;
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const { error } = await admin.storage
+    .from(COVER_BUCKET)
+    .upload(path, bytes, {
+      contentType: file.type,
+      cacheControl: "31536000",
+      upsert: false,
+    });
+  if (error) return { ok: false, error: "No se pudo subir la imagen." };
+
+  const { data } = admin.storage.from(COVER_BUCKET).getPublicUrl(path);
+  return { ok: true, data: { url: data.publicUrl } };
 }
 
 /** Crea un proyecto. RLS exige rol editor+; el trigger de auditoría registra al actor. */

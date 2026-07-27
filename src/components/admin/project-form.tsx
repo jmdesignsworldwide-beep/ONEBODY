@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { slugify } from "@/lib/admin/slug";
+import { CoverImageUploader } from "./cover-image-uploader";
 import {
   createProjectAction,
   updateProjectAction,
@@ -234,34 +235,20 @@ export function ProjectForm({
         </div>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label className={labelCls} htmlFor="location_name">
-            {t("fieldLocation")}
-          </label>
-          <input
-            id="location_name"
-            name="location_name"
-            maxLength={200}
-            defaultValue={project?.location_name ?? ""}
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label className={labelCls} htmlFor="cover_image">
-            {t("fieldCoverImage")}
-          </label>
-          <input
-            id="cover_image"
-            name="cover_image"
-            type="url"
-            maxLength={2000}
-            placeholder="https://…"
-            defaultValue={project?.cover_image ?? ""}
-            className={inputCls}
-          />
-        </div>
+      <div>
+        <label className={labelCls} htmlFor="location_name">
+          {t("fieldLocation")}
+        </label>
+        <input
+          id="location_name"
+          name="location_name"
+          maxLength={200}
+          defaultValue={project?.location_name ?? ""}
+          className={inputCls}
+        />
       </div>
+
+      <CoverImageUploader defaultValue={project?.cover_image ?? null} />
 
       <label className="flex items-start gap-3 text-sm text-ob-smoke">
         <input
@@ -273,8 +260,16 @@ export function ProjectForm({
         <span>{t("fieldFeatured")}</span>
       </label>
 
-      {error && <p className="text-sm text-ob-red">{error}</p>}
-      {saved && <p className="text-sm text-ob-bone">{t("saved")}</p>}
+      {error && (
+        <p className="rounded-xl border border-ob-red/40 bg-ob-red/5 px-4 py-3 text-sm text-ob-red">
+          {error}
+        </p>
+      )}
+      {saved && (
+        <p className="rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-sm text-ob-bone">
+          ✓ {t("saved")}
+        </p>
+      )}
 
       <button
         type="submit"

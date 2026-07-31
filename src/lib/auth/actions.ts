@@ -12,6 +12,7 @@ import { safeLocale } from "@/i18n/routing";
 import { hasDonationClaim } from "@/lib/donar/claim";
 import { ensureProfile, linkDonationsByEmail } from "@/lib/auth/link";
 import { isOAuthProvider, type OAuthProvider } from "@/lib/auth/oauth";
+import { ensureSubscriptionForDonation } from "@/lib/payments/subscriptions";
 
 const emailSchema = z.string().trim().toLowerCase().email().max(200);
 const passwordSchema = z.string().min(8, "Mínimo 8 caracteres.").max(200);
@@ -225,6 +226,9 @@ export async function createAccountFromDonationAction(
     .update({ donor_id: created.user.id })
     .eq("id", idCheck.data)
     .is("donor_id", null);
+  // Si esa donación era recurrente, ahora que tiene cuenta se materializa su
+  // suscripción (idempotente; no hace nada si no aplica).
+  await ensureSubscriptionForDonation(idCheck.data);
 
   const supabase = await getServerAuthClient();
   if (supabase) {

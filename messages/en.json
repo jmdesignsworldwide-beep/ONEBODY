@@ -136,7 +136,13 @@
     "failedBody": "No charge was made. You can try again.",
     "failedRetry": "Try again",
     "pendingTitle": "Confirming your payment",
-    "pendingBody": "We're confirming your donation. This takes a few seconds."
+    "pendingBody": "We're confirming your donation. This takes a few seconds.",
+    "monthlyNudge": "What if you make it monthly? It's what sustains the cause 💛",
+    "monthlyHint": "The foundation's backbone. You can cancel anytime.",
+    "donateAs": "Donating as",
+    "summaryOnce": "One-time donation",
+    "summaryMonthly": "Monthly donation",
+    "receiptCta": "Download receipt"
   },
   "Auth": {
     "email": "Email",

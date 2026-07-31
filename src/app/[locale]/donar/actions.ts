@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { donationSchema } from "@/lib/validation/donation";
 import { getAdminClient } from "@/lib/supabase/admin";
+import { getCurrentUser } from "@/lib/supabase/server-auth";
+import { ensureProfile } from "@/lib/auth/link";
 import { getPaymentProvider, MockProvider } from "@/lib/payments";
 import { processPaymentWebhook } from "@/lib/payments/process-webhook";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
@@ -46,6 +48,20 @@ export async function createDonation(
   const country = h.get("x-vercel-ip-country") ?? null;
   const provider = getPaymentProvider();
 
+  // Si el donante tiene sesión, vinculamos la donación a su cuenta y confiamos
+  // en la identidad del SERVIDOR (email/nombre de la sesión), no en el cliente.
+  // Esto habilita el historial, el recibo y —si es recurrente— la suscripción.
+  const user = await getCurrentUser();
+  const donorId = user?.id ?? null;
+  const sessionName =
+    (user?.user_metadata?.display_name as string | undefined) ??
+    (user?.user_metadata?.full_name as string | undefined) ??
+    (user?.user_metadata?.name as string | undefined) ??
+    "";
+  const donorName = user ? sessionName || d.donorName : d.donorName;
+  const donorEmail = user?.email ? user.email.toLowerCase() : d.donorEmail;
+  if (donorId) await ensureProfile(donorId, donorName, d.locale);
+
   const { data: inserted, error } = await supabase
     .from("donations")
     .insert({
@@ -57,8 +73,9 @@ export async function createDonation(
       is_recurring: d.recurring,
       provider: provider.name,
       project_id: d.projectId ?? null,
-      donor_name: d.donorName,
-      donor_email: d.donorEmail,
+      donor_id: donorId,
+      donor_name: donorName,
+      donor_email: donorEmail,
       message: d.message ?? null,
       country_code: country,
     })

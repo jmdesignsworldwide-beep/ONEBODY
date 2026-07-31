@@ -1,43 +1,86 @@
 import { NextResponse } from "next/server";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { getServerAuthClient, getCurrentUser } from "@/lib/supabase/server-auth";
+import { getAdminClient } from "@/lib/supabase/admin";
+import { hasDonationClaim } from "@/lib/donar/claim";
 
 export const runtime = "nodejs";
 
+const DONATION_COLS =
+  "id, amount_usd, currency, status, donor_name, donor_email, completed_at, created_at, project_id";
+
+type ReceiptRow = {
+  id: string;
+  amount_usd: number | string;
+  currency: string;
+  status: string;
+  donor_name: string | null;
+  donor_email: string | null;
+  completed_at: string | null;
+  created_at: string;
+  project_id: string | null;
+};
+
 /**
- * Recibo de donación en PDF. Requiere sesión; RLS garantiza que el donante sólo
- * puede leer (y por tanto descargar) sus propias donaciones.
+ * Recibo de donación en PDF. Accesible de dos formas:
+ *  - Donante CON sesión: RLS garantiza que solo lee sus propias donaciones.
+ *  - Invitado que acaba de donar: prueba de propiedad por el claim del navegador
+ *    (el mismo mecanismo de la conversión de un clic). Así puede descargar su
+ *    recibo desde /gracias sin haber creado cuenta.
  */
 export async function GET(
   req: Request,
   ctx: { params: Promise<{ locale: string; id: string }> },
 ) {
   const { locale, id } = await ctx.params;
-  const user = await getCurrentUser();
-  if (!user) {
-    return NextResponse.redirect(new URL(`/${locale}/entrar`, req.url));
-  }
-  const supabase = await getServerAuthClient();
-  if (!supabase) return new NextResponse("Unavailable", { status: 503 });
 
-  const { data: d } = await supabase
-    .from("donations")
-    .select(
-      "id, amount_usd, currency, status, donor_name, donor_email, completed_at, created_at, project_id",
-    )
-    .eq("id", id)
-    .maybeSingle();
-  if (!d || d.status !== "completed") {
+  let d: ReceiptRow | null = null;
+
+  // 1) Donante con sesión (RLS: solo la suya).
+  const user = await getCurrentUser();
+  if (user) {
+    const supabase = await getServerAuthClient();
+    if (supabase) {
+      const { data } = await supabase
+        .from("donations")
+        .select(DONATION_COLS)
+        .eq("id", id)
+        .maybeSingle();
+      d = (data as unknown as ReceiptRow | null) ?? null;
+    }
+  }
+
+  // 2) Invitado con prueba de propiedad (claim del navegador que donó).
+  if (!d && (await hasDonationClaim(id))) {
+    const admin = getAdminClient();
+    if (admin) {
+      const { data } = await admin
+        .from("donations")
+        .select(DONATION_COLS)
+        .eq("id", id)
+        .maybeSingle();
+      d = (data as unknown as ReceiptRow | null) ?? null;
+    }
+  }
+
+  if (!d) {
+    if (!user) return NextResponse.redirect(new URL(`/${locale}/entrar`, req.url));
+    return new NextResponse("Not found", { status: 404 });
+  }
+  if (d.status !== "completed") {
     return new NextResponse("Not found", { status: 404 });
   }
 
   let projectTitle = "Fondo general";
   if (d.project_id) {
-    const { data: p } = await supabase
-      .from("projects")
-      .select("title_es")
-      .eq("id", d.project_id)
-      .maybeSingle();
+    const admin = getAdminClient();
+    const { data: p } = admin
+      ? await admin
+          .from("projects")
+          .select("title_es")
+          .eq("id", d.project_id)
+          .maybeSingle()
+      : { data: null };
     if (p?.title_es) projectTitle = p.title_es as string;
   }
 

@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Container, Section, SectionHeading } from "@/components/ui/layout";
 import { DonationForm } from "@/components/donate/donation-form";
 import { getProjectDetail } from "@/lib/queries";
+import { getCurrentDonor } from "@/lib/donar/current-donor";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -28,6 +29,7 @@ export default async function DonateProjectPage(props: {
   const detail = await getProjectDetail(slug, locale);
   if (!detail) notFound();
   const t = await getTranslations("Donar");
+  const currentUser = await getCurrentDonor();
 
   return (
     <>
@@ -40,6 +42,7 @@ export default async function DonateProjectPage(props: {
               <DonationForm
                 projectId={detail.project.id}
                 projectTitle={detail.project.title_es}
+                currentUser={currentUser}
               />
             </div>
           </Container>

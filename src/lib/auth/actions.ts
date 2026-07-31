@@ -10,40 +10,14 @@ import { getOrigin } from "@/lib/site-url";
 import { rateLimit, clientKey } from "@/lib/rate-limit";
 import { safeLocale } from "@/i18n/routing";
 import { hasDonationClaim } from "@/lib/donar/claim";
+import { ensureProfile, linkDonationsByEmail } from "@/lib/auth/link";
+import { isOAuthProvider, type OAuthProvider } from "@/lib/auth/oauth";
 
 const emailSchema = z.string().trim().toLowerCase().email().max(200);
 const passwordSchema = z.string().min(8, "Mínimo 8 caracteres.").max(200);
 const uuidSchema = z.string().uuid();
 
 export type AuthResult = { ok: true } | { ok: false; error: string };
-
-/** Crea/actualiza el perfil de donante. */
-async function ensureProfile(userId: string, name: string, locale: string) {
-  const admin = getAdminClient();
-  if (!admin) return;
-  await admin
-    .from("donor_profiles")
-    .upsert(
-      { id: userId, display_name: name || null, preferred_locale: locale },
-      { onConflict: "id" },
-    );
-}
-
-/**
- * Enlaza donaciones de invitado con este email → recomputa totales (trigger).
- * SÓLO debe llamarse cuando la propiedad del email está probada (inicio de
- * sesión con contraseña sobre una cuenta confirmada, o alta con sesión activa).
- * Nunca antes de confirmar el email: evita el robo de donaciones de una víctima.
- */
-async function linkDonationsByEmail(userId: string, email: string) {
-  const admin = getAdminClient();
-  if (!admin) return;
-  await admin
-    .from("donations")
-    .update({ donor_id: userId })
-    .eq("donor_email", email)
-    .is("donor_id", null);
-}
 
 
 export async function signInAction(
@@ -151,6 +125,49 @@ export async function signOutAction(locale: string): Promise<void> {
   const supabase = await getServerAuthClient();
   if (supabase) await supabase.auth.signOut();
   redirect(`/${safeLocale(locale)}`);
+}
+
+/**
+ * Inicio de sesión / registro con un proveedor social (Google, Apple, Facebook).
+ * No pide contraseña: Supabase Auth arranca el flujo OAuth (PKCE) y devuelve la
+ * URL del proveedor; redirigimos allí. Al volver, `/[locale]/auth/callback`
+ * canjea el código por una sesión y enruta admin vs. donante.
+ *
+ * Seguridad: el `redirectTo` se ancla al origen real del sitio (getOrigin) y
+ * debe estar en la allowlist de "Redirect URLs" de Supabase. Las credenciales
+ * (Client ID/Secret) de cada proveedor viven sólo en el dashboard de Supabase.
+ */
+export async function signInWithOAuthAction(
+  provider: string,
+  locale: string,
+): Promise<{ ok: false; error: string }> {
+  const rl = rateLimit(clientKey(await headers(), "oauth"), 12, 60_000);
+  if (!rl.ok) return { ok: false, error: "Demasiados intentos. Espera un momento." };
+  locale = safeLocale(locale);
+
+  if (!isOAuthProvider(provider)) {
+    return { ok: false, error: "Proveedor no soportado." };
+  }
+  const p: OAuthProvider = provider;
+
+  const supabase = await getServerAuthClient();
+  if (!supabase) return { ok: false, error: "Servicio no disponible." };
+  const origin = await getOrigin();
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: p,
+    options: {
+      redirectTo: `${origin}/${locale}/auth/callback`,
+    },
+  });
+  if (error || !data?.url) {
+    // Suele significar que el proveedor aún no está habilitado en Supabase.
+    return {
+      ok: false,
+      error: "Este método aún no está disponible. Intenta con tu correo.",
+    };
+  }
+  redirect(data.url);
 }
 
 /**

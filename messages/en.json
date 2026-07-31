@@ -168,7 +168,17 @@
     "account": "My account",
     "convertTitle": "Create your account in one click",
     "convertBody": "We already have your email. Pick a password and track your impact.",
-    "adminPanel": "Admin panel"
+    "adminPanel": "Admin panel",
+    "loginEyebrow": "Good to see you",
+    "loginSubtitle": "Sign in to track your impact and manage your donations.",
+    "signupEyebrow": "Join the body",
+    "signupHeadline": "Be part of something bigger",
+    "resetEyebrow": "Let's get you back in",
+    "orEmail": "or continue with email",
+    "continueWith": "Continue with {provider}",
+    "noAccount": "Don't have an account yet?",
+    "haveAccount": "Already have an account?",
+    "guestNote": "You never need an account to donate."
   },
   "Account": {
     "portal": "Donor portal",

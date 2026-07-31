@@ -168,7 +168,17 @@
     "account": "Mi cuenta",
     "convertTitle": "Crea tu cuenta con un clic",
     "convertBody": "Ya tenemos tu correo. Elige una contraseña y sigue tu impacto.",
-    "adminPanel": "Panel"
+    "adminPanel": "Panel",
+    "loginEyebrow": "Nos alegra verte",
+    "loginSubtitle": "Entra para seguir tu impacto y gestionar tus donaciones.",
+    "signupEyebrow": "Únete al cuerpo",
+    "signupHeadline": "Sé parte de algo más grande",
+    "resetEyebrow": "Te ayudamos a volver",
+    "orEmail": "o continúa con email",
+    "continueWith": "Continuar con {provider}",
+    "noAccount": "¿Aún no tienes cuenta?",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "guestNote": "Nunca necesitas una cuenta para donar."
   },
   "Account": {
     "portal": "Portal del donante",

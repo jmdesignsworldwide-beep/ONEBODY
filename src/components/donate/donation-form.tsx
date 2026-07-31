@@ -17,9 +17,12 @@ type FormValues = {
 export function DonationForm({
   projectId = null,
   projectTitle,
+  currentUser = null,
 }: {
   projectId?: string | null;
   projectTitle?: string;
+  /** Si hay sesión, prellenamos y colapsamos nombre/email (un paso menos). */
+  currentUser?: { name: string; email: string } | null;
 }) {
   const t = useTranslations("Donar");
   const tImpact = useTranslations("Landing");
@@ -34,7 +37,12 @@ export function DonationForm({
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
-    defaultValues: { donorName: "", donorEmail: "", message: "", isAnonymous: false },
+    defaultValues: {
+      donorName: currentUser?.name ?? "",
+      donorEmail: currentUser?.email ?? "",
+      message: "",
+      isAnonymous: false,
+    },
   });
 
   const money = (n: number) =>
@@ -158,33 +166,48 @@ export function DonationForm({
           {t("monthly")}
         </button>
       </div>
+      {/* La recurrente es el sostén de la fundación: visible y atractiva. */}
+      <p className="-mt-4 text-center text-xs text-ob-smoke">
+        {recurring ? t("monthlyHint") : t("monthlyNudge")}
+      </p>
 
-      {/* Nombre + email (mínimo legal indispensable) */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <input
-            {...register("donorName", { required: true, maxLength: 120 })}
-            placeholder={t("name")}
-            aria-label={t("name")}
-            className="w-full rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-ob-bone outline-none placeholder:text-ob-smoke focus:border-ob-bone"
-          />
-          {errors.donorName && (
-            <p className="mt-1 text-xs text-ob-red">{t("errorName")}</p>
-          )}
+      {/* Nombre + email. Con sesión: prellenados y colapsados (un paso menos). */}
+      {currentUser ? (
+        <div className="rounded-xl border border-ob-ash/60 bg-ob-graphite px-4 py-3 text-sm text-ob-smoke">
+          {t("donateAs")}{" "}
+          <span className="text-ob-bone">{currentUser.name || currentUser.email}</span>
+          <input type="hidden" {...register("donorName")} />
+          <input type="hidden" {...register("donorEmail")} />
         </div>
-        <div>
-          <input
-            {...register("donorEmail", { required: true })}
-            type="email"
-            placeholder={t("email")}
-            aria-label={t("email")}
-            className="w-full rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-ob-bone outline-none placeholder:text-ob-smoke focus:border-ob-bone"
-          />
-          {errors.donorEmail && (
-            <p className="mt-1 text-xs text-ob-red">{t("errorEmail")}</p>
-          )}
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <input
+              {...register("donorName", { required: true, maxLength: 120 })}
+              placeholder={t("name")}
+              aria-label={t("name")}
+              autoComplete="name"
+              className="w-full rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-ob-bone outline-none placeholder:text-ob-smoke focus:border-ob-bone"
+            />
+            {errors.donorName && (
+              <p className="mt-1 text-xs text-ob-red">{t("errorName")}</p>
+            )}
+          </div>
+          <div>
+            <input
+              {...register("donorEmail", { required: true })}
+              type="email"
+              placeholder={t("email")}
+              aria-label={t("email")}
+              autoComplete="email"
+              className="w-full rounded-xl border border-ob-ash bg-ob-carbon px-4 py-3 text-ob-bone outline-none placeholder:text-ob-smoke focus:border-ob-bone"
+            />
+            {errors.donorEmail && (
+              <p className="mt-1 text-xs text-ob-red">{t("errorEmail")}</p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Mensaje opcional */}
       <textarea

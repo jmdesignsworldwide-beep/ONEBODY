@@ -136,7 +136,13 @@
     "failedBody": "No se procesó ningún cargo. Puedes intentarlo de nuevo.",
     "failedRetry": "Intentar de nuevo",
     "pendingTitle": "Confirmando tu pago",
-    "pendingBody": "Estamos confirmando tu donación. Esto toma unos segundos."
+    "pendingBody": "Estamos confirmando tu donación. Esto toma unos segundos.",
+    "monthlyNudge": "¿Y si la haces mensual? Es lo que sostiene la causa 💛",
+    "monthlyHint": "El sostén de la fundación. Puedes cancelar cuando quieras.",
+    "donateAs": "Donas como",
+    "summaryOnce": "Donación única",
+    "summaryMonthly": "Donación mensual",
+    "receiptCta": "Descargar recibo"
   },
   "Auth": {
     "email": "Correo",

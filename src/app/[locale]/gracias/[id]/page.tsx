@@ -34,11 +34,12 @@ export default async function ThanksPage(props: {
   const { data: donation } = supabase
     ? await supabase
         .from("donations")
-        .select("id, amount_usd, status, project_id")
+        .select("id, amount_usd, status, project_id, is_recurring")
         .eq("id", id)
         .maybeSingle()
     : { data: null };
   if (!donation) notFound();
+  const recurring = Boolean(donation.is_recurring);
 
   let projectTitle: string | null = null;
   let projectSlug: string | null = null;
@@ -98,15 +99,21 @@ export default async function ThanksPage(props: {
                   <p className="mt-2 text-ob-bone">{projectTitle}</p>
                 )}
                 <p className="mx-auto mt-6 max-w-md text-ob-smoke">
-                  {money} · {impact}
+                  {money} · {recurring ? t("summaryMonthly") : t("summaryOnce")}
+                </p>
+                <p className="mx-auto mt-1 max-w-md text-sm text-ob-smoke">
+                  {impact}
                 </p>
                 <div className="mt-10 flex flex-wrap justify-center gap-4">
                   <Button href="/proyectos" variant="secondary">
                     {t("thanksProjects")}
                   </Button>
-                  <Button href="/" variant="ghost">
-                    {t("thanksHome")}
-                  </Button>
+                  <a
+                    href={`/${locale}/cuenta/recibo/${donation.id}`}
+                    className="inline-flex items-center rounded-full border border-ob-ash px-6 py-3 text-sm font-medium text-ob-bone transition-colors hover:border-ob-bone"
+                  >
+                    {t("receiptCta")}
+                  </a>
                 </div>
 
                 {/* Comparte tu donación — el multiplicador (efecto GoFundMe). */}

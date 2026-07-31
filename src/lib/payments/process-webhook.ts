@@ -1,6 +1,7 @@
 import "server-only";
 import { getPaymentProvider } from "./index";
 import { getAdminClient } from "../supabase/admin";
+import { ensureSubscriptionForDonation } from "./subscriptions";
 import type { WebhookEvent } from "./types";
 
 /**
@@ -31,6 +32,8 @@ export async function processPaymentWebhook(
         })
         .eq("id", event.donationId)
         .eq("status", "pending");
+      // Donación recurrente con cuenta → crea/enlaza su suscripción (idempotente).
+      await ensureSubscriptionForDonation(event.donationId);
     } else if (event.type === "checkout.failed") {
       await supabase
         .from("donations")

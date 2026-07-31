@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container, Section, SectionHeading } from "@/components/ui/layout";
 import { DonationForm } from "@/components/donate/donation-form";
+import { getCurrentDonor } from "@/lib/donar/current-donor";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: Locale }>;
@@ -20,6 +21,7 @@ export default async function DonatePage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations("Donar");
+  const currentUser = await getCurrentDonor();
 
   return (
     <>
@@ -29,7 +31,7 @@ export default async function DonatePage(props: {
           <Container className="max-w-xl">
             <SectionHeading eyebrow={t("eyebrow")} title={t("title")} description={t("subtitle")} />
             <div className="mt-12">
-              <DonationForm />
+              <DonationForm currentUser={currentUser} />
             </div>
           </Container>
         </Section>

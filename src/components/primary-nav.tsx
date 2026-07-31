@@ -25,7 +25,7 @@ export function PrimaryNav({ items }: { items: Item[] }) {
             href={href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "transition-colors hover:text-ob-bone",
+              "nav-underline transition-colors hover:text-ob-bone",
               active && "text-ob-bone",
             )}
           >

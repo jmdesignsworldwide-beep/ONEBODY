@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { NodeMark } from "@/components/motion/node-mark";
+import { Magnetic } from "@/components/motion/magnetic";
 import { MarkAssembly } from "@/components/landing/mark-assembly";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -61,9 +62,11 @@ export function Hero() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.65 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button href="/donar" variant="donate" size="lg">
-              {t("cta")}
-            </Button>
+            <Magnetic>
+              <Button href="/donar" variant="donate" size="lg">
+                {t("cta")}
+              </Button>
+            </Magnetic>
             <Button href="/proyectos" variant="secondary" size="lg">
               {t("ctaSecondary")}
             </Button>

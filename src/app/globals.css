@@ -145,6 +145,51 @@ body {
   color: transparent;
 }
 
+/* Nav: subrayado que se DIBUJA de izquierda a derecha en hover / activo.
+   Sólo transform (scaleX) → 60fps. Animación sobre lo existente, no dibuja nada. */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s var(--ease-expo-out);
+}
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after,
+.nav-underline[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Botón donar: halo cálido que RESPIRA — una invitación sutil. Anima sólo la
+   opacidad de una capa de resplandor (60fps, sin reflow). Rojo permitido aquí
+   (disciplina: sólo en el acto de donar). */
+.ob-donate-invite {
+  position: relative;
+  isolation: isolate;
+}
+.ob-donate-invite::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: 0 0 30px 2px var(--color-ob-red-glow);
+  opacity: 0.35;
+  animation: ob-glow-breathe 3.4s ease-in-out infinite;
+}
+@keyframes ob-glow-breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.72; }
+}
+
 /* ==========================================================================
    prefers-reduced-motion — respetado en todo el sistema (Sección 2.5 / 10).
    ========================================================================== */

@@ -30,9 +30,10 @@ export async function ProjectCard({
   const shareText = tShare("projectMessage", { title: p.title_es });
 
   // El Link cubre toda la tarjeta; el botón de compartir vive FUERA del Link
-  // (hermano) para no navegar al pulsarlo.
+  // (hermano) para no navegar al pulsarlo. `ob-lift`: al hover la tarjeta se
+  // eleva sutil con sombra cálida (transform/opacity, 60fps).
   return (
-    <div className="group relative">
+    <div className="group relative ob-lift rounded-2xl">
       <Link
         href={`/proyectos/${p.slug}`}
         className="block"

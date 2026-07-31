@@ -9,7 +9,9 @@ import { Button } from "@/components/ui/button";
 import { NodeMark } from "@/components/motion/node-mark";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { getCurrentUser } from "@/lib/supabase/server-auth";
+import { getOrigin } from "@/lib/site-url";
 import { ConvertForm } from "@/components/auth/forms";
+import { ShareInline } from "@/components/share/share-inline";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default async function ThanksPage(props: {
   setRequestLocale(locale);
   const t = await getTranslations("Donar");
   const ta = await getTranslations("Auth");
+  const tShare = await getTranslations("Share");
   const tImpact = await getTranslations("Landing");
   const user = await getCurrentUser();
 
@@ -38,14 +41,25 @@ export default async function ThanksPage(props: {
   if (!donation) notFound();
 
   let projectTitle: string | null = null;
+  let projectSlug: string | null = null;
   if (donation.project_id && supabase) {
     const { data: proj } = await supabase
       .from("projects")
-      .select("title_es")
+      .select("title_es, slug")
       .eq("id", donation.project_id)
       .maybeSingle();
     projectTitle = (proj?.title_es as string | undefined) ?? null;
+    projectSlug = (proj?.slug as string | undefined) ?? null;
   }
+
+  // Enlace absoluto para compartir la donación (o el sitio si no hubo proyecto).
+  const origin = await getOrigin();
+  const shareUrl = projectSlug
+    ? `${origin}/${locale}/proyectos/${projectSlug}`
+    : `${origin}/${locale}`;
+  const shareText = projectTitle
+    ? tShare("donateMessage", { title: projectTitle })
+    : tShare("subtitle");
 
   const amount = Number(donation.amount_usd);
   const money = new Intl.NumberFormat(locale, {
@@ -93,6 +107,23 @@ export default async function ThanksPage(props: {
                   <Button href="/" variant="ghost">
                     {t("thanksHome")}
                   </Button>
+                </div>
+
+                {/* Comparte tu donación — el multiplicador (efecto GoFundMe). */}
+                <div className="mt-12 rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-carbon p-6 text-left">
+                  <h2 className="text-center font-display text-xl text-ob-bone">
+                    {tShare("donateHeading")}
+                  </h2>
+                  <p className="mx-auto mt-2 max-w-sm text-center text-sm text-ob-smoke">
+                    {tShare("donateBody")}
+                  </p>
+                  <div className="mx-auto mt-5 max-w-sm">
+                    <ShareInline
+                      url={shareUrl}
+                      text={shareText}
+                      subject={projectTitle ?? "ONEBODY"}
+                    />
+                  </div>
                 </div>
 
                 {/* Conversión de un clic: el email ya está capturado. */}

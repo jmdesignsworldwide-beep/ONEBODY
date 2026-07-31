@@ -11,6 +11,7 @@ import { TreatedImage } from "@/components/ui/treated-image";
 import { GrowthMeter } from "@/components/projects/growth-meter";
 import { Reveal } from "@/components/motion/reveal";
 import { MobileGoalBar } from "@/components/projects/mobile-goal-bar";
+import { ShareMenu } from "@/components/share/share-menu";
 import { Link } from "@/i18n/navigation";
 import { getProjectDetail } from "@/lib/queries";
 import { getOrigin } from "@/lib/site-url";
@@ -29,9 +30,13 @@ export async function generateMetadata(props: {
   const title = p.title_es;
   const description =
     p.summary_es || "Un proyecto de la Fundación ONEBODY.";
-  // URL absoluta y pública (Instagram/WhatsApp exigen imagen pública). Si el
-  // proyecto no tiene portada, usa la imagen OG por defecto de la marca.
-  const image = p.cover_image ?? `${origin}/og-default.png`;
+  // URL absoluta y pública (Instagram/WhatsApp exigen imagen pública y absoluta).
+  // Solo aceptamos una portada http(s) absoluta; en cualquier otro caso caemos a
+  // la imagen OG por defecto de la marca — nunca una tarjeta rota.
+  const image =
+    p.cover_image && /^https?:\/\//.test(p.cover_image)
+      ? p.cover_image
+      : `${origin}/og-default.png`;
   const url = `${origin}/${locale}/proyectos/${slug}`;
 
   return {
@@ -40,6 +45,7 @@ export async function generateMetadata(props: {
     alternates: { canonical: url },
     openGraph: {
       type: "article",
+      locale,
       title,
       description,
       url,
@@ -66,6 +72,10 @@ export default async function ProjectDetailPage(props: {
 
   const t = await getTranslations("Projects");
   const tc = await getTranslations("Categories");
+  const tShare = await getTranslations("Share");
+  const origin = await getOrigin();
+  const shareUrl = `${origin}/${locale}/proyectos/${slug}`;
+  const shareText = tShare("projectMessage", { title: p.title_es });
   const money = (n: number) =>
     new Intl.NumberFormat(locale, {
       style: "currency",
@@ -211,6 +221,15 @@ export default async function ProjectDetailPage(props: {
               >
                 {t("donateToThis")}
               </Button>
+              <div className="mt-3">
+                <ShareMenu
+                  url={shareUrl}
+                  text={shareText}
+                  subject={p.title_es}
+                  variant="button"
+                  className="w-full"
+                />
+              </div>
             </div>
 
             {donors.length > 0 && (
@@ -252,6 +271,9 @@ export default async function ProjectDetailPage(props: {
         slug={p.slug}
         raised={p.raised_amount}
         goal={p.goal_amount}
+        shareUrl={shareUrl}
+        shareText={shareText}
+        shareSubject={p.title_es}
       />
       <SiteFooter />
     </>

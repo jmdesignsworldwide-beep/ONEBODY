@@ -180,6 +180,26 @@
     "haveAccount": "Already have an account?",
     "guestNote": "You never need an account to donate."
   },
+  "Share": {
+    "cta": "Share",
+    "title": "Share this project",
+    "subtitle": "Sharing is the most powerful way to help.",
+    "native": "Share with your apps",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "Email",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "instagram": "Copy for Instagram",
+    "instagramDone": "Link copied! Paste it in your bio or story.",
+    "instagramHint": "Instagram doesn't allow links in posts. Paste the link in your bio or a story.",
+    "close": "Close",
+    "projectMessage": "Support \"{title}\" on ONEBODY 💛",
+    "donateHeading": "Multiply your impact",
+    "donateBody": "Sharing is what makes a cause grow. Invite your people to join 💛",
+    "donateMessage": "I just supported \"{title}\" on ONEBODY. Join me 💛"
+  },
   "Account": {
     "portal": "Donor portal",
     "navDashboard": "Overview",

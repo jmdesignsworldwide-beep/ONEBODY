@@ -180,6 +180,26 @@
     "haveAccount": "¿Ya tienes cuenta?",
     "guestNote": "Nunca necesitas una cuenta para donar."
   },
+  "Share": {
+    "cta": "Compartir",
+    "title": "Comparte este proyecto",
+    "subtitle": "Compartir es la forma más poderosa de ayudar.",
+    "native": "Compartir con tus apps",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "Correo",
+    "copyLink": "Copiar enlace",
+    "copied": "¡Copiado!",
+    "instagram": "Copiar para Instagram",
+    "instagramDone": "¡Enlace copiado! Pégalo en tu bio o story.",
+    "instagramHint": "Instagram no permite enlaces en los posts. Pega el enlace en tu bio o en una story.",
+    "close": "Cerrar",
+    "projectMessage": "Apoya \"{title}\" en ONEBODY 💛",
+    "donateHeading": "Multiplica tu impacto",
+    "donateBody": "Compartir es lo que hace crecer una causa. Invita a los tuyos a sumarse 💛",
+    "donateMessage": "Acabo de apoyar \"{title}\" en ONEBODY. Súmate 💛"
+  },
   "Account": {
     "portal": "Portal del donante",
     "navDashboard": "Resumen",

@@ -136,7 +136,13 @@
     "failedBody": "Nie pobrano żadnej opłaty. Możesz spróbować ponownie.",
     "failedRetry": "Spróbuj ponownie",
     "pendingTitle": "Potwierdzanie płatności",
-    "pendingBody": "Potwierdzamy Twoją darowiznę. To zajmuje kilka sekund."
+    "pendingBody": "Potwierdzamy Twoją darowiznę. To zajmuje kilka sekund.",
+    "monthlyNudge": "A gdyby uczynić ją comiesięczną? To właśnie ona podtrzymuje naszą misję 💛",
+    "monthlyHint": "Wsparcie, na którym opiera się fundacja. Możesz zrezygnować w dowolnej chwili.",
+    "donateAs": "Wspierasz jako",
+    "summaryOnce": "Darowizna jednorazowa",
+    "summaryMonthly": "Darowizna comiesięczna",
+    "receiptCta": "Pobierz potwierdzenie"
   },
   "Auth": {
     "email": "E-mail",
@@ -168,7 +174,17 @@
     "account": "Moje konto",
     "convertTitle": "Załóż konto jednym kliknięciem",
     "convertBody": "Mamy już Twój e-mail. Wybierz hasło i śledź swój wpływ.",
-    "adminPanel": "Panel admina"
+    "adminPanel": "Panel admina",
+    "loginEyebrow": "Cieszymy się, że jesteś",
+    "loginSubtitle": "Zaloguj się, aby śledzić swój wpływ i zarządzać darowiznami.",
+    "signupEyebrow": "Dołącz do wspólnoty",
+    "signupHeadline": "Bądź częścią czegoś większego",
+    "resetEyebrow": "Pomożemy Ci wrócić",
+    "orEmail": "lub kontynuuj przez e-mail",
+    "continueWith": "Kontynuuj przez {provider}",
+    "noAccount": "Nie masz jeszcze konta?",
+    "haveAccount": "Masz już konto?",
+    "guestNote": "Aby wesprzeć, nigdy nie potrzebujesz konta."
   },
   "Account": {
     "portal": "Portal darczyńcy",
@@ -331,7 +347,17 @@
     "anConversion": "Konwersja",
     "anTopPaths": "Najczęściej oglądane strony",
     "anTrafficByCountry": "Wizyty wg kraju",
-    "anByLocale": "Wg języka"
+    "anByLocale": "Wg języka",
+    "imageUpload": "Prześlij zdjęcie",
+    "imageChange": "Zmień zdjęcie",
+    "imageRemove": "Usuń",
+    "imageUploading": "Przesyłanie…",
+    "imageHint": "JPG, PNG lub WebP · maks. 5 MB",
+    "imageBadType": "Niedozwolony format (użyj JPG, PNG lub WebP).",
+    "imageTooLarge": "Zdjęcie przekracza 5 MB.",
+    "shareLabel": "Link publiczny (do udostępniania w mediach społecznościowych)",
+    "shareCopy": "Kopiuj link",
+    "shareCopied": "Skopiowano!"
   },
   "About": {
     "title": "Stworzeni, by być jednym",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Z Dominikany dla świata",
     "whereTitle": "Lokalne korzenie, globalny zasięg",
     "whereBody": "Powstaliśmy w Santiago de los Caballeros i pracujemy w 15 językach, aby hojność nie znała granic.",
-    "cta": "Dołącz"
+    "cta": "Dołącz",
+    "year": "2026 · Rok wzrostu",
+    "areasEyebrow": "Co robimy",
+    "areasTitle": "Nasze osiem obszarów działania",
+    "verse": "Z Niego całe Ciało — zespalane i utrzymywane w łączności dzięki całej więzi umacniającej każdy z członków stosownie do jego miary — przyczynia sobie wzrostu dla budowania siebie w miłości.",
+    "verseRef": "Efezjan 4:16"
   },
   "Impact": {
     "badge": "Wpływ",
@@ -384,6 +415,56 @@
     "a2": "Tak. Płatności obsługują certyfikowani dostawcy, a my nigdy nie przechowujemy danych Twojej karty.",
     "q3": "Czy mogę przekazać anonimowo?",
     "a3": "Oczywiście. Możesz ukryć imię ze ściany publicznej; zapis księgowy jest zachowany, jak wymaga prawo.",
-    "cta": "Przekaż darowiznę"
+    "cta": "Przekaż darowiznę",
+    "goalsEyebrow": "Cele miesiąca",
+    "goalsTitle": "Podtrzymuj misję, miesiąc po miesiącu",
+    "monthlyBadge": "Cel miesięczny",
+    "opsTitle": "Koszty operacyjne",
+    "opsBody": "Jednym z naszych wyzwań jest pokrycie kosztów operacyjnych, które pozwalają nam utrzymywać i rozwijać nasze projekty na stabilnym fundamencie. Dziś logistyka, transport, media, utrzymanie i koordynacja bazy to łącznie US$1,300 miesięcznie.",
+    "opsCta": "Pomóż pokryć koszty tego miesiąca",
+    "fundsTitle": "Fundusze projektów",
+    "fundsBody": "Zobowiązujemy się kontynuować każdą posługę, oddając chwałę Bogu i pomagając ludziom. Na bieżące projekty — medycyna, żywność, edukacja i uchodźcy — nasz minimalny budżet miesięczny wynosi US$1,500 (nie obejmuje budowy ani projektów specjalnych na Bliskim Wschodzie).",
+    "fundsCta": "Podtrzymaj trwające projekty",
+    "aheadTitle": "Patrząc w przyszłość",
+    "aheadBody": "Zobowiązujemy się słuchać głosu Boga i być Mu posłuszni oraz stawiać czoła tym wyzwaniom z przejrzystością i determinacją. Czy pomodlisz się o to, by być częścią tej misji? Twoje wsparcie może pomóc nam docierać do kolejnych osób. Dziękujemy tym, którzy już nas podtrzymują.",
+    "aheadClosing": "Nie trać z oczu tego, co Bóg będzie dalej czynił."
+  },
+  "Share": {
+    "cta": "Udostępnij",
+    "title": "Udostępnij ten projekt",
+    "subtitle": "Udostępnianie to najpotężniejszy sposób, by pomóc.",
+    "native": "Udostępnij w swoich aplikacjach",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "E-mail",
+    "copyLink": "Kopiuj link",
+    "copied": "Skopiowano!",
+    "instagram": "Kopiuj dla Instagrama",
+    "instagramDone": "Link skopiowany! Wklej go w swoim bio lub relacji.",
+    "instagramHint": "Instagram nie pozwala na linki w postach. Wklej link w swoim bio lub w relacji.",
+    "close": "Zamknij",
+    "projectMessage": "Wesprzyj „{title}” w ONEBODY 💛",
+    "donateHeading": "Pomnóż swój wpływ",
+    "donateBody": "To udostępnianie sprawia, że dobra sprawa rośnie. Zaproś swoich bliskich, by się przyłączyli 💛",
+    "donateMessage": "Właśnie wsparłem/am „{title}” w ONEBODY. Przyłącz się 💛"
+  },
+  "Areas": {
+    "a1t": "Edukacja i kształcenie",
+    "a1b": "Prowadzimy bezpłatne lekcje angielskiego i organizujemy przybory szkolne dla dzieci z ubogich rodzin, aby mogły kontynuować naukę.",
+    "a2t": "Pomoc żywnościowa",
+    "a2b": "Rozdajemy żywność rodzinom w potrzebie, a także wydajemy śniadania na ulicach i w szpitalu dziecięcym.",
+    "a3t": "Pomoc medyczna",
+    "a3b": "Wspieramy lekami osoby chore, które potrzebują pomocy w zdobyciu potrzebnych medykamentów.",
+    "a4t": "Mieszkania",
+    "a4b": "Pracujemy nad budową domów dla rodzin w skrajnie trudnej sytuacji.",
+    "a5t": "Wsparcie dla nastoletnich matek",
+    "a5b": "Program towarzyszenia, który oferuje edukację, zaopatrzenie, terapię psychologiczną i narzędzia na ten etap życia.",
+    "a6t": "Międzynarodowa pomoc w sytuacjach kryzysowych",
+    "a6b": "Tak jak Bóg pozwala, poszerzamy naszą posługę i niesiemy Jego łaskę uchodźcom na Bliskim Wschodzie.",
+    "a7t": "Pomoc domom opieki i sierocińcom",
+    "a7b": "Odwiedzamy domy opieki i sierocińce, pragnąc dzielić się miłością Bożą i pomagać w zaspokajaniu ich potrzeb.",
+    "a8t": "Darowizny w społecznościach",
+    "a8b": "Posługa, poprzez którą zanosimy wszystkie otrzymane dary do potrzebujących społeczności, by je tam rozdzielić."
   }
 }

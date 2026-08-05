@@ -136,7 +136,13 @@
     "failedBody": "Pa gen okenn chaj ki fèt. Ou ka eseye ankò.",
     "failedRetry": "Eseye ankò",
     "pendingTitle": "Ap konfime peman ou",
-    "pendingBody": "N ap konfime don ou. Sa pran kèk segond."
+    "pendingBody": "N ap konfime don ou. Sa pran kèk segond.",
+    "monthlyNudge": "E si ou ta fè l chak mwa? Se sa ki kenbe koz la 💛",
+    "monthlyHint": "Se sa k ap soutni fondasyon an. Ou ka anile lè ou vle.",
+    "donateAs": "Ou bay kòm",
+    "summaryOnce": "Yon sèl don",
+    "summaryMonthly": "Don chak mwa",
+    "receiptCta": "Telechaje resi a"
   },
   "Auth": {
     "email": "Imèl",
@@ -168,7 +174,17 @@
     "account": "Kont mwen",
     "convertTitle": "Kreye kont ou ak yon klik",
     "convertBody": "Nou gen imèl ou deja. Chwazi yon modpas epi swiv enpak ou.",
-    "adminPanel": "Panèl admin"
+    "adminPanel": "Panèl admin",
+    "loginEyebrow": "Nou kontan wè ou",
+    "loginSubtitle": "Konekte pou w swiv enpak ou epi jere don ou yo.",
+    "signupEyebrow": "Vin fè pati kò a",
+    "signupHeadline": "Vin fè pati yon bagay ki pi gwo",
+    "resetEyebrow": "N ap ede w tounen",
+    "orEmail": "oswa kontinye ak imèl",
+    "continueWith": "Kontinye ak {provider}",
+    "noAccount": "Ou poko gen yon kont?",
+    "haveAccount": "Ou deja gen yon kont?",
+    "guestNote": "Ou pa janm bezwen yon kont pou w bay."
   },
   "Account": {
     "portal": "Pòtay donatè",
@@ -331,7 +347,17 @@
     "anConversion": "Konvèsyon",
     "anTopPaths": "Paj ki pi wè yo",
     "anTrafficByCountry": "Vizit pa peyi",
-    "anByLocale": "Pa lang"
+    "anByLocale": "Pa lang",
+    "imageUpload": "Mete yon imaj",
+    "imageChange": "Chanje imaj la",
+    "imageRemove": "Retire",
+    "imageUploading": "N ap voye…",
+    "imageHint": "JPG, PNG oswa WebP · maks 5 MB",
+    "imageBadType": "Fòma pa pèmèt (sèvi ak JPG, PNG oswa WebP).",
+    "imageTooLarge": "Imaj la depase 5 MB.",
+    "shareLabel": "Lyen piblik (pou pataje sou rezo yo)",
+    "shareCopy": "Kopye lyen an",
+    "shareCopied": "Kopye!"
   },
   "About": {
     "title": "Fèt pou nou youn",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Soti Repiblik Dominikèn pou lemond",
     "whereTitle": "Rasin lokal, pòte mondyal",
     "whereBody": "Nou fèt nan Santiago de los Caballeros e nou travay nan 15 lang pou jenerozite pa gen fwontyè.",
-    "cta": "Vin fè pati"
+    "cta": "Vin fè pati",
+    "year": "2026 · Ane kwasans",
+    "areasEyebrow": "Sa nou fè",
+    "areasTitle": "Uit domèn enpak nou yo",
+    "verse": "Gremesi Kris la, tout pati nan kò a byen òganize, yo tout kenbe ansanm yonn ak lòt. Konsa, lè chak pati fè travay pa l' jan l' dwe fè l', tout kò a ap grandi, l'ap devlope nan renmen.",
+    "verseRef": "Efezyen 4:16"
   },
   "Impact": {
     "badge": "Enpak",
@@ -384,6 +415,56 @@
     "a2": "Wi. Peman yo trete ak founisè sètifye e nou pa janm estoke done kat ou.",
     "q3": "Èske mwen ka bay anonim?",
     "a3": "Byensir. Ou ka kache non ou sou miray piblik la; rejis kontablite a konsève, jan lalwa mande.",
-    "cta": "Bay kounye a"
+    "cta": "Bay kounye a",
+    "goalsEyebrow": "Objektif mwa a",
+    "goalsTitle": "Soutni misyon an, mwa apre mwa",
+    "monthlyBadge": "Objektif chak mwa",
+    "opsTitle": "Depans operasyonèl",
+    "opsBody": "Youn nan defi nou yo se kouvri depans operasyonèl ki pèmèt nou soutni ak elaji pwojè nou yo apati yon baz ki estab. Jodi a, lojistik, transpò, sèvis, antretyen ak kowòdinasyon baz la rive nan US$1,300 pa mwa.",
+    "opsCta": "Ede kouvri depans mwa sa a",
+    "fundsTitle": "Fon pwojè yo",
+    "fundsBody": "Nou angaje nou pou kontinye chak sèvis, n ap bay Bondye glwa epi n ap ede moun. Pou pwojè k ap fèt yo —medikaman, manje, edikasyon ak refijye— bidjè minimòm nou chak mwa se US$1,500 (li pa gen ladan konstriksyon ak pwojè espesyal nan Mwayen Oryan).",
+    "fundsCta": "Soutni pwojè k ap fèt yo",
+    "aheadTitle": "N ap gade pi devan",
+    "aheadBody": "Nou angaje nou pou nou koute vwa Bondye epi obeyi l, epi pou nou fè fas ak defi sa yo ak transparans ak detèminasyon. Èske ou ta priye pou w fè pati misyon sa a? Sipò ou ka ede nou kontinye rive jwenn lòt moun. Mèsi pou tout moun ki deja soutni nou.",
+    "aheadClosing": "Rete tann sa Bondye ap kontinye fè."
+  },
+  "Share": {
+    "cta": "Pataje",
+    "title": "Pataje pwojè sa a",
+    "subtitle": "Pataje se fason ki pi pwisan pou ede.",
+    "native": "Pataje ak aplikasyon ou yo",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "Imèl",
+    "copyLink": "Kopye lyen an",
+    "copied": "Kopye!",
+    "instagram": "Kopye pou Instagram",
+    "instagramDone": "Lyen an kopye! Kole l nan bio ou oswa nan yon story.",
+    "instagramHint": "Instagram pa pèmèt lyen nan pòs yo. Kole lyen an nan bio ou oswa nan yon story.",
+    "close": "Fèmen",
+    "projectMessage": "Sipòte \"{title}\" sou ONEBODY 💛",
+    "donateHeading": "Miltipliye enpak ou",
+    "donateBody": "Se pataje ki fè yon koz grandi. Envite moun pa ou yo pou yo vin patisipe 💛",
+    "donateMessage": "Mwen fèk sipòte \"{title}\" sou ONEBODY. Vin jwenn nou 💛"
+  },
+  "Areas": {
+    "a1t": "Edikasyon ak fòmasyon",
+    "a1b": "Nou ofri kou anglè gratis epi nou kowòdone materyèl lekòl pou timoun nan fanmi ki gen mwens mwayen, pou yo ka kontinye etid yo.",
+    "a2t": "Èd alimantè",
+    "a2b": "Nou distribye manje bay fanmi vilnerab yo, anplis nou bay dejene nan lari yo ak nan lopital timoun yo.",
+    "a3t": "Èd medikal",
+    "a3b": "Nou bay moun malad ki bezwen èd pou jwenn medikaman yo yon kout men.",
+    "a4t": "Kay",
+    "a4b": "N ap travay pou konstwi kay pou fanmi ki nan gwo vilnerabilite.",
+    "a5t": "Sipò pou adolesan ansent",
+    "a5b": "Yon pwogram akonpayman ki ofri edikasyon, materyèl, terapi sikolojik ak zouti pou etap sa a nan lavi a.",
+    "a6t": "Repons entènasyonal pou ijans",
+    "a6b": "Selon jan Bondye pèmèt li, nou elaji ministè nou yo epi nou pote gras li bay refijye nan Mwayen Oryan.",
+    "a7t": "Èd pou azil ak òfelina",
+    "a7b": "Nou vizite azil ak òfelina, n ap chèche pataje lanmou Bondye epi ede kouvri bezwen yo.",
+    "a8t": "Don nan kominote yo",
+    "a8b": "Ministè kote nou pote tout don nou resevwa yo bay kominote ki nan bezwen pou distribisyon."
   }
 }

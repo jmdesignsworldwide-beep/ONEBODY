@@ -136,7 +136,13 @@
     "failedBody": "Aucun débit n'a été effectué. Vous pouvez réessayer.",
     "failedRetry": "Réessayer",
     "pendingTitle": "Confirmation du paiement",
-    "pendingBody": "Nous confirmons votre don. Cela prend quelques secondes."
+    "pendingBody": "Nous confirmons votre don. Cela prend quelques secondes.",
+    "monthlyNudge": "Et si vous la rendiez mensuelle ? C'est ce qui soutient la cause 💛",
+    "monthlyHint": "Le soutien de la fondation. Vous pouvez annuler à tout moment.",
+    "donateAs": "Vous faites un don en tant que",
+    "summaryOnce": "Don unique",
+    "summaryMonthly": "Don mensuel",
+    "receiptCta": "Télécharger le reçu"
   },
   "Auth": {
     "email": "E-mail",
@@ -168,7 +174,17 @@
     "account": "Mon compte",
     "convertTitle": "Créez votre compte en un clic",
     "convertBody": "Nous avons déjà votre e-mail. Choisissez un mot de passe et suivez votre impact.",
-    "adminPanel": "Panneau d'admin"
+    "adminPanel": "Panneau d'admin",
+    "loginEyebrow": "Nous sommes heureux de vous revoir",
+    "loginSubtitle": "Connectez-vous pour suivre votre impact et gérer vos dons.",
+    "signupEyebrow": "Rejoignez le corps",
+    "signupHeadline": "Faites partie de quelque chose de plus grand",
+    "resetEyebrow": "Nous vous aidons à revenir",
+    "orEmail": "ou continuez avec votre e-mail",
+    "continueWith": "Continuer avec {provider}",
+    "noAccount": "Vous n'avez pas encore de compte ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "guestNote": "Vous n'avez jamais besoin d'un compte pour faire un don."
   },
   "Account": {
     "portal": "Portail donateur",
@@ -331,7 +347,17 @@
     "anConversion": "Conversion",
     "anTopPaths": "Pages les plus vues",
     "anTrafficByCountry": "Visites par pays",
-    "anByLocale": "Par langue"
+    "anByLocale": "Par langue",
+    "imageUpload": "Téléverser une image",
+    "imageChange": "Changer l'image",
+    "imageRemove": "Retirer",
+    "imageUploading": "Téléversement…",
+    "imageHint": "JPG, PNG ou WebP · max 5 MB",
+    "imageBadType": "Format non autorisé (utilisez JPG, PNG ou WebP).",
+    "imageTooLarge": "L'image dépasse 5 MB.",
+    "shareLabel": "Lien public (à partager sur les réseaux)",
+    "shareCopy": "Copier le lien",
+    "shareCopied": "Copié !"
   },
   "About": {
     "title": "Faits pour n'être qu'un",
@@ -350,7 +376,12 @@
     "whereEyebrow": "De la République dominicaine au monde",
     "whereTitle": "Racines locales, portée mondiale",
     "whereBody": "Nés à Santiago de los Caballeros, nous travaillons en 15 langues pour que la générosité n'ait pas de frontières.",
-    "cta": "Rejoignez-nous"
+    "cta": "Rejoignez-nous",
+    "year": "2026 · Année de croissance",
+    "areasEyebrow": "Ce que nous faisons",
+    "areasTitle": "Nos huit domaines d'impact",
+    "verse": "C'est de lui, et grâce à tous les liens de son assistance, que tout le corps, bien coordonné et formant un solide assemblage, tire son accroissement selon la force qui convient à chacune de ses parties, et s'édifie lui-même dans l'amour.",
+    "verseRef": "Éphésiens 4:16"
   },
   "Impact": {
     "badge": "Impact",
@@ -384,6 +415,56 @@
     "a2": "Oui. Les paiements sont traités par des prestataires certifiés et nous ne stockons jamais vos données de carte.",
     "q3": "Puis-je donner anonymement ?",
     "a3": "Bien sûr. Vous pouvez masquer votre nom du mur public ; le registre comptable est conservé, comme l'exige la loi.",
-    "cta": "Faire un don"
+    "cta": "Faire un don",
+    "goalsEyebrow": "Objectifs du mois",
+    "goalsTitle": "Soutenez la mission, mois après mois",
+    "monthlyBadge": "Objectif mensuel",
+    "opsTitle": "Frais de fonctionnement",
+    "opsBody": "L'un de nos défis est de couvrir les frais de fonctionnement qui nous permettent de soutenir et d'étendre nos projets sur une base stable. Aujourd'hui, la logistique, le transport, les services, l'entretien et la coordination de base représentent US$1,300 par mois.",
+    "opsCta": "Aidez à couvrir les frais de ce mois",
+    "fundsTitle": "Fonds des projets",
+    "fundsBody": "Nous nous engageons à poursuivre chaque service en glorifiant Dieu et en aidant les personnes. Pour les projets en cours —médecine, alimentation, éducation et réfugiés— notre budget mensuel minimum est de US$1,500 (hors construction et projets spéciaux au Moyen-Orient).",
+    "fundsCta": "Soutenez les projets en cours",
+    "aheadTitle": "Regarder vers l'avenir",
+    "aheadBody": "Nous nous engageons à écouter la voix de Dieu et à lui obéir, et à relever ces défis avec transparence et détermination. Prieriez-vous pour faire partie de cette mission ? Votre soutien peut nous aider à continuer d'atteindre les autres. Merci à ceux qui nous soutiennent déjà.",
+    "aheadClosing": "Restez attentif à ce que Dieu continuera de faire."
+  },
+  "Share": {
+    "cta": "Partager",
+    "title": "Partagez ce projet",
+    "subtitle": "Partager est la façon la plus puissante d'aider.",
+    "native": "Partager avec vos applications",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "E-mail",
+    "copyLink": "Copier le lien",
+    "copied": "Copié !",
+    "instagram": "Copier pour Instagram",
+    "instagramDone": "Lien copié ! Collez-le dans votre bio ou votre story.",
+    "instagramHint": "Instagram ne permet pas les liens dans les publications. Collez le lien dans votre bio ou dans une story.",
+    "close": "Fermer",
+    "projectMessage": "Soutenez « {title} » sur ONEBODY 💛",
+    "donateHeading": "Multipliez votre impact",
+    "donateBody": "Partager, c'est ce qui fait grandir une cause. Invitez vos proches à se joindre à vous 💛",
+    "donateMessage": "Je viens de soutenir « {title} » sur ONEBODY. Joignez-vous à moi 💛"
+  },
+  "Areas": {
+    "a1t": "Éducation et formation",
+    "a1b": "Nous offrons des cours d'anglais gratuits et coordonnons la distribution de fournitures scolaires aux enfants de familles démunies, afin qu'ils puissent poursuivre leurs études.",
+    "a2t": "Aide alimentaire",
+    "a2b": "Nous distribuons des aliments aux familles vulnérables, en plus de la distribution de petits-déjeuners dans les rues et à l'hôpital pour enfants.",
+    "a3t": "Aide médicale",
+    "a3b": "Nous soutenons par des médicaments les personnes malades qui ont besoin d'aide pour se procurer leurs traitements.",
+    "a4t": "Logements",
+    "a4b": "Nous œuvrons à la construction de logements pour les familles en grande vulnérabilité.",
+    "a5t": "Soutien aux adolescentes enceintes",
+    "a5b": "Un programme d'accompagnement qui offre éducation, fournitures, thérapie psychologique et outils pour cette étape de la vie.",
+    "a6t": "Réponse internationale d'urgence",
+    "a6b": "Selon la volonté de Dieu, nous étendons nos ministères et portons sa grâce aux réfugiés du Moyen-Orient.",
+    "a7t": "Aide aux maisons de retraite et aux orphelinats",
+    "a7b": "Nous visitons des maisons de retraite et des orphelinats, cherchant à partager l'amour de Dieu et à aider à couvrir leurs besoins.",
+    "a8t": "Dons dans les communautés",
+    "a8b": "Le ministère par lequel nous portons tous les dons que nous recevons vers les communautés dans le besoin pour leur distribution."
   }
 }

@@ -136,7 +136,13 @@
     "failedBody": "Es wurde nichts abgebucht. Du kannst es erneut versuchen.",
     "failedRetry": "Erneut versuchen",
     "pendingTitle": "Zahlung wird bestätigt",
-    "pendingBody": "Wir bestätigen deine Spende. Das dauert ein paar Sekunden."
+    "pendingBody": "Wir bestätigen deine Spende. Das dauert ein paar Sekunden.",
+    "monthlyNudge": "Wie wäre es mit einer monatlichen Spende? Sie trägt unsere Mission dauerhaft 💛",
+    "monthlyHint": "Der Rückhalt der Stiftung. Du kannst jederzeit kündigen.",
+    "donateAs": "Du spendest als",
+    "summaryOnce": "Einmalige Spende",
+    "summaryMonthly": "Monatliche Spende",
+    "receiptCta": "Spendenquittung herunterladen"
   },
   "Auth": {
     "email": "E-Mail",
@@ -168,7 +174,17 @@
     "account": "Mein Konto",
     "convertTitle": "Erstelle dein Konto mit einem Klick",
     "convertBody": "Wir haben deine E-Mail bereits. Wähle ein Passwort und verfolge deine Wirkung.",
-    "adminPanel": "Admin-Panel"
+    "adminPanel": "Admin-Panel",
+    "loginEyebrow": "Schön, dich zu sehen",
+    "loginSubtitle": "Melde dich an, um deine Wirkung zu verfolgen und deine Spenden zu verwalten.",
+    "signupEyebrow": "Werde Teil des Leibes",
+    "signupHeadline": "Sei Teil von etwas Größerem",
+    "resetEyebrow": "Wir helfen dir zurück",
+    "orEmail": "oder weiter mit E-Mail",
+    "continueWith": "Weiter mit {provider}",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Schon ein Konto?",
+    "guestNote": "Zum Spenden brauchst du nie ein Konto."
   },
   "Account": {
     "portal": "Spenderportal",
@@ -331,7 +347,17 @@
     "anConversion": "Conversion",
     "anTopPaths": "Meistbesuchte Seiten",
     "anTrafficByCountry": "Besuche nach Land",
-    "anByLocale": "Nach Sprache"
+    "anByLocale": "Nach Sprache",
+    "imageUpload": "Bild hochladen",
+    "imageChange": "Bild ändern",
+    "imageRemove": "Entfernen",
+    "imageUploading": "Wird hochgeladen…",
+    "imageHint": "JPG, PNG oder WebP · max. 5 MB",
+    "imageBadType": "Format nicht erlaubt (nutze JPG, PNG oder WebP).",
+    "imageTooLarge": "Das Bild überschreitet 5 MB.",
+    "shareLabel": "Öffentlicher Link (zum Teilen in sozialen Netzwerken)",
+    "shareCopy": "Link kopieren",
+    "shareCopied": "Kopiert!"
   },
   "About": {
     "title": "Bestimmt, eins zu sein",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Von der Dominikanischen Republik in die Welt",
     "whereTitle": "Lokal verwurzelt, global wirksam",
     "whereBody": "Wir sind in Santiago de los Caballeros entstanden und arbeiten in 15 Sprachen, damit Großzügigkeit keine Grenzen kennt.",
-    "cta": "Mach mit"
+    "cta": "Mach mit",
+    "year": "2026 · Jahr des Wachstums",
+    "areasEyebrow": "Was wir tun",
+    "areasTitle": "Unsere acht Wirkungsbereiche",
+    "verse": "Von ihm aus fügt sich der ganze Leib zusammen und wird zusammengehalten durch alle Gelenke, wodurch eines das andere unterstützt nach dem Maß seiner Kraft, und so wächst der Leib und baut sich selbst auf in der Liebe.",
+    "verseRef": "Epheser 4:16"
   },
   "Impact": {
     "badge": "Wirkung",
@@ -384,6 +415,56 @@
     "a2": "Ja. Zahlungen laufen über zertifizierte Anbieter, und wir speichern nie deine Kartendaten.",
     "q3": "Kann ich anonym spenden?",
     "a3": "Natürlich. Du kannst deinen Namen von der öffentlichen Wand verbergen; der Buchungsnachweis bleibt erhalten, wie es das Gesetz verlangt.",
-    "cta": "Jetzt spenden"
+    "cta": "Jetzt spenden",
+    "goalsEyebrow": "Ziele des Monats",
+    "goalsTitle": "Trage die Mission, Monat für Monat",
+    "monthlyBadge": "Monatsziel",
+    "opsTitle": "Betriebskosten",
+    "opsBody": "Eine unserer Herausforderungen ist es, die Betriebskosten zu decken, die es uns ermöglichen, unsere Projekte auf einer stabilen Grundlage zu tragen und auszuweiten. Heute belaufen sich Logistik, Transport, Nebenkosten, Instandhaltung und die Koordination vor Ort auf US$1,300 im Monat.",
+    "opsCta": "Hilf, die Kosten dieses Monats zu decken",
+    "fundsTitle": "Projektmittel",
+    "fundsBody": "Wir setzen uns dafür ein, jeden Dienst fortzuführen, Gott zu verherrlichen und Menschen zu helfen. Für die laufenden Projekte – Medizin, Ernährung, Bildung und Geflüchtete – liegt unser monatliches Mindestbudget bei US$1,500 (ohne Bauvorhaben und Sonderprojekte im Nahen Osten).",
+    "fundsCta": "Trage die laufenden Projekte mit",
+    "aheadTitle": "Der Blick nach vorn",
+    "aheadBody": "Wir setzen uns dafür ein, auf Gottes Stimme zu hören und ihm zu gehorchen und diesen Herausforderungen mit Transparenz und Entschlossenheit zu begegnen. Würdest du dafür beten, Teil dieser Mission zu sein? Deine Unterstützung kann uns helfen, weiter andere zu erreichen. Danke an alle, die uns schon jetzt tragen.",
+    "aheadClosing": "Bleib gespannt auf das, was Gott weiter tun wird."
+  },
+  "Share": {
+    "cta": "Teilen",
+    "title": "Teile dieses Projekt",
+    "subtitle": "Teilen ist die kraftvollste Art zu helfen.",
+    "native": "Mit deinen Apps teilen",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "E-Mail",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert!",
+    "instagram": "Für Instagram kopieren",
+    "instagramDone": "Link kopiert! Füge ihn in deine Bio oder Story ein.",
+    "instagramHint": "Instagram erlaubt keine Links in Beiträgen. Füge den Link in deine Bio oder in eine Story ein.",
+    "close": "Schließen",
+    "projectMessage": "Unterstütze \"{title}\" bei ONEBODY 💛",
+    "donateHeading": "Vervielfache deine Wirkung",
+    "donateBody": "Teilen lässt eine gute Sache wachsen. Lade deine Liebsten ein, mitzumachen 💛",
+    "donateMessage": "Ich habe gerade \"{title}\" bei ONEBODY unterstützt. Mach mit 💛"
+  },
+  "Areas": {
+    "a1t": "Bildung und Ausbildung",
+    "a1b": "Wir bieten kostenlose Englischkurse an und organisieren Schulmaterial für Kinder aus einkommensschwachen Familien, damit sie ihre Ausbildung fortsetzen können.",
+    "a2t": "Lebensmittelhilfe",
+    "a2b": "Wir verteilen Lebensmittel an bedürftige Familien und geben zudem Frühstück auf den Straßen und im Kinderkrankenhaus aus.",
+    "a3t": "Medizinische Hilfe",
+    "a3b": "Wir unterstützen kranke Menschen mit Medikamenten, die Hilfe brauchen, um an ihre Arznei zu kommen.",
+    "a4t": "Wohnraum",
+    "a4b": "Wir arbeiten am Bau von Häusern für Familien in großer Not.",
+    "a5t": "Begleitung schwangerer Jugendlicher",
+    "a5b": "Ein Begleitprogramm, das Bildung, Materialien, psychologische Betreuung und Hilfen für diese Lebensphase bietet.",
+    "a6t": "Internationale Nothilfe",
+    "a6b": "So wie Gott es zulässt, weiten wir unseren Dienst aus und bringen seine Gnade zu Geflüchteten im Nahen Osten.",
+    "a7t": "Hilfe für Alten- und Waisenheime",
+    "a7b": "Wir besuchen Alten- und Waisenheime, um Gottes Liebe zu teilen und ihre Nöte lindern zu helfen.",
+    "a8t": "Spenden in Gemeinden",
+    "a8b": "Der Dienst, durch den wir alle Spenden, die wir erhalten, in bedürftige Gemeinden bringen und dort verteilen."
   }
 }

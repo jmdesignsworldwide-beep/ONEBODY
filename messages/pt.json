@@ -136,7 +136,13 @@
     "failedBody": "Nenhuma cobrança foi feita. Você pode tentar de novo.",
     "failedRetry": "Tentar de novo",
     "pendingTitle": "Confirmando seu pagamento",
-    "pendingBody": "Estamos confirmando sua doação. Leva alguns segundos."
+    "pendingBody": "Estamos confirmando sua doação. Leva alguns segundos.",
+    "monthlyNudge": "E se você tornasse mensal? É isso que sustenta a causa 💛",
+    "monthlyHint": "O sustento da fundação. Você pode cancelar quando quiser.",
+    "donateAs": "Você doa como",
+    "summaryOnce": "Doação única",
+    "summaryMonthly": "Doação mensal",
+    "receiptCta": "Baixar recibo"
   },
   "Auth": {
     "email": "E-mail",
@@ -168,7 +174,17 @@
     "account": "Minha conta",
     "convertTitle": "Crie sua conta com um clique",
     "convertBody": "Já temos seu e-mail. Escolha uma senha e acompanhe seu impacto.",
-    "adminPanel": "Painel de admin"
+    "adminPanel": "Painel de admin",
+    "loginEyebrow": "Que bom ver você",
+    "loginSubtitle": "Entre para acompanhar o seu impacto e gerenciar suas doações.",
+    "signupEyebrow": "Junte-se ao corpo",
+    "signupHeadline": "Faça parte de algo maior",
+    "resetEyebrow": "Vamos te ajudar a voltar",
+    "orEmail": "ou continue com e-mail",
+    "continueWith": "Continuar com {provider}",
+    "noAccount": "Ainda não tem uma conta?",
+    "haveAccount": "Já tem uma conta?",
+    "guestNote": "Você nunca precisa de uma conta para doar."
   },
   "Account": {
     "portal": "Portal do doador",
@@ -331,7 +347,17 @@
     "anConversion": "Conversão",
     "anTopPaths": "Páginas mais vistas",
     "anTrafficByCountry": "Visitas por país",
-    "anByLocale": "Por idioma"
+    "anByLocale": "Por idioma",
+    "imageUpload": "Enviar imagem",
+    "imageChange": "Trocar imagem",
+    "imageRemove": "Remover",
+    "imageUploading": "Enviando…",
+    "imageHint": "JPG, PNG ou WebP · máx 5 MB",
+    "imageBadType": "Formato não permitido (use JPG, PNG ou WebP).",
+    "imageTooLarge": "A imagem ultrapassa 5 MB.",
+    "shareLabel": "Link público (para compartilhar nas redes)",
+    "shareCopy": "Copiar link",
+    "shareCopied": "Copiado!"
   },
   "About": {
     "title": "Feitos para sermos um",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Da República Dominicana para o mundo",
     "whereTitle": "Raízes locais, alcance global",
     "whereBody": "Nascemos em Santiago de los Caballeros e trabalhamos em 15 idiomas para que a generosidade não tenha fronteiras.",
-    "cta": "Faça parte"
+    "cta": "Faça parte",
+    "year": "2026 · Ano de crescimento",
+    "areasEyebrow": "O que fazemos",
+    "areasTitle": "Nossas oito áreas de impacto",
+    "verse": "Dele todo o corpo, ajustado e unido pelo auxílio de todas as juntas, cresce e edifica-se a si mesmo em amor, na medida em que cada parte realiza a sua função.",
+    "verseRef": "Efésios 4:16"
   },
   "Impact": {
     "badge": "Impacto",
@@ -384,6 +415,56 @@
     "a2": "Sim. Os pagamentos são processados por provedores certificados e nunca armazenamos os dados do seu cartão.",
     "q3": "Posso doar anonimamente?",
     "a3": "Claro. Você pode ocultar seu nome do mural público; o registro contábil é mantido, como exige a lei.",
-    "cta": "Doar agora"
+    "cta": "Doar agora",
+    "goalsEyebrow": "Metas do mês",
+    "goalsTitle": "Sustente a missão, mês a mês",
+    "monthlyBadge": "Meta mensal",
+    "opsTitle": "Gastos operacionais",
+    "opsBody": "Um dos nossos desafios é cobrir os gastos operacionais que nos permitem sustentar e ampliar nossos projetos a partir de uma base estável. Hoje, logística, transporte, serviços, manutenção e coordenação de base somam US$1,300 por mês.",
+    "opsCta": "Ajude a cobrir os gastos deste mês",
+    "fundsTitle": "Fundos de projetos",
+    "fundsBody": "Comprometemo-nos a continuar cada serviço glorificando a Deus e ajudando as pessoas. Para os projetos em andamento —medicina, alimentação, educação e refugiados— nosso orçamento mensal mínimo é de US$1,500 (exclui construção e projetos especiais no Oriente Médio).",
+    "fundsCta": "Sustente os projetos em andamento",
+    "aheadTitle": "Olhando para frente",
+    "aheadBody": "Comprometemo-nos a ouvir a voz de Deus e obedecê-la, e a enfrentar estes desafios com transparência e determinação. Você oraria para fazer parte desta missão? O seu apoio pode nos ajudar a continuar alcançando outras pessoas. Obrigado a quem já nos sustenta.",
+    "aheadClosing": "Fique atento ao que Deus continuará fazendo."
+  },
+  "Share": {
+    "cta": "Compartilhar",
+    "title": "Compartilhe este projeto",
+    "subtitle": "Compartilhar é a forma mais poderosa de ajudar.",
+    "native": "Compartilhar com seus apps",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "E-mail",
+    "copyLink": "Copiar link",
+    "copied": "Copiado!",
+    "instagram": "Copiar para o Instagram",
+    "instagramDone": "Link copiado! Cole na sua bio ou nos stories.",
+    "instagramHint": "O Instagram não permite links nas publicações. Cole o link na sua bio ou em um story.",
+    "close": "Fechar",
+    "projectMessage": "Apoie \"{title}\" na ONEBODY 💛",
+    "donateHeading": "Multiplique o seu impacto",
+    "donateBody": "Compartilhar é o que faz uma causa crescer. Convide os seus para se juntarem 💛",
+    "donateMessage": "Acabei de apoiar \"{title}\" na ONEBODY. Junte-se 💛"
+  },
+  "Areas": {
+    "a1t": "Educação e formação",
+    "a1b": "Oferecemos aulas de inglês gratuitas e coordenamos material escolar para crianças de famílias de baixa renda, para que possam continuar seus estudos.",
+    "a2t": "Assistência alimentar",
+    "a2b": "Distribuímos alimentos a famílias vulneráveis, além de entregas de café da manhã nas ruas e no hospital infantil.",
+    "a3t": "Ajuda médica",
+    "a3b": "Apoiamos com medicamentos pessoas doentes que precisam de ajuda para conseguir seus remédios.",
+    "a4t": "Moradias",
+    "a4b": "Trabalhamos na construção de moradias para famílias em alta vulnerabilidade.",
+    "a5t": "Apoio a adolescentes grávidas",
+    "a5b": "Um programa de acompanhamento que oferece educação, insumos, terapia psicológica e ferramentas para esta etapa da vida.",
+    "a6t": "Resposta internacional de emergência",
+    "a6b": "Conforme Deus permite, expandimos nossos ministérios e levamos a sua graça a refugiados no Oriente Médio.",
+    "a7t": "Ajuda a asilos e orfanatos",
+    "a7b": "Visitamos asilos e orfanatos, buscando compartilhar o amor de Deus e ajudar a suprir suas necessidades.",
+    "a8t": "Doações nas comunidades",
+    "a8b": "O ministério por meio do qual levamos todas as doações que recebemos a comunidades necessitadas para distribuição."
   }
 }

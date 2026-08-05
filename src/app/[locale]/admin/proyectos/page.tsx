@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { listAdminProjects } from "@/lib/admin/projects-queries";
+import { AdminEmptyState } from "@/components/admin/empty-state";
 
 const statusTone: Record<string, string> = {
   draft: "text-ob-smoke",
@@ -36,7 +37,11 @@ export default async function AdminProjectsPage() {
       </div>
 
       {projects.length === 0 ? (
-        <p className="mt-8 text-ob-smoke">{t("noProjects")}</p>
+        <AdminEmptyState
+          title={t("noProjects")}
+          ctaLabel={t("newProject")}
+          ctaHref="/admin/proyectos/nuevo"
+        />
       ) : (
         <ul className="mt-8 divide-y divide-ob-ash/30 overflow-hidden rounded-[var(--radius-ob)] border border-ob-ash/40">
           {projects.map((p) => {

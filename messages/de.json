@@ -235,7 +235,10 @@
     "dangerBody": "Dies löscht dein Konto und Profil dauerhaft.",
     "deleteAccount": "Konto löschen",
     "confirmDelete": "Ja, löschen",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "nextCharge": "Nächste Abbuchung",
+    "cancelConfirm": "Deine monatliche Spende kündigen? Du kannst jederzeit wieder starten.",
+    "actionError": "Konnte nicht abgeschlossen werden. Bitte versuche es erneut."
   },
   "Admin": {
     "panel": "Panel",

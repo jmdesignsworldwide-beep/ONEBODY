@@ -255,7 +255,10 @@
     "dangerBody": "This permanently deletes your account and profile.",
     "deleteAccount": "Delete account",
     "confirmDelete": "Yes, delete",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "nextCharge": "Next charge",
+    "cancelConfirm": "Cancel your monthly donation? You can start again anytime.",
+    "actionError": "Couldn't complete. Please try again."
   },
   "Admin": {
     "panel": "Panel",

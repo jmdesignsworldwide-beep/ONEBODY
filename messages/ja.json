@@ -235,7 +235,10 @@
     "dangerBody": "アカウントとプロフィールを完全に削除します。",
     "deleteAccount": "アカウント削除",
     "confirmDelete": "はい、削除",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "nextCharge": "次回の請求",
+    "cancelConfirm": "毎月の寄付をキャンセルしますか？いつでも再開できます。",
+    "actionError": "完了できませんでした。もう一度お試しください。"
   },
   "Admin": {
     "panel": "パネル",

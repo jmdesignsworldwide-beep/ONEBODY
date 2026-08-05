@@ -235,7 +235,10 @@
     "dangerBody": "Questo elimina definitivamente il tuo account e profilo.",
     "deleteAccount": "Elimina account",
     "confirmDelete": "Sì, elimina",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "nextCharge": "Prossimo addebito",
+    "cancelConfirm": "Annullare la tua donazione mensile? Puoi ricominciare quando vuoi.",
+    "actionError": "Operazione non riuscita. Riprova."
   },
   "Admin": {
     "panel": "Pannello",

@@ -235,7 +235,10 @@
     "dangerBody": "Isto exclui sua conta e perfil permanentemente.",
     "deleteAccount": "Excluir conta",
     "confirmDelete": "Sim, excluir",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "nextCharge": "Próxima cobrança",
+    "cancelConfirm": "Cancelar sua doação mensal? Você pode recomeçar quando quiser.",
+    "actionError": "Não foi possível concluir. Tente novamente."
   },
   "Admin": {
     "panel": "Painel",

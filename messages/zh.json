@@ -136,7 +136,13 @@
     "failedBody": "未产生任何扣款。你可以重试。",
     "failedRetry": "重试",
     "pendingTitle": "正在确认支付",
-    "pendingBody": "我们正在确认你的捐赠，需要几秒钟。"
+    "pendingBody": "我们正在确认你的捐赠，需要几秒钟。",
+    "monthlyNudge": "要不要设为每月捐赠？这正是持续托起这份事工的力量 💛",
+    "monthlyHint": "这是基金会得以延续的支撑。你可以随时取消。",
+    "donateAs": "你以此身份捐赠",
+    "summaryOnce": "单次捐赠",
+    "summaryMonthly": "每月捐赠",
+    "receiptCta": "下载收据"
   },
   "Auth": {
     "email": "邮箱",
@@ -168,7 +174,17 @@
     "account": "我的账户",
     "convertTitle": "一键创建你的账户",
     "convertBody": "我们已有你的邮箱。设置密码即可追踪你的影响。",
-    "adminPanel": "管理面板"
+    "adminPanel": "管理面板",
+    "loginEyebrow": "很高兴再次见到你",
+    "loginSubtitle": "登录以继续关注你带来的改变，并管理你的捐赠。",
+    "signupEyebrow": "加入这一身体",
+    "signupHeadline": "成为更宏大之事的一部分",
+    "resetEyebrow": "我们帮你重新回来",
+    "orEmail": "或使用邮箱继续",
+    "continueWith": "使用 {provider} 继续",
+    "noAccount": "还没有账户吗？",
+    "haveAccount": "已经有账户了吗？",
+    "guestNote": "捐赠从不需要注册账户。"
   },
   "Account": {
     "portal": "捐赠者中心",
@@ -331,7 +347,17 @@
     "anConversion": "转化率",
     "anTopPaths": "最热门页面",
     "anTrafficByCountry": "按国家访问",
-    "anByLocale": "按语言"
+    "anByLocale": "按语言",
+    "imageUpload": "上传图片",
+    "imageChange": "更换图片",
+    "imageRemove": "移除",
+    "imageUploading": "上传中…",
+    "imageHint": "JPG、PNG 或 WebP · 最大 5 MB",
+    "imageBadType": "不支持的格式（请使用 JPG、PNG 或 WebP）。",
+    "imageTooLarge": "图片超过 5 MB。",
+    "shareLabel": "公开链接（可分享到社交平台）",
+    "shareCopy": "复制链接",
+    "shareCopied": "已复制！"
   },
   "About": {
     "title": "生来合一",
@@ -350,7 +376,12 @@
     "whereEyebrow": "从多米尼加共和国走向世界",
     "whereTitle": "扎根本地，触达全球",
     "whereBody": "我们诞生于圣地亚哥-德洛斯卡瓦列罗斯，以15种语言工作，让善意没有边界。",
-    "cta": "加入我们"
+    "cta": "加入我们",
+    "year": "2026 · 成长之年",
+    "areasEyebrow": "我们所做的",
+    "areasTitle": "我们的八个服事领域",
+    "verse": "全身都靠他联络得合式，百节各按各职，照着各体的功用彼此相助，便叫身体渐渐增长，在爱中建立自己。",
+    "verseRef": "以弗所书 4:16"
   },
   "Impact": {
     "badge": "影响",
@@ -384,6 +415,56 @@
     "a2": "安全。付款由认证的服务商处理，我们绝不存储你的银行卡数据。",
     "q3": "我可以匿名捐款吗？",
     "a3": "当然。你可以在公开墙上隐藏姓名；按法律要求，会计记录仍会保存。",
-    "cta": "立即捐款"
+    "cta": "立即捐款",
+    "goalsEyebrow": "本月目标",
+    "goalsTitle": "月复一月，托起这份使命",
+    "monthlyBadge": "每月目标",
+    "opsTitle": "运营开支",
+    "opsBody": "我们面临的挑战之一，是覆盖那些让我们能在稳固根基上维持并拓展项目的运营开支。如今，后勤、交通、水电、维护和基层协调每月合计需 US$1,300。",
+    "opsCta": "帮助覆盖本月的开支",
+    "fundsTitle": "项目资金",
+    "fundsBody": "我们立志荣耀神、帮助他人，持续推进每一项服事。对于正在进行的项目——医疗、食物、教育与难民关怀——我们每月的最低预算为 US$1,500（不含建造项目及中东的特别项目）。",
+    "fundsCta": "托起正在进行的项目",
+    "aheadTitle": "展望前路",
+    "aheadBody": "我们立志聆听神的声音并顺服祂，以透明和坚定去面对这些挑战。你愿意为成为这份使命的一部分而祷告吗？你的支持能帮助我们继续触及更多人。感谢每一位已经在托起我们的人。",
+    "aheadClosing": "请继续留心，看神将要成就的事。"
+  },
+  "Share": {
+    "cta": "分享",
+    "title": "分享这个项目",
+    "subtitle": "分享，是最有力量的帮助方式。",
+    "native": "用你的应用分享",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "邮件",
+    "copyLink": "复制链接",
+    "copied": "已复制！",
+    "instagram": "复制到 Instagram",
+    "instagramDone": "链接已复制！把它贴到你的简介或快拍里吧。",
+    "instagramHint": "Instagram 不允许在帖子里放链接。请把链接贴到你的简介，或发到快拍中。",
+    "close": "关闭",
+    "projectMessage": "在 ONEBODY 上支持“{title}” 💛",
+    "donateHeading": "让你的爱心加倍",
+    "donateBody": "分享，是让一份善举成长的方式。邀请你身边的人一起加入吧 💛",
+    "donateMessage": "我刚刚在 ONEBODY 上支持了“{title}”。一起加入吧 💛"
+  },
+  "Areas": {
+    "a1t": "教育与培训",
+    "a1b": "我们为贫困家庭的孩子提供免费英语课程，并统筹学习用品，让他们能够继续求学。",
+    "a2t": "食物援助",
+    "a2b": "我们向弱势家庭分发食物，也在街头和儿童医院派送早餐。",
+    "a3t": "医疗帮助",
+    "a3b": "我们为难以获得药物的病患提供药品上的帮助。",
+    "a4t": "住房",
+    "a4b": "我们致力于为处境极其艰难的家庭建造住房。",
+    "a5t": "关怀怀孕的少女",
+    "a5b": "这是一个陪伴计划，为人生的这一阶段提供教育、物资、心理辅导和实用的帮助。",
+    "a6t": "国际紧急救援",
+    "a6b": "在神所许可的范围内，我们扩展事工，把祂的恩典带给中东的难民。",
+    "a7t": "关怀养老院与孤儿院",
+    "a7b": "我们探访养老院和孤儿院，愿分享神的爱，并帮助满足他们的需要。",
+    "a8t": "社区捐助",
+    "a8b": "这是我们的一项事工，把所收到的一切捐赠带到有需要的社区进行分发。"
   }
 }

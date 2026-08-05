@@ -367,7 +367,17 @@
     "anConversion": "Conversion",
     "anTopPaths": "Top pages",
     "anTrafficByCountry": "Visits by country",
-    "anByLocale": "By language"
+    "anByLocale": "By language",
+    "imageUpload": "Upload image",
+    "imageChange": "Change image",
+    "imageRemove": "Remove",
+    "imageUploading": "Uploading…",
+    "imageHint": "JPG, PNG or WebP · max 5 MB",
+    "imageBadType": "Unsupported format (use JPG, PNG or WebP).",
+    "imageTooLarge": "Image exceeds 5 MB.",
+    "shareLabel": "Public link (to share on social)",
+    "shareCopy": "Copy link",
+    "shareCopied": "Copied!"
   },
   "About": {
     "title": "Meant to be one",

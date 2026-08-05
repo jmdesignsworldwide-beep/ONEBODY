@@ -136,7 +136,13 @@
     "failedBody": "Er is niets afgeschreven. Je kunt het opnieuw proberen.",
     "failedRetry": "Opnieuw proberen",
     "pendingTitle": "Betaling bevestigen",
-    "pendingBody": "We bevestigen je donatie. Dit duurt enkele seconden."
+    "pendingBody": "We bevestigen je donatie. Dit duurt enkele seconden.",
+    "monthlyNudge": "En als je hem maandelijks maakt? Dat is wat de missie draagt 💛",
+    "monthlyHint": "De steunpilaar van de stichting. Je kunt op elk moment opzeggen.",
+    "donateAs": "Je doneert als",
+    "summaryOnce": "Eenmalige donatie",
+    "summaryMonthly": "Maandelijkse donatie",
+    "receiptCta": "Ontvangstbewijs downloaden"
   },
   "Auth": {
     "email": "E-mail",
@@ -168,7 +174,17 @@
     "account": "Mijn account",
     "convertTitle": "Maak je account met één klik",
     "convertBody": "We hebben je e-mail al. Kies een wachtwoord en volg je impact.",
-    "adminPanel": "Adminpaneel"
+    "adminPanel": "Adminpaneel",
+    "loginEyebrow": "Fijn dat je er weer bent",
+    "loginSubtitle": "Log in om je impact te volgen en je donaties te beheren.",
+    "signupEyebrow": "Word deel van het lichaam",
+    "signupHeadline": "Word deel van iets groters",
+    "resetEyebrow": "We helpen je terug",
+    "orEmail": "of ga verder met e-mail",
+    "continueWith": "Doorgaan met {provider}",
+    "noAccount": "Nog geen account?",
+    "haveAccount": "Heb je al een account?",
+    "guestNote": "Je hebt nooit een account nodig om te doneren."
   },
   "Account": {
     "portal": "Donateursportaal",
@@ -331,7 +347,17 @@
     "anConversion": "Conversie",
     "anTopPaths": "Meest bekeken pagina's",
     "anTrafficByCountry": "Bezoeken per land",
-    "anByLocale": "Per taal"
+    "anByLocale": "Per taal",
+    "imageUpload": "Afbeelding uploaden",
+    "imageChange": "Afbeelding wijzigen",
+    "imageRemove": "Verwijderen",
+    "imageUploading": "Uploaden…",
+    "imageHint": "JPG, PNG of WebP · max 5 MB",
+    "imageBadType": "Formaat niet toegestaan (gebruik JPG, PNG of WebP).",
+    "imageTooLarge": "De afbeelding is groter dan 5 MB.",
+    "shareLabel": "Openbare link (om op sociale media te delen)",
+    "shareCopy": "Link kopiëren",
+    "shareCopied": "Gekopieerd!"
   },
   "About": {
     "title": "Bestemd om één te zijn",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Van de Dominicaanse Republiek naar de wereld",
     "whereTitle": "Lokaal geworteld, wereldwijd bereik",
     "whereBody": "We zijn ontstaan in Santiago de los Caballeros en werken in 15 talen zodat vrijgevigheid geen grenzen kent.",
-    "cta": "Doe mee"
+    "cta": "Doe mee",
+    "year": "2026 · Jaar van groei",
+    "areasEyebrow": "Wat we doen",
+    "areasTitle": "Onze acht gebieden van impact",
+    "verse": "Van Hem uit wordt het hele lichaam samengevoegd en bijeengehouden door elke band die ondersteuning geeft, naar de mate waarin ieder deel werkzaam is. Zo bewerkt het de groei van het lichaam, tot opbouw van zichzelf in de liefde.",
+    "verseRef": "Efeziërs 4:16"
   },
   "Impact": {
     "badge": "Impact",
@@ -384,6 +415,56 @@
     "a2": "Ja. Betalingen lopen via gecertificeerde aanbieders en we bewaren nooit je kaartgegevens.",
     "q3": "Kan ik anoniem doneren?",
     "a3": "Natuurlijk. Je kunt je naam verbergen van de openbare muur; de boekhoudkundige registratie blijft bewaard, zoals de wet vereist.",
-    "cta": "Doneer nu"
+    "cta": "Doneer nu",
+    "goalsEyebrow": "Doelen van de maand",
+    "goalsTitle": "Draag de missie, maand na maand",
+    "monthlyBadge": "Maandelijks doel",
+    "opsTitle": "Operationele kosten",
+    "opsBody": "Een van onze uitdagingen is het dekken van de operationele kosten waarmee we onze projecten vanuit een stabiele basis in stand kunnen houden en uitbreiden. Vandaag vormen logistiek, transport, nutsvoorzieningen, onderhoud en basiscoördinatie samen US$1,300 per maand.",
+    "opsCta": "Help de kosten van deze maand te dekken",
+    "fundsTitle": "Projectfondsen",
+    "fundsBody": "We zetten ons in om elke dienst voort te zetten en zo God te verheerlijken en mensen te helpen. Voor de lopende projecten —medicijnen, voeding, onderwijs en vluchtelingen— is ons minimale maandbudget US$1,500 (exclusief bouw en speciale projecten in het Midden-Oosten).",
+    "fundsCta": "Draag de lopende projecten",
+    "aheadTitle": "Blik op de toekomst",
+    "aheadBody": "We zetten ons in om naar Gods stem te luisteren en hem te gehoorzamen, en om deze uitdagingen met transparantie en vastberadenheid aan te gaan. Zou je willen bidden om deel te zijn van deze missie? Jouw steun kan ons helpen om anderen te blijven bereiken. Dank aan allen die ons al dragen.",
+    "aheadClosing": "Blijf zien wat God zal blijven doen."
+  },
+  "Share": {
+    "cta": "Delen",
+    "title": "Deel dit project",
+    "subtitle": "Delen is de krachtigste manier om te helpen.",
+    "native": "Delen met je apps",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "E-mail",
+    "copyLink": "Link kopiëren",
+    "copied": "Gekopieerd!",
+    "instagram": "Kopiëren voor Instagram",
+    "instagramDone": "Link gekopieerd! Plak hem in je bio of story.",
+    "instagramHint": "Instagram staat geen links in posts toe. Plak de link in je bio of in een story.",
+    "close": "Sluiten",
+    "projectMessage": "Steun \"{title}\" op ONEBODY 💛",
+    "donateHeading": "Vermenigvuldig je impact",
+    "donateBody": "Delen is wat een goed doel laat groeien. Nodig je naasten uit om mee te doen 💛",
+    "donateMessage": "Ik heb net \"{title}\" op ONEBODY gesteund. Doe mee 💛"
+  },
+  "Areas": {
+    "a1t": "Onderwijs en vorming",
+    "a1b": "We bieden gratis Engelse lessen en coördineren schoolspullen voor kinderen uit gezinnen met weinig middelen, zodat zij hun studie kunnen voortzetten.",
+    "a2t": "Voedselhulp",
+    "a2b": "We delen voedsel uit aan kwetsbare gezinnen, en verzorgen daarnaast ontbijten op straat en in het kinderziekenhuis.",
+    "a3t": "Medische hulp",
+    "a3b": "We ondersteunen zieke mensen met medicijnen die hulp nodig hebben om aan hun medicatie te komen.",
+    "a4t": "Woningen",
+    "a4b": "We werken aan de bouw van woningen voor gezinnen in grote kwetsbaarheid.",
+    "a5t": "Steun aan tienermoeders",
+    "a5b": "Een begeleidingsprogramma dat onderwijs, benodigdheden, psychologische therapie en handvatten biedt voor deze levensfase.",
+    "a6t": "Internationale noodhulp",
+    "a6b": "Zoals God het toelaat, breiden we onze bedieningen uit en brengen we zijn genade naar vluchtelingen in het Midden-Oosten.",
+    "a7t": "Hulp aan tehuizen en weeshuizen",
+    "a7b": "We bezoeken bejaardentehuizen en weeshuizen, om Gods liefde te delen en te helpen in hun noden.",
+    "a8t": "Donaties in gemeenschappen",
+    "a8b": "De bediening waarmee we alle donaties die we ontvangen naar gemeenschappen in nood brengen voor verdeling."
   }
 }

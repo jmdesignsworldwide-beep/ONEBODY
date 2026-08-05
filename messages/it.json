@@ -136,7 +136,13 @@
     "failedBody": "Nessun addebito effettuato. Puoi riprovare.",
     "failedRetry": "Riprova",
     "pendingTitle": "Conferma del pagamento",
-    "pendingBody": "Stiamo confermando la tua donazione. Bastano pochi secondi."
+    "pendingBody": "Stiamo confermando la tua donazione. Bastano pochi secondi.",
+    "monthlyNudge": "E se la rendessi mensile? È ciò che sostiene la causa 💛",
+    "monthlyHint": "Il sostegno della fondazione. Puoi annullare quando vuoi.",
+    "donateAs": "Doni come",
+    "summaryOnce": "Donazione una tantum",
+    "summaryMonthly": "Donazione mensile",
+    "receiptCta": "Scarica la ricevuta"
   },
   "Auth": {
     "email": "Email",
@@ -168,7 +174,17 @@
     "account": "Il mio account",
     "convertTitle": "Crea il tuo account con un clic",
     "convertBody": "Abbiamo già la tua email. Scegli una password e segui il tuo impatto.",
-    "adminPanel": "Pannello admin"
+    "adminPanel": "Pannello admin",
+    "loginEyebrow": "Che gioia rivederti",
+    "loginSubtitle": "Accedi per seguire il tuo impatto e gestire le tue donazioni.",
+    "signupEyebrow": "Unisciti al corpo",
+    "signupHeadline": "Fai parte di qualcosa di più grande",
+    "resetEyebrow": "Ti aiutiamo a rientrare",
+    "orEmail": "oppure continua con l'email",
+    "continueWith": "Continua con {provider}",
+    "noAccount": "Non hai ancora un account?",
+    "haveAccount": "Hai già un account?",
+    "guestNote": "Per donare non serve mai un account."
   },
   "Account": {
     "portal": "Portale donatore",
@@ -331,7 +347,17 @@
     "anConversion": "Conversione",
     "anTopPaths": "Pagine più viste",
     "anTrafficByCountry": "Visite per paese",
-    "anByLocale": "Per lingua"
+    "anByLocale": "Per lingua",
+    "imageUpload": "Carica immagine",
+    "imageChange": "Cambia immagine",
+    "imageRemove": "Rimuovi",
+    "imageUploading": "Caricamento in corso…",
+    "imageHint": "JPG, PNG o WebP · max 5 MB",
+    "imageBadType": "Formato non consentito (usa JPG, PNG o WebP).",
+    "imageTooLarge": "L'immagine supera i 5 MB.",
+    "shareLabel": "Link pubblico (da condividere sui social)",
+    "shareCopy": "Copia il link",
+    "shareCopied": "Copiato!"
   },
   "About": {
     "title": "Fatti per essere uno",
@@ -350,7 +376,12 @@
     "whereEyebrow": "Dalla Repubblica Dominicana al mondo",
     "whereTitle": "Radici locali, portata globale",
     "whereBody": "Siamo nati a Santiago de los Caballeros e lavoriamo in 15 lingue perché la generosità non abbia confini.",
-    "cta": "Fanne parte"
+    "cta": "Fanne parte",
+    "year": "2026 · Anno di crescita",
+    "areasEyebrow": "Ciò che facciamo",
+    "areasTitle": "Le nostre otto aree di impatto",
+    "verse": "Da lui tutto il corpo, ben collegato e unito insieme mediante l'aiuto fornito da tutte le giunture, secondo il vigore di ogni singola parte, produce la crescita del corpo per edificare se stesso nell'amore.",
+    "verseRef": "Efesini 4:16"
   },
   "Impact": {
     "badge": "Impatto",
@@ -384,6 +415,56 @@
     "a2": "Sì. I pagamenti sono gestiti da provider certificati e non conserviamo mai i dati della tua carta.",
     "q3": "Posso donare in anonimo?",
     "a3": "Certo. Puoi nascondere il tuo nome dal muro pubblico; il registro contabile si conserva, come richiede la legge.",
-    "cta": "Dona ora"
+    "cta": "Dona ora",
+    "goalsEyebrow": "Obiettivi del mese",
+    "goalsTitle": "Sostieni la missione, mese dopo mese",
+    "monthlyBadge": "Obiettivo mensile",
+    "opsTitle": "Spese operative",
+    "opsBody": "Una delle nostre sfide è coprire le spese operative che ci permettono di sostenere ed estendere i nostri progetti su una base stabile. Oggi, logistica, trasporti, utenze, manutenzione e coordinamento di base ammontano a US$1,300 al mese.",
+    "opsCta": "Aiuta a coprire le spese di questo mese",
+    "fundsTitle": "Fondi per i progetti",
+    "fundsBody": "Ci impegniamo a portare avanti ogni servizio glorificando Dio e aiutando le persone. Per i progetti in corso —medicina, alimentazione, istruzione e rifugiati— il nostro budget mensile minimo è di US$1,500 (esclude la costruzione e i progetti speciali in Medio Oriente).",
+    "fundsCta": "Sostieni i progetti in corso",
+    "aheadTitle": "Guardando avanti",
+    "aheadBody": "Ci impegniamo ad ascoltare la voce di Dio e a obbedirgli, e ad affrontare queste sfide con trasparenza e determinazione. Vorresti pregare per far parte di questa missione? Il tuo sostegno può aiutarci a continuare a raggiungere gli altri. Grazie a chi già ci sostiene.",
+    "aheadClosing": "Resta in attesa di ciò che Dio continuerà a fare."
+  },
+  "Share": {
+    "cta": "Condividi",
+    "title": "Condividi questo progetto",
+    "subtitle": "Condividere è il modo più potente per aiutare.",
+    "native": "Condividi con le tue app",
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "x": "X",
+    "email": "Email",
+    "copyLink": "Copia il link",
+    "copied": "Copiato!",
+    "instagram": "Copia per Instagram",
+    "instagramDone": "Link copiato! Incollalo nella tua bio o in una storia.",
+    "instagramHint": "Instagram non permette link nei post. Incolla il link nella tua bio o in una storia.",
+    "close": "Chiudi",
+    "projectMessage": "Sostieni \"{title}\" su ONEBODY 💛",
+    "donateHeading": "Moltiplica il tuo impatto",
+    "donateBody": "Condividere è ciò che fa crescere una causa. Invita i tuoi cari a unirsi 💛",
+    "donateMessage": "Ho appena sostenuto \"{title}\" su ONEBODY. Unisciti anche tu 💛"
+  },
+  "Areas": {
+    "a1t": "Istruzione e formazione",
+    "a1b": "Offriamo lezioni di inglese gratuite e coordiniamo la fornitura di materiale scolastico per i bambini delle famiglie con pochi mezzi, affinché possano continuare gli studi.",
+    "a2t": "Assistenza alimentare",
+    "a2b": "Distribuiamo alimenti alle famiglie vulnerabili, oltre a consegnare colazioni per le strade e nell'ospedale pediatrico.",
+    "a3t": "Aiuto medico",
+    "a3b": "Sosteniamo con i medicinali le persone malate che hanno bisogno di aiuto per procurarsi le loro medicine.",
+    "a4t": "Abitazioni",
+    "a4b": "Lavoriamo alla costruzione di abitazioni per famiglie in grave situazione di vulnerabilità.",
+    "a5t": "Sostegno alle adolescenti in gravidanza",
+    "a5b": "Un programma di accompagnamento che offre istruzione, forniture, terapia psicologica e strumenti per questa fase della vita.",
+    "a6t": "Risposta internazionale alle emergenze",
+    "a6b": "Come Dio lo permette, espandiamo i nostri ministeri e portiamo la sua grazia ai rifugiati in Medio Oriente.",
+    "a7t": "Aiuto a case di riposo e orfanotrofi",
+    "a7b": "Visitiamo case di riposo e orfanotrofi, cercando di condividere l'amore di Dio e di aiutare a soddisfare i loro bisogni.",
+    "a8t": "Donazioni nelle comunità",
+    "a8b": "Il ministero attraverso il quale portiamo tutte le donazioni che riceviamo alle comunità bisognose per la loro distribuzione."
   }
 }

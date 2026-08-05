@@ -23,10 +23,13 @@ export function Reveal({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  // Reduced-motion: contenido visible de inmediato, sin depender del scroll ni
+  // de JS para revelarse (consistente con RevealHeading; robusto ante error #9).
+  if (reduce) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: reduce ? 0 : y }}
+      initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: EASE }}
@@ -69,11 +72,13 @@ export function StaggerItem({
   y?: number;
 }) {
   const reduce = useReducedMotion();
+  // Reduced-motion: visible de inmediato, sin espera de scroll (igual que Reveal).
+  if (reduce) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: reduce ? 0 : y },
+        hidden: { opacity: 0, y },
         show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
       }}
     >

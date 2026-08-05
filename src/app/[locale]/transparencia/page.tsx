@@ -74,9 +74,9 @@ export default async function TransparencyPage(props: {
         <Section className="py-16">
           <Container>
             <SectionHeading eyebrow={t("goalsEyebrow")} title={t("goalsTitle")} />
-            <Stagger className="mt-12 grid gap-6 md:grid-cols-2">
+            <Stagger className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
               {goals.map((g) => (
-                <StaggerItem key={g.title}>
+                <StaggerItem key={g.title} className="min-w-0">
                   <div className="ob-lift flex h-full flex-col rounded-[var(--radius-ob)] border border-ob-ash bg-ob-graphite p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
                     <span className="text-xs uppercase tracking-[0.2em] text-ob-smoke">
                       {t("monthlyBadge")}
@@ -125,9 +125,9 @@ export default async function TransparencyPage(props: {
         {/* Pilares */}
         <Section className="py-16">
           <Container>
-            <Stagger className="grid gap-6 md:grid-cols-3">
+            <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {pillars.map((p) => (
-                <StaggerItem key={p.t}>
+                <StaggerItem key={p.t} className="min-w-0">
                   <div className="h-full rounded-[var(--radius-ob)] border border-ob-ash bg-ob-graphite p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
                     <h3 className="font-display text-2xl text-ob-bone">{p.t}</h3>
                     <p className="mt-3 leading-relaxed text-ob-smoke">{p.b}</p>

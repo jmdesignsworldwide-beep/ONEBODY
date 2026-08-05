@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { NodeMark } from "@/components/motion/node-mark";
 import { Magnetic } from "@/components/motion/magnetic";
 import { MarkAssembly } from "@/components/landing/mark-assembly";
 
@@ -24,9 +23,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
-            className="flex items-center gap-3"
           >
-            <NodeMark className="h-7 w-7 shrink-0 text-ob-bone/70" />
             <p className="text-xs uppercase tracking-[0.25em] text-ob-smoke">
               {t("eyebrow")}
             </p>

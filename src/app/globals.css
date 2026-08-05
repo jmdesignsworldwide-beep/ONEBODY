@@ -190,6 +190,17 @@ body {
   50% { opacity: 0.72; }
 }
 
+/* Destello cálido de una cifra cuando sube en vivo por una donación real. */
+@keyframes ob-liveflash {
+  0% { color: var(--color-ob-red); transform: scale(1.06); }
+  100% { color: var(--color-ob-bone); transform: scale(1); }
+}
+.ob-liveflash {
+  display: inline-block;
+  transform-origin: left center;
+  animation: ob-liveflash 0.8s var(--ease-expo-out);
+}
+
 /* ==========================================================================
    prefers-reduced-motion — respetado en todo el sistema (Sección 2.5 / 10).
    ========================================================================== */

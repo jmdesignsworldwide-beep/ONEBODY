@@ -10,7 +10,7 @@ import { SeedScene } from "@/components/landing/seed-scene";
 import { FeaturedProjects } from "@/components/landing/featured-projects";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { ImpactTiers } from "@/components/landing/impact-tiers";
-import { DonorWall } from "@/components/landing/donor-wall";
+import { LiveDonations } from "@/components/landing/live-donations";
 import { Closing } from "@/components/landing/closing";
 import {
   getPublicStats,
@@ -46,10 +46,11 @@ export default async function LandingPage(props: {
         <FeaturedProjects projects={projects} />
         <HowItWorks />
         <ImpactTiers />
-        <DonorWall initial={wall} />
         <Closing />
       </main>
       <SiteFooter />
+      {/* Notificaciones flotantes de donación en vivo (reemplazan el muro). */}
+      <LiveDonations initial={wall} />
     </>
   );
 }

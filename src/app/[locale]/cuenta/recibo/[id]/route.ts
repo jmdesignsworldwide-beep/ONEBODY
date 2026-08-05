@@ -141,16 +141,23 @@ export async function GET(
     ry -= 26;
   }
 
-  page.drawText("Fundacion ONEBODY - Santiago, Republica Dominicana", {
+  page.drawText("Fundacion ONE BODY - RNC 430-39147-6", {
     x: M,
-    y: 120,
+    y: 128,
     size: 10,
     font,
     color: smoke,
   });
-  page.drawText("809-820-7812 - @fundaciononebody", {
+  page.drawText("Altos de Virella, Calle 10 #3, Santiago 51000, Rep. Dominicana", {
     x: M,
-    y: 104,
+    y: 114,
+    size: 10,
+    font,
+    color: smoke,
+  });
+  page.drawText("1-809-820-7812 - Fundaciononebody@gmail.com", {
+    x: M,
+    y: 100,
     size: 10,
     font,
     color: smoke,

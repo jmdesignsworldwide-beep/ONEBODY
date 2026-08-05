@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "ONEBODY — Diseñados para ser UNO",
-    "description": "Plataforma global de donaciones de la Fundación ONEBODY. Construimos casas, alimentamos familias y sostenemos comunidades en República Dominicana. Muchos miembros, un cuerpo."
+    "description": "Fundación ONE BODY (Santiago, República Dominicana). Llevamos esperanza, fe y apoyo real a través de ocho áreas de impacto: educación, alimentación, salud, vivienda y más. Muchos miembros, un cuerpo."
   },
   "Nav": {
     "home": "Inicio",
@@ -27,7 +27,7 @@
     "tagline": "Diseñados para ser UNO · Meant to be ONE"
   },
   "Footer": {
-    "rights": "Fundación ONEBODY. Todos los derechos reservados.",
+    "rights": "Fundación ONE BODY · RNC 430-39147-6",
     "designedBy": "Diseñado por JM Nexus Designs",
     "email": "Email",
     "whatsapp": "WhatsApp",
@@ -382,9 +382,14 @@
   "About": {
     "title": "Diseñados para ser uno",
     "lead": "ONEBODY es una fundación global que convierte la generosidad de muchos en un solo gesto de cambio. Cada donación acerca a una persona a otra.",
+    "verse": "De él todo el cuerpo, bien concertado y unido entre sí por todos los ligamentos que se ayudan mutuamente, según la actividad propia de cada miembro, recibe su crecimiento para ir edificándose en amor.",
+    "verseRef": "Efesios 4:16",
     "missionEyebrow": "Nuestra misión",
-    "missionTitle": "Que nadie quede fuera",
-    "missionBody": "Creemos que ayudar no debería ser complicado. Conectamos a quien quiere dar con proyectos reales y verificados —vivienda, alimentación, educación, salud— y mostramos, con datos abiertos, adónde llega cada aporte.",
+    "missionTitle": "Revelar a Jesús a través del servicio",
+    "missionBody": "Trabajamos constantemente para llevar esperanza, fe y apoyo real a quienes más lo necesitan — sobre todo, revelando a Jesús a través de nuestras áreas de impacto.",
+    "year": "2026 · Año de crecimiento",
+    "areasEyebrow": "Lo que hacemos",
+    "areasTitle": "Nuestras ocho áreas de impacto",
     "valuesEyebrow": "Lo que nos guía",
     "valuesTitle": "Tres promesas",
     "value1t": "Cercanía",
@@ -398,6 +403,24 @@
     "whereBody": "Nacimos en Santiago de los Caballeros y trabajamos en 15 idiomas para que la generosidad no tenga fronteras.",
     "cta": "Sé parte"
   },
+  "Areas": {
+    "a1t": "Educación y formación",
+    "a1b": "Ofrecemos clases de inglés gratuitas y coordinamos útiles escolares para niños de familias de bajos recursos, para que puedan continuar sus estudios.",
+    "a2t": "Asistencia alimentaria",
+    "a2b": "Distribuimos alimentos a familias vulnerables, además de entregas de desayunos en las calles y en el hospital infantil.",
+    "a3t": "Ayuda médica",
+    "a3b": "Apoyamos con medicamentos a personas enfermas que necesitan ayuda para conseguir sus medicinas.",
+    "a4t": "Viviendas",
+    "a4b": "Trabajamos en la construcción de viviendas para familias en alta vulnerabilidad.",
+    "a5t": "Apoyo a adolescentes embarazadas",
+    "a5b": "Un programa de acompañamiento que ofrece educación, insumos, terapia psicológica y herramientas para esta etapa de la vida.",
+    "a6t": "Respuesta internacional de emergencia",
+    "a6b": "Conforme Dios lo permite, expandimos nuestros ministerios y llevamos su gracia a refugiados en el Medio Oriente.",
+    "a7t": "Ayuda a asilos y orfanatos",
+    "a7b": "Visitamos asilos y orfanatos, buscando compartir el amor de Dios y ayudar a cubrir sus necesidades.",
+    "a8t": "Donaciones en comunidades",
+    "a8b": "El ministerio a través del cual llevamos todas las donaciones que recibimos a comunidades necesitadas para su distribución."
+  },
   "Impact": {
     "badge": "Impacto",
     "title": "El cambio, en números reales",
@@ -408,8 +431,20 @@
   },
   "Transparency": {
     "badge": "Transparencia",
-    "title": "Nada que esconder",
-    "lead": "La confianza es nuestra moneda. Mira cómo cuidamos cada donación, de principio a fin.",
+    "title": "Transparencia y desafíos financieros",
+    "lead": "Una fundación que muestra sus números genera confianza real. Estos son nuestros desafíos, con cifras exactas y metas mensuales que puedes sostener.",
+    "goalsEyebrow": "Metas del mes",
+    "goalsTitle": "Sostén la misión, mes a mes",
+    "monthlyBadge": "Meta mensual",
+    "opsTitle": "Gastos operativos",
+    "opsBody": "Uno de nuestros desafíos es cubrir los gastos operativos que nos permiten sostener y extender nuestros proyectos desde una base estable. Hoy, logística, transporte, servicios, mantenimiento y coordinación de base suman US$1,300 al mes.",
+    "opsCta": "Ayuda a cubrir los gastos de este mes",
+    "fundsTitle": "Fondos de proyectos",
+    "fundsBody": "Nos comprometemos a continuar cada servicio glorificando a Dios y ayudando a las personas. Para los proyectos en curso —medicina, alimentación, educación y refugiados— nuestro presupuesto mensual mínimo es de US$1,500 (excluye construcción y proyectos especiales en el Medio Oriente).",
+    "fundsCta": "Sostén los proyectos en curso",
+    "aheadTitle": "Mirando hacia adelante",
+    "aheadBody": "Nos comprometemos a escuchar la voz de Dios y obedecerle, y a enfrentar estos desafíos con transparencia y determinación. ¿Orarías por ser parte de esta misión? Tu apoyo puede ayudarnos a seguir alcanzando a otros. Gracias a quienes ya nos sostienen.",
+    "aheadClosing": "Mantente atento a lo que Dios seguirá haciendo.",
     "pillar1t": "100% trazable",
     "pillar1b": "Cada donación queda registrada y ligada a un proyecto. Puedes seguir su recorrido.",
     "pillar2t": "Recibo siempre",

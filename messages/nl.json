@@ -235,7 +235,10 @@
     "dangerBody": "Dit verwijdert je account en profiel permanent.",
     "deleteAccount": "Account verwijderen",
     "confirmDelete": "Ja, verwijderen",
-    "cancel": "Annuleren"
+    "cancel": "Annuleren",
+    "nextCharge": "Volgende afschrijving",
+    "cancelConfirm": "Je maandelijkse donatie annuleren? Je kunt altijd opnieuw beginnen.",
+    "actionError": "Kon niet worden voltooid. Probeer het opnieuw."
   },
   "Admin": {
     "panel": "Paneel",

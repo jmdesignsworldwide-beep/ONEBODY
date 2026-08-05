@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { NodeMark } from "@/components/motion/node-mark";
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -34,7 +34,15 @@ export function AuthShell({
         <section className="flex min-h-[calc(100vh-16rem)] items-center justify-center px-5 py-16 sm:py-24">
           <div className="w-full max-w-md">
             <div className="flex flex-col items-center text-center">
-              <NodeMark className="h-12 w-12 text-ob-bone" />
+              <Image
+                src="/onebody-emblem.png"
+                alt="ONE BODY"
+                width={144}
+                height={144}
+                priority
+                className="h-16 w-16 object-contain drop-shadow-[0_12px_30px_rgba(224,43,32,0.18)]"
+              />
+
               <span className="mt-6 text-xs uppercase tracking-[0.25em] text-ob-smoke">
                 {eyebrow}
               </span>

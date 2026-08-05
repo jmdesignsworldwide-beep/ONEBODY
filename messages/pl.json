@@ -235,7 +235,10 @@
     "dangerBody": "To trwale usuwa Twoje konto i profil.",
     "deleteAccount": "Usuń konto",
     "confirmDelete": "Tak, usuń",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "nextCharge": "Następne obciążenie",
+    "cancelConfirm": "Anulować miesięczną darowiznę? Możesz zacząć od nowa w każdej chwili.",
+    "actionError": "Nie udało się ukończyć. Spróbuj ponownie."
   },
   "Admin": {
     "panel": "Panel",

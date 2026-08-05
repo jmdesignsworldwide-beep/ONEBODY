@@ -235,7 +235,10 @@
     "dangerBody": "Sa efase kont ou ak pwofil ou nèt.",
     "deleteAccount": "Efase kont",
     "confirmDelete": "Wi, efase",
-    "cancel": "Anile"
+    "cancel": "Anile",
+    "nextCharge": "Pwochen prelèvman",
+    "cancelConfirm": "Anile don chak mwa ou a? Ou ka rekòmanse lè ou vle.",
+    "actionError": "Nou pa t kapab fini. Tanpri eseye ankò."
   },
   "Admin": {
     "panel": "Panèl",

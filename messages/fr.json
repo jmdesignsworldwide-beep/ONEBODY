@@ -235,7 +235,10 @@
     "dangerBody": "Ceci supprime définitivement votre compte et votre profil.",
     "deleteAccount": "Supprimer le compte",
     "confirmDelete": "Oui, supprimer",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "nextCharge": "Prochain prélèvement",
+    "cancelConfirm": "Annuler votre don mensuel ? Vous pouvez recommencer quand vous voulez.",
+    "actionError": "Impossible de terminer. Réessayez."
   },
   "Admin": {
     "panel": "Panneau",

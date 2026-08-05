@@ -17,11 +17,21 @@ export async function generateMetadata(props: {
 
 export default async function DonatePage(props: {
   params: Promise<{ locale: Locale }>;
+  searchParams: Promise<{ amount?: string; recurring?: string }>;
 }) {
   const { locale } = await props.params;
+  const sp = await props.searchParams;
   setRequestLocale(locale);
   const t = await getTranslations("Donar");
   const currentUser = await getCurrentDonor();
+
+  // Preset opcional desde las metas de Transparencia (?amount=1300&recurring=1).
+  const parsedAmount = Number(sp.amount);
+  const initialAmount =
+    Number.isFinite(parsedAmount) && parsedAmount >= 1
+      ? Math.min(1_000_000, Math.floor(parsedAmount))
+      : undefined;
+  const initialRecurring = sp.recurring === "1" || sp.recurring === "true";
 
   return (
     <>
@@ -31,7 +41,11 @@ export default async function DonatePage(props: {
           <Container className="max-w-xl">
             <SectionHeading eyebrow={t("eyebrow")} title={t("title")} description={t("subtitle")} />
             <div className="mt-12">
-              <DonationForm currentUser={currentUser} />
+              <DonationForm
+                currentUser={currentUser}
+                initialAmount={initialAmount}
+                initialRecurring={initialRecurring}
+              />
             </div>
           </Container>
         </Section>

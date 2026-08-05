@@ -7,19 +7,35 @@ import { Wordmark } from "./wordmark";
  */
 export function SiteFooter() {
   const t = useTranslations("Footer");
-  const year = 2025;
+  const year = 2026;
 
   return (
     <footer className="border-t border-ob-ash/30 bg-ob-black">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          {/* Contacto OFICIAL de la fundación (separado del crédito de estudio). */}
           <div>
             <Wordmark className="h-9 w-auto" />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ob-smoke">
-              Fundación ONEBODY · Santiago, República Dominicana
+            <p className="mt-4 max-w-sm text-sm font-medium text-ob-bone">
+              Fundación ONE BODY
             </p>
-            <p className="mt-1 text-sm text-ob-smoke">
-              809-820-7812 · @fundaciononebody
+            <p className="mt-1 max-w-sm text-sm leading-relaxed text-ob-smoke">
+              Altos de Virella, Calle 10 #3, Santiago 51000, República Dominicana
+            </p>
+            <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ob-smoke">
+              <a
+                href="mailto:Fundaciononebody@gmail.com"
+                className="underline-offset-4 transition-colors hover:text-ob-bone hover:underline"
+              >
+                Fundaciononebody@gmail.com
+              </a>
+              <span aria-hidden className="text-ob-ash">·</span>
+              <a
+                href="tel:+18098207812"
+                className="underline-offset-4 transition-colors hover:text-ob-bone hover:underline"
+              >
+                1-809-820-7812
+              </a>
             </p>
           </div>
 

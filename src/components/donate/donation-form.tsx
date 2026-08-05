@@ -18,17 +18,22 @@ export function DonationForm({
   projectId = null,
   projectTitle,
   currentUser = null,
+  initialAmount,
+  initialRecurring = false,
 }: {
   projectId?: string | null;
   projectTitle?: string;
   /** Si hay sesión, prellenamos y colapsamos nombre/email (un paso menos). */
   currentUser?: { name: string; email: string } | null;
+  /** Monto y modo recurrente prellenados (p. ej. desde las metas de Transparencia). */
+  initialAmount?: number;
+  initialRecurring?: boolean;
 }) {
   const t = useTranslations("Donar");
   const tImpact = useTranslations("Landing");
   const locale = useLocale();
-  const [amount, setAmount] = useState<number>(50);
-  const [recurring, setRecurring] = useState(false);
+  const [amount, setAmount] = useState<number>(initialAmount ?? 50);
+  const [recurring, setRecurring] = useState(initialRecurring);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

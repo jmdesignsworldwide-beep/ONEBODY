@@ -29,7 +29,7 @@ export async function generateMetadata(props: {
   const origin = await getOrigin();
   const title = p.title_es;
   const description =
-    p.summary_es || "Un proyecto de la Fundación ONEBODY.";
+    p.summary_es || "Un proyecto de la Fundación ONE BODY.";
   // URL absoluta y pública (Instagram/WhatsApp exigen imagen pública y absoluta).
   // Solo aceptamos una portada http(s) absoluta; en cualquier otro caso caemos a
   // la imagen OG por defecto de la marca — nunca una tarjeta rota.

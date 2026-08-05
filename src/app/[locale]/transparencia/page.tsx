@@ -25,6 +25,19 @@ export default async function TransparencyPage(props: {
   setRequestLocale(locale);
   const t = await getTranslations("Transparency");
 
+  const money = (n: number) =>
+    new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(n);
+
+  // Metas donables reales — conectadas al flujo de donación (recurrente).
+  const goals = [
+    { title: t("opsTitle"), body: t("opsBody"), amount: 1300, cta: t("opsCta") },
+    { title: t("fundsTitle"), body: t("fundsBody"), amount: 1500, cta: t("fundsCta") },
+  ];
+
   const pillars = [
     { t: t("pillar1t"), b: t("pillar1b") },
     { t: t("pillar2t"), b: t("pillar2b") },
@@ -54,6 +67,58 @@ export default async function TransparencyPage(props: {
                 </p>
               </div>
             </Reveal>
+          </Container>
+        </Section>
+
+        {/* Metas donables reales — el corazón de la transparencia */}
+        <Section className="py-16">
+          <Container>
+            <SectionHeading eyebrow={t("goalsEyebrow")} title={t("goalsTitle")} />
+            <Stagger className="mt-12 grid gap-6 md:grid-cols-2">
+              {goals.map((g) => (
+                <StaggerItem key={g.title}>
+                  <div className="ob-lift flex h-full flex-col rounded-[var(--radius-ob)] border border-ob-ash bg-ob-graphite p-8 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+                    <span className="text-xs uppercase tracking-[0.2em] text-ob-smoke">
+                      {t("monthlyBadge")}
+                    </span>
+                    <div className="tabular mt-2">
+                      <span className="font-display text-[clamp(2.5rem,6vw,3.5rem)] leading-none text-ob-bone">
+                        {money(g.amount)}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 font-display text-2xl text-ob-bone">
+                      {g.title}
+                    </h3>
+                    <p className="mt-3 flex-1 leading-relaxed text-ob-smoke">
+                      {g.body}
+                    </p>
+                    <div className="mt-8">
+                      <Button
+                        href={`/donar?amount=${g.amount}&recurring=1`}
+                        variant="donate"
+                        size="lg"
+                        className="w-full"
+                      >
+                        {g.cta}
+                      </Button>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </Container>
+        </Section>
+
+        {/* Mirando hacia adelante */}
+        <Section className="bg-ob-sand py-24">
+          <Container className="max-w-3xl">
+            <SectionHeading title={t("aheadTitle")} />
+            <p className="mt-6 text-lg leading-relaxed text-ob-bone/90">
+              {t("aheadBody")}
+            </p>
+            <p className="mt-8 font-display text-2xl italic text-ob-bone/70">
+              {t("aheadClosing")}
+            </p>
           </Container>
         </Section>
 

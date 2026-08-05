@@ -1,7 +1,7 @@
 {
   "Meta": {
     "title": "ONEBODY — Meant to be ONE",
-    "description": "Global donation platform of the ONEBODY Foundation. We build homes, feed families, and sustain communities in the Dominican Republic. Many members, one body."
+    "description": "ONE BODY Foundation (Santiago, Dominican Republic). We bring hope, faith and real support through eight areas of impact: education, food, health, housing and more. Many members, one body."
   },
   "Nav": {
     "home": "Home",
@@ -27,7 +27,7 @@
     "tagline": "Meant to be ONE · Diseñados para ser UNO"
   },
   "Footer": {
-    "rights": "ONEBODY Foundation. All rights reserved.",
+    "rights": "ONE BODY Foundation · RNC 430-39147-6",
     "designedBy": "Designed by JM Nexus Designs",
     "email": "Email",
     "whatsapp": "WhatsApp",
@@ -372,9 +372,14 @@
   "About": {
     "title": "Meant to be one",
     "lead": "ONEBODY is a global foundation that turns the generosity of many into a single gesture of change. Every donation brings one person closer to another.",
+    "verse": "From him the whole body, joined and held together by every supporting ligament, grows and builds itself up in love, as each part does its work.",
+    "verseRef": "Ephesians 4:16",
     "missionEyebrow": "Our mission",
-    "missionTitle": "So no one is left out",
-    "missionBody": "We believe helping shouldn't be complicated. We connect those who want to give with real, verified projects —housing, food, education, health— and show, with open data, where every contribution goes.",
+    "missionTitle": "Revealing Jesus through service",
+    "missionBody": "We work tirelessly to bring hope, faith and real support to those who need it most — above all, revealing Jesus through our areas of impact.",
+    "year": "2026 · A year of growth",
+    "areasEyebrow": "What we do",
+    "areasTitle": "Our eight areas of impact",
     "valuesEyebrow": "What guides us",
     "valuesTitle": "Three promises",
     "value1t": "Closeness",
@@ -388,6 +393,24 @@
     "whereBody": "We were born in Santiago de los Caballeros and work in 15 languages so generosity knows no borders.",
     "cta": "Be part of it"
   },
+  "Areas": {
+    "a1t": "Education and training",
+    "a1b": "We offer free English classes and coordinate school supplies for children from low-income families, so they can continue their studies.",
+    "a2t": "Food assistance",
+    "a2b": "We distribute food to vulnerable families, plus breakfast deliveries on the streets and at the children's hospital.",
+    "a3t": "Medical aid",
+    "a3b": "We help sick people who need support to obtain their medicines.",
+    "a4t": "Housing",
+    "a4b": "We build homes for families living in high vulnerability.",
+    "a5t": "Support for pregnant teens",
+    "a5b": "A companion program offering education, supplies, psychological therapy and tools for this stage of life.",
+    "a6t": "International emergency response",
+    "a6b": "As God allows, we expand our ministries and bring His grace to refugees in the Middle East.",
+    "a7t": "Support for nursing homes and orphanages",
+    "a7b": "We visit nursing homes and orphanages, seeking to share God's love and help meet their needs.",
+    "a8t": "Community donations",
+    "a8b": "The ministry through which we take every donation we receive to communities in need for distribution."
+  },
   "Impact": {
     "badge": "Impact",
     "title": "Change, in real numbers",
@@ -398,8 +421,20 @@
   },
   "Transparency": {
     "badge": "Transparency",
-    "title": "Nothing to hide",
-    "lead": "Trust is our currency. See how we care for every donation, from start to finish.",
+    "title": "Transparency and financial challenges",
+    "lead": "A foundation that shows its numbers earns real trust. These are our challenges, with exact figures and monthly goals you can sustain.",
+    "goalsEyebrow": "This month's goals",
+    "goalsTitle": "Sustain the mission, month by month",
+    "monthlyBadge": "Monthly goal",
+    "opsTitle": "Operating costs",
+    "opsBody": "One of our challenges is covering the operating costs that let us sustain and extend our projects from a stable base. Today, logistics, transport, utilities, maintenance and on-the-ground coordination add up to US$1,300 a month.",
+    "opsCta": "Help cover this month's costs",
+    "fundsTitle": "Project funds",
+    "fundsBody": "We are committed to continuing every service, glorifying God and helping people. For ongoing projects —medicine, food, education and refugees— our minimum monthly budget is US$1,500 (excluding construction and special projects in the Middle East).",
+    "fundsCta": "Sustain the ongoing projects",
+    "aheadTitle": "Looking ahead",
+    "aheadBody": "We are committed to listening to God's voice and obeying Him, and to facing these challenges with transparency and determination. Would you pray about being part of this mission? Your support can help us keep reaching others. Thank you to those who already sustain us.",
+    "aheadClosing": "Stay tuned for what God will keep doing.",
     "pillar1t": "100% traceable",
     "pillar1b": "Every donation is recorded and tied to a project. You can follow its path.",
     "pillar2t": "Always a receipt",

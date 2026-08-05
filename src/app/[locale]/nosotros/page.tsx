@@ -24,6 +24,7 @@ export default async function AboutPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations("About");
+  const ta = await getTranslations("Areas");
   const tf = await getTranslations("Foundation");
 
   const values = [
@@ -32,10 +33,31 @@ export default async function AboutPage(props: {
     { t: t("value3t"), b: t("value3b") },
   ];
 
+  const areas = Array.from({ length: 8 }, (_, i) => ({
+    t: ta(`a${i + 1}t` as "a1t"),
+    b: ta(`a${i + 1}b` as "a1b"),
+  }));
+
   return (
     <>
       <SiteHeader />
       <main id="main" className="pt-16">
+        {/* Versículo ancla — el corazón de ONEBODY, en lugar de honor. */}
+        <Section className="pb-4 pt-24">
+          <Container className="max-w-3xl text-center">
+            <Reveal>
+              <figure className="flex flex-col items-center gap-8">
+                <blockquote className="font-display text-[clamp(1.6rem,4vw,2.9rem)] leading-[1.25] text-ob-bone">
+                  “{t("verse")}”
+                </blockquote>
+                <figcaption className="text-sm uppercase tracking-[0.25em] text-ob-smoke">
+                  {t("verseRef")}
+                </figcaption>
+              </figure>
+            </Reveal>
+          </Container>
+        </Section>
+
         {/* Intro */}
         <Section className="pb-8">
           <Container className="grid items-center gap-12 md:grid-cols-2">
@@ -71,11 +93,40 @@ export default async function AboutPage(props: {
             <p className="mt-6 text-xl leading-relaxed text-ob-bone/90">
               {t("missionBody")}
             </p>
+            <p className="mt-6 font-display text-lg text-ob-red">{t("year")}</p>
+          </Container>
+        </Section>
+
+        {/* Las 8 áreas de impacto reales */}
+        <Section className="bg-ob-sand py-24">
+          <Container>
+            <SectionHeading
+              eyebrow={t("areasEyebrow")}
+              title={t("areasTitle")}
+              align="center"
+            />
+            <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {areas.map((a, i) => (
+                <StaggerItem key={a.t}>
+                  <div className="ob-lift flex h-full flex-col rounded-[var(--radius-ob)] border border-ob-ash bg-ob-graphite p-7 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+                    <span className="tabular font-display text-2xl text-ob-red/80">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-4 font-display text-xl leading-tight text-ob-bone">
+                      {a.t}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ob-smoke">
+                      {a.b}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
           </Container>
         </Section>
 
         {/* Valores */}
-        <Section className="bg-ob-sand py-24">
+        <Section className="py-24">
           <Container>
             <SectionHeading
               eyebrow={t("valuesEyebrow")}

@@ -17,7 +17,6 @@ export default async function SignupPage(props: {
       eyebrow={t("signupEyebrow")}
       title={t("signupHeadline")}
       subtitle={t("signupSubtitle")}
-      footer={t("guestNote")}
     >
       <AuthPanel initialMode="signup" />
     </AuthShell>

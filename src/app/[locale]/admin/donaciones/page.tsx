@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { listDonations } from "@/lib/admin/data-queries";
 import { RefundButton } from "@/components/admin/refund-button";
+import { AdminEmptyState } from "@/components/admin/empty-state";
 import type { DonationStatus } from "@/lib/supabase/types";
 
 const STATUSES: DonationStatus[] = [
@@ -76,9 +77,51 @@ export default async function AdminDonationsPage(props: {
       </div>
 
       {rows.length === 0 ? (
-        <p className="mt-8 text-ob-smoke">{t("noDonations")}</p>
+        <AdminEmptyState title={t("noDonations")} />
       ) : (
-        <div className="mt-6 overflow-x-auto rounded-[var(--radius-ob)] border border-ob-ash/40">
+        <>
+        {/* Móvil (390px): tarjetas apiladas — operable con el pulgar, sin scroll lateral. */}
+        <ul className="mt-6 space-y-3 sm:hidden">
+          {rows.map((d) => (
+            <li
+              key={d.id}
+              className="rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-4"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="truncate text-ob-bone">
+                    {d.is_anonymous ? t("anonymous") : d.donor_name || t("noName")}
+                  </p>
+                  {d.donor_email && (
+                    <p className="truncate text-xs text-ob-smoke">{d.donor_email}</p>
+                  )}
+                </div>
+                <p className="tabular shrink-0 whitespace-nowrap text-right text-ob-bone">
+                  {money(Number(d.amount), d.currency)}
+                  {d.is_recurring && <span className="ml-1 text-xs text-ob-smoke">↻</span>}
+                </p>
+              </div>
+              <p className="mt-2 truncate text-sm text-ob-smoke">
+                {d.project_title ?? t("generalFund")}
+              </p>
+              <div className="mt-3 flex items-center justify-between gap-3">
+                <span className="text-xs text-ob-smoke">
+                  {date(d.created_at)}
+                  <span className="mx-1.5 text-ob-ash">·</span>
+                  <span
+                    className={`uppercase tracking-widest ${statusTone[d.status] ?? "text-ob-smoke"}`}
+                  >
+                    {t(`donStatus_${d.status}` as "donStatus_completed")}
+                  </span>
+                </span>
+                {d.status === "completed" && <RefundButton id={d.id} />}
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Escritorio: tabla completa. */}
+        <div className="mt-6 hidden overflow-x-auto rounded-[var(--radius-ob)] border border-ob-ash/40 sm:block">
           <table className="w-full min-w-[46rem] text-sm">
             <thead>
               <tr className="border-b border-ob-ash/30 text-left text-xs uppercase tracking-widest text-ob-smoke">
@@ -130,6 +173,7 @@ export default async function AdminDonationsPage(props: {
             </tbody>
           </table>
         </div>
+        </>
       )}
 
       {(page > 0 || hasMore) && (

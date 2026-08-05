@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { listAdminProjects } from "@/lib/admin/projects-queries";
+import { AdminEmptyState } from "@/components/admin/empty-state";
 import type { ProjectStatus } from "@/lib/supabase/types";
 
 export default async function AdminOverviewPage() {
@@ -42,6 +43,15 @@ export default async function AdminOverviewPage() {
         </Link>
       </div>
 
+      {projects.length === 0 ? (
+        <AdminEmptyState
+          title={t("noProjects")}
+          body={t("overviewSubtitle")}
+          ctaLabel={t("newProject")}
+          ctaHref="/admin/proyectos/nuevo"
+        />
+      ) : (
+      <>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-[var(--radius-ob)] border border-ob-ash/40 bg-ob-graphite p-6">
           <p className="text-xs uppercase tracking-widest text-ob-smoke">
@@ -81,6 +91,8 @@ export default async function AdminOverviewPage() {
           ))}
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 }
